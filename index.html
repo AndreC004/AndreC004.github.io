@@ -2,100 +2,162 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Dulce Pasado - Panadería Artesanal</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
       font-family: 'Montserrat', sans-serif;
-      background-color: #f5f1ea;
-      color: #222;
+      background-color: #f9f4ee; /* beige muy suave */
+      color: #4a342e; /* marrón oscuro */
       margin: 0;
       padding: 0;
       line-height: 1.6;
     }
+
     header {
-      background-color: #222;
-      color: #f5f1ea;
+      background-color: #7e5a40; /* marrón cálido */
+      color: #f9f4ee;
       padding: 1.5rem;
       text-align: center;
     }
+
+    header h1 {
+      margin: 0;
+      font-weight: 700;
+      font-size: 2rem;
+      letter-spacing: 1px;
+    }
+
     section {
       padding: 2rem;
       max-width: 800px;
       margin: auto;
     }
-    h1, h2 {
-      color: #333;
+
+    h2 {
+      color: #a9653e; /* marrón anaranjado cálido */
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #a9653e;
+      padding-bottom: 0.3rem;
     }
-    .producto {
-      margin-bottom: 1.5rem;
+
+    .producto-card {
+      background-color: #fff6eb; /* crema suave */
+      border: 1px solid #e3d4bf;
+      border-radius: 10px;
+      padding: 1rem 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 6px rgba(123, 92, 61, 0.15);
     }
-    .boton-red {
-      display: inline-block;
-      background-color: #222;
-      color: #f5f1ea;
-      padding: 0.7rem 1.2rem;
-      margin: 0.5rem 0.5rem 0 0;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: bold;
-      transition: background-color 0.3s ease;
+
+    .producto-card h3 {
+      color: #bf7f3f; /* tono cálido para títulos */
+      margin-bottom: 0.5rem;
     }
-    .boton-red:hover {
-      background-color: #444;
+
+    .producto-card p {
+      margin-bottom: 0.7rem;
     }
+
+    .foto-placeholder {
+      background-color: #f0e6d2;
+      height: 150px;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #a38e7a;
+      font-style: italic;
+      font-size: 0.9rem;
+    }
+
     footer {
-      background-color: #222;
-      color: #f5f1ea;
+      background-color: #7e5a40;
+      color: #f9f4ee;
       text-align: center;
       padding: 1rem;
       margin-top: 3rem;
+      font-size: 0.9rem;
+    }
+
+    /* Redes sociales */
+    .redes {
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .redes a {
+      color: #7e5a40;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+
+    .redes a:hover {
+      color: #a9653e;
     }
   </style>
 </head>
 <body>
   <header>
     <h1>Dulce Pasado</h1>
-    <p>Panadería artesanal con sabor a hogar</p>
   </header>
 
+  <!-- Nuestra intención -->
+  <section>
+    <h2>Nuestra intención</h2>
+    <p>
+      En <strong>Dulce Pasado</strong> nuestra misión es crear momentos de unión y cariño a través de productos artesanales hechos con el corazón. Queremos que cada bocado te recuerde el calor del hogar y la alegría de compartir en familia. Creemos en el valor de lo auténtico, lo tradicional y lo hecho a mano, para que disfrutes de sabores que llenan el alma.
+    </p>
+  </section>
+
+  <!-- Productos -->
   <section>
     <h2>Nuestros productos</h2>
 
-    <div class="producto">
-      <h3>Empanadas dulces</h3>
-      <p>Sabores: Piña, Cajeta, Nutella y Queso dulce</p>
-      <p>Grandes: $15 c/u (mínimo 5)</p>
-      <p>Chicas: $7 c/u (mínimo 10)</p>
+    <div class="producto-card">
+      <h3>Empanadas Dulces</h3>
+      <p>
+        Nuestras empanadas dulces están hechas con amor y dedicación, perfectas para compartir en familia. Con sabores caseros como piña, cajeta, Nutella y queso dulce, cada bocado es un abrazo cálido que endulza tus momentos especiales.
+      </p>
+      <div class="foto-placeholder">Aquí irá la foto de las empanadas</div>
+      <p><strong>Precios:</strong></p>
+      <ul>
+        <li>Grandes: $15 c/u (mínimo 5)</li>
+        <li>Chicas: $7 c/u (mínimo 10)</li>
+      </ul>
     </div>
 
-    <div class="producto">
+    <div class="producto-card">
       <h3>Rosquitas</h3>
-      <p>$4 c/u (mínimo 10)</p>
+      <p>
+        Las rosquitas de Dulce Pasado son el complemento ideal para esos encuentros familiares o tardes de café. Su sabor tradicional y textura suave te harán sentir como en casa, disfrutando de la compañía que más quieres.
+      </p>
+      <div class="foto-placeholder">Aquí irá la foto de las rosquitas</div>
+      <p><strong>Precio:</strong> $4 c/u (mínimo 10)</p>
     </div>
 
-    <div class="producto">
-      <h3>Pan español</h3>
-      <p>$15 c/u (mínimo 5)</p>
+    <div class="producto-card">
+      <h3>Pan Español</h3>
+      <p>
+        Nuestro pan español es la base perfecta para tus desayunos y comidas en familia. Con su textura esponjosa y sabor auténtico, es ese detalle casero que llena de cariño cada mesa.
+      </p>
+      <div class="foto-placeholder">Aquí irá la foto del pan español</div>
+      <p><strong>Precio:</strong> $15 c/u (mínimo 5)</p>
     </div>
   </section>
 
-  <section>
-    <h2>Envíos</h2>
-    <p>Envío gratis en pedidos mayores a $100.</p>
-    <p>En pedidos menores: el costo depende de la zona (de $20 a $40).</p>
-  </section>
-
-  <section>
-    <h2>Contacto</h2>
-    <p>Haz tu pedido por redes sociales:</p>
-    <a class="boton-red" href="https://www.instagram.com/pan_dulcepasado?igsh=MXBxMjJnamc0YW8wbg==" target="_blank">📸 Instagram</a>
-    <a class="boton-red" href="https://www.facebook.com/share/16HTqVAuUz/?mibextid=wwXIfr" target="_blank">📘 Facebook</a>
+  <!-- Redes sociales -->
+  <section class="redes">
+    <a href="https://www.instagram.com/pan_dulcepasado" target="_blank" rel="noopener noreferrer">Instagram</a>
+    <a href="https://www.facebook.com/share/16HTqVAuUz/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook</a>
   </section>
 
   <footer>
-    <p>&copy; 2025 Dulce Pasado. Todos los derechos reservados.</p>
+    &copy; 2025 Dulce Pasado. Todos los derechos reservados.
   </footer>
 </body>
 </html>
