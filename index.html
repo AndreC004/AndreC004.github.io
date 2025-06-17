@@ -2,99 +2,100 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Dulce Pasado</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dulce Pasado - Panadería Artesanal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f5f1e9;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #f5f1ea;
       color: #222;
       margin: 0;
-      padding: 0 20px;
-      max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
+      padding: 0;
+      line-height: 1.6;
     }
     header {
+      background-color: #222;
+      color: #f5f1ea;
+      padding: 1.5rem;
       text-align: center;
-      padding: 40px 0 20px;
-      border-bottom: 1px solid #ddd;
-    }
-    header h1 {
-      font-weight: 700;
-      font-size: 3rem;
-      margin-bottom: 5px;
-      color: #1a1a1a;
-    }
-    header p {
-      font-size: 1.2rem;
-      color: #555;
-      margin-top: 0;
     }
     section {
-      margin: 30px 0;
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
     }
-    h2 {
-      border-bottom: 2px solid #c9b997;
-      padding-bottom: 8px;
-      color: #5a4d3e;
+    h1, h2 {
+      color: #333;
     }
-    ul {
-      list-style: none;
-      padding-left: 0;
+    .producto {
+      margin-bottom: 1.5rem;
     }
-    li {
-      margin-bottom: 10px;
-      font-size: 1.1rem;
+    .boton-red {
+      display: inline-block;
+      background-color: #222;
+      color: #f5f1ea;
+      padding: 0.7rem 1.2rem;
+      margin: 0.5rem 0.5rem 0 0;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
     }
-    .precio {
-      font-weight: 700;
-      color: #886f3d;
+    .boton-red:hover {
+      background-color: #444;
     }
     footer {
+      background-color: #222;
+      color: #f5f1ea;
       text-align: center;
-      margin: 40px 0 20px;
-      font-size: 0.9rem;
-      color: #888;
+      padding: 1rem;
+      margin-top: 3rem;
     }
   </style>
 </head>
 <body>
   <header>
     <h1>Dulce Pasado</h1>
-    <p>Sabores con historia para compartir</p>
+    <p>Panadería artesanal con sabor a hogar</p>
   </header>
 
   <section>
-    <h2>Productos</h2>
-    <ul>
-      <li><strong>Empanadas dulces grandes</strong> — <span class="precio">$15 c/u</span> (mínimo 5 piezas)</li>
-      <li><strong>Empanadas dulces chicas</strong> — <span class="precio">$7 c/u</span> (mínimo 10 piezas)</li>
-      <li><strong>Rosquitas</strong> — <span class="precio">$4 c/u</span> (mínimo 10 piezas)</li>
-      <li><strong>Pan español</strong> — <span class="precio">$15 c/u</span> (mínimo 5 piezas)</li>
-    </ul>
-  </section>
+    <h2>Nuestros productos</h2>
 
-  <section>
-    <h2>Sabores disponibles</h2>
-    <ul>
-      <li>Empanadas dulces: piña, cajeta, nutella, queso dulce</li>
-    </ul>
+    <div class="producto">
+      <h3>Empanadas dulces</h3>
+      <p>Sabores: Piña, Cajeta, Nutella y Queso dulce</p>
+      <p>Grandes: $15 c/u (mínimo 5)</p>
+      <p>Chicas: $7 c/u (mínimo 10)</p>
+    </div>
+
+    <div class="producto">
+      <h3>Rosquitas</h3>
+      <p>$4 c/u (mínimo 10)</p>
+    </div>
+
+    <div class="producto">
+      <h3>Pan español</h3>
+      <p>$15 c/u (mínimo 5)</p>
+    </div>
   </section>
 
   <section>
     <h2>Envíos</h2>
-    <p>Envío <strong>gratis en pedidos desde $100</strong>.</p>
-    <p>En pedidos menores, el costo depende de la zona: entre <strong>$20 y $40</strong>.</p>
+    <p>Envío gratis en pedidos mayores a $100.</p>
+    <p>En pedidos menores: el costo depende de la zona (de $20 a $40).</p>
   </section>
 
   <section>
-    <h2>Temporadas</h2>
-    <p>Durante el año añadimos productos especiales según la temporada. ¡Estate atenta a nuestras redes!</p>
+    <h2>Contacto</h2>
+    <p>Haz tu pedido por redes sociales:</p>
+    <a class="boton-red" href="https://www.instagram.com/pan_dulcepasado?igsh=MXBxMjJnamc0YW8wbg==" target="_blank">📸 Instagram</a>
+    <a class="boton-red" href="https://www.facebook.com/share/16HTqVAuUz/?mibextid=wwXIfr" target="_blank">📘 Facebook</a>
   </section>
 
   <footer>
-    &copy; 2025 Dulce Pasado – Todos los derechos reservados
+    <p>&copy; 2025 Dulce Pasado. Todos los derechos reservados.</p>
   </footer>
 </body>
 </html>
