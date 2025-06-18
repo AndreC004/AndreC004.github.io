@@ -15,17 +15,16 @@
 
     header {
       text-align: center;
-      padding: 20px;
+      padding: 15px 20px;
     }
 
     header img {
-      width: 120px;
-      max-width: 90%;
-      border-radius: 12px;
+      width: 100px;
+      max-width: 100%;
     }
 
     h1 {
-      font-size: 2.5em;
+      font-size: 2em;
       margin: 10px 0;
     }
 
@@ -63,10 +62,15 @@
       color: #5c3b1e;
     }
 
+    ul {
+      padding-left: 20px;
+    }
+
     .zona-envio {
       background-color: #fff3e6;
       padding: 20px;
       border-radius: 10px;
+      margin-bottom: 40px;
     }
 
     footer {
@@ -83,6 +87,17 @@
 
     a:hover {
       text-decoration: underline;
+    }
+
+    .boton-wsp {
+      display:inline-block;
+      background-color:#25D366;
+      color:white;
+      padding:10px 20px;
+      margin-top:10px;
+      border-radius:8px;
+      text-decoration:none;
+      font-weight:bold;
     }
   </style>
 </head>
@@ -103,41 +118,53 @@
   <img src="IMG_6484.jpeg" alt="Empanadas Dulces" />
   <p><strong>Sabores:</strong> Piña, Cajeta, Nutella, Queso dulce.</p>
   <p><strong>Precios:</strong> Grandes $15 c/u (mínimo 5 piezas) — Chicas $7 c/u (mínimo 10 piezas)</p>
-  <a href="https://wa.me/524445481177?text=Hola!%20Quisiera%20pedir%20empanadas%20dulces" target="_blank" style="display:inline-block; background-color:#25D366; color:white; padding:8px 16px; margin-top:10px; border-radius:6px; text-decoration:none;">Pedir Empanadas</a>
+  <a class="boton-wsp" href="https://wa.me/524445481177?text=Hola!%20Quiero%20pedir%20empanadas%20dulces">Pedir Empanadas</a>
 </section>
 
 <section class="producto">
   <h2>Rosquitas</h2>
   <img src="IMG_6479.jpeg" alt="Rosquitas" />
-  <p><strong>Precio:</strong> $4 c/u (mínimo 10 piezas)</p>
-  <a href="https://wa.me/524445481177?text=Hola!%20Quisiera%20pedir%20rosquitas" target="_blank" style="display:inline-block; background-color:#25D366; color:white; padding:8px 16px; margin-top:10px; border-radius:6px; text-decoration:none;">Pedir Rosquitas</a>
+  <p><strong>Precio:</strong> $4 c/u</p>
+  <p><strong>Mínimo:</strong> 10 piezas</p>
+  <a class="boton-wsp" href="https://wa.me/524445481177?text=Hola!%20Quiero%20pedir%20rosquitas">Pedir Rosquitas</a>
 </section>
 
 <section class="producto">
   <h2>Pan Español</h2>
   <img src="IMG_1364.jpeg" alt="Pan Español" />
-  <p><strong>Precio:</strong> $15 c/u (mínimo 5 piezas)</p>
-  <a href="https://wa.me/524445481177?text=Hola!%20Quisiera%20pedir%20pan%20español" target="_blank" style="display:inline-block; background-color:#25D366; color:white; padding:8px 16px; margin-top:10px; border-radius:6px; text-decoration:none;">Pedir Pan Español</a>
+  <p><strong>Precio:</strong> $15 c/u</p>
+  <p><strong>Mínimo:</strong> 5 piezas</p>
+  <a class="boton-wsp" href="https://wa.me/524445481177?text=Hola!%20Quiero%20pedir%20pan%20español">Pedir Pan Español</a>
 </section>
 
 <section class="producto">
   <h2>DROP.01C — Conchas (Producto exclusivo)</h2>
   <img src="IMG_6521.jpeg" alt="Conchas Dulce Pasado" />
-  <p>Pan suave, esponjoso y con cobertura crujiente. Nuestras conchas son una pieza especial de colección horneada con esmero para momentos únicos. Solo por pedido.</p>
-  <a href="https://wa.me/524445481177?text=Hola!%20Quisiera%20pedir%20conchas%20DROP.01C" target="_blank" style="display:inline-block; background-color:#25D366; color:white; padding:8px 16px; margin-top:10px; border-radius:6px; text-decoration:none;">Pedir Conchas</a>
+  <p><strong>Descripción:</strong> Pan suave, esponjoso y con cobertura crujiente. Nuestras conchas son una pieza especial de colección horneada con esmero para momentos únicos. Solo por pedido.</p>
+  <ul>
+    <li>Concha normal: $20 c/u</li>
+    <li>Concha integral: $25 c/u</li>
+  </ul>
+  <p><strong>Mínimo:</strong> 4 piezas</p>
+  <a class="boton-wsp" href="https://wa.me/524445481177?text=Hola!%20Quisiera%20pedir%20conchas%20DROP.01C">Pedir Conchas</a>
 </section>
 
 <section class="zona-envio">
   <h2>Zonas de Envío</h2>
-  <p><strong>Entrega gratuita:</strong> En zonas seleccionadas como Carranza (desde la Casa de la Cultura hasta Tequis), Himno Nacional, zonas cercanas a Tangamanga y alrededores del Camerino, dentro de San Luis Potosí Capital.</p>
-  <p><strong>Fuera de estas zonas:</strong> El costo de envío comienza desde $20 en adelante según la distancia.</p>
-  <img src="mapa-envio.png" alt="Mapa de zonas de envío" style="max-width: 100%; margin-top: 10px;" />
+  <p><strong>Entrega gratuita:</strong> En zonas seleccionadas como:</p>
+  <ul>
+    <li>Carranza (desde la Casa de la Cultura hasta Tequis)</li>
+    <li>Himno Nacional</li>
+    <li>Zona Tangamanga</li>
+    <li>Alrededores del Camerino</li>
+  </ul>
+  <p><strong>Fuera de estas zonas:</strong> El costo de envío comienza desde $20 en adelante, dentro de San Luis Potosí Capital.</p>
 </section>
 
 <footer>
   <p style="margin-bottom: 15px;">¿Tienes dudas o quieres hacer un pedido?</p>
   
-  <a href="https://wa.me/524445481177" target="_blank" style="display:inline-block; background-color:#25D366; color:white; padding:10px 20px; margin:5px; border-radius:8px; text-decoration:none; font-weight:bold;">
+  <a href="https://wa.me/524445481177" target="_blank" class="boton-wsp">
     Pedir por WhatsApp
   </a>
   
