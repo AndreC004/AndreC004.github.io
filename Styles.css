@@ -319,3 +319,68 @@ footer a:focus {
     max-width: 100%;
   }
 }
+/* Mejoras en inputs y selects para mejor uso */
+input[type="number"],
+select {
+  font-size: 1.1rem;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1.5px solid #c0a678;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Aumentar tamaño y padding del botón enviar pedido */
+form button[type="submit"] {
+  font-size: 1.3rem;
+  padding: 14px 28px;
+  border-radius: 12px;
+  cursor: pointer;
+  background-color: #25d366;
+  border: none;
+  color: white;
+  font-weight: 700;
+  box-shadow: 0 5px 10px rgba(0, 150, 0, 0.4);
+  transition: background-color 0.3s ease;
+}
+
+form button[type="submit"]:hover,
+form button[type="submit"]:focus {
+  background-color: #1ebe57;
+  outline: none;
+}
+
+/* Más espacio entre párrafos para mejor lectura */
+section p, section ul {
+  margin-bottom: 1.3em;
+  line-height: 1.6;
+}
+
+/* Ajustar altura del banner para mayor presencia */
+#banner {
+  height: 450px; /* aumenta altura */
+  padding: 30px 20px;
+}
+
+/* Scroll suave para navegación */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Mejora para los enlaces del menú en móvil */
+@media (max-width: 768px) {
+  nav a {
+    font-size: 1.1rem;
+    padding: 12px 0;
+  }
+}
+
+/* Mejor visual para el formulario en móviles */
+@media (max-width: 480px) {
+  input[type="number"],
+  select,
+  form button[type="submit"] {
+    width: 100%;
+    font-size: 1.2rem;
+  }
+}
