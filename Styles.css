@@ -1,7 +1,12 @@
-/* Reset y tipografía base */
+/* Reset básico y tipografía */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 100px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f8f1e8;
   color: #3e2b1e;
@@ -10,8 +15,7 @@ html {
 }
 
 body {
-  margin: 0;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 /* Header */
@@ -33,7 +37,7 @@ header img {
   object-fit: contain;
 }
 
-/* Menú hamburguesa (solo visible en móviles) */
+/* Menú hamburguesa */
 .menu-toggle {
   display: none;
   flex-direction: column;
@@ -72,7 +76,6 @@ nav a:focus {
   outline: none;
 }
 
-/* Responsive para menú móvil */
 @media (max-width: 768px) {
   .menu-toggle {
     display: flex;
@@ -120,14 +123,14 @@ nav a:focus {
 
 #banner h1 {
   font-size: 2.4em;
-  margin: 0;
   max-width: 90%;
+  margin-bottom: 0.3em;
 }
 
 #banner p {
   font-size: 1.3em;
-  margin: 10px 0 20px;
   max-width: 80%;
+  margin-bottom: 1.2em;
 }
 
 #banner a {
@@ -151,36 +154,43 @@ nav a:focus {
 section {
   padding: 40px 20px;
   max-width: 900px;
-  margin: auto;
-}
-
-.producto, .zona-envio, .historia, .intencion, .form-section {
-  background-color: #ffffff;
+  margin: 40px auto;
+  background-color: #fff;
   border-radius: 12px;
-  padding: 25px 30px;
   box-shadow: 0 0 12px rgba(0,0,0,0.07);
-  margin-bottom: 45px;
   transition: box-shadow 0.3s ease;
 }
 
-.producto:hover {
+section:focus-within {
+  outline: 2px solid #b28855;
+}
+
+section:hover {
   box-shadow: 0 0 18px rgba(0,0,0,0.1);
 }
 
-/* Productos */
+/* Producto */
+.producto {
+  margin-bottom: 45px;
+  text-align: center;
+}
+
 .producto img {
   width: 100%;
-  max-width: 400px;
-  display: block;
-  margin: 20px auto;
+  max-width: 380px;
+  height: auto;
   border-radius: 12px;
   box-shadow: 0 0 8px rgba(0,0,0,0.05);
+  margin: 20px auto;
+  object-fit: cover;
 }
 
 .producto ul {
+  list-style-type: disc;
   padding-left: 20px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin: 10px auto 15px auto;
+  max-width: 400px;
+  text-align: left;
 }
 
 /* Botones WhatsApp */
@@ -197,6 +207,7 @@ section {
   box-shadow: 0 3px 6px rgba(0,0,0,0.2);
   transition: background-color 0.3s ease;
   user-select: none;
+  cursor: pointer;
 }
 
 .boton-wsp:hover,
@@ -206,86 +217,85 @@ section {
 }
 
 /* Títulos */
-h2 {
+h1, h2, h3 {
   color: #5c3b1e;
   font-weight: 700;
   margin-bottom: 15px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h2 {
+  font-size: 1.8em;
 }
 
 h3 {
-  margin-top: 1.5em;
-  margin-bottom: 0.3em;
-  color: #5c3b1e;
-  font-weight: 700;
-  font-size: 1.1em;
+  font-size: 1.2em;
+  margin-top: 2em;
+  margin-bottom: 0.5em;
 }
 
-/* Inputs y selects */
+/* Formularios */
+.form-section label {
+  display: block;
+  margin: 8px 0 4px 0;
+  font-weight: 600;
+  color: #5c3b1e;
+}
+
 input[type="number"],
 select {
+  width: 100%;
+  max-width: 150px;
   padding: 8px 10px;
-  border: 1px solid #ccc;
+  border: 1.5px solid #b28855;
   border-radius: 6px;
   font-size: 1em;
-  width: 100%;
-  max-width: 120px;
-  box-sizing: border-box;
-  margin-bottom: 15px;
+  font-family: inherit;
+  color: #3e2b1e;
+  transition: border-color 0.3s ease;
 }
 
-/* Botón enviar pedido */
-form button[type="submit"] {
-  background-color: #b28855;
-  color: white;
-  border: none;
-  padding: 12px 30px;
-  font-size: 1.1em;
-  border-radius: 10px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-top: 15px;
-  user-select: none;
-  width: 100%;
-  max-width: 320px;
-}
-
-form button[type="submit"]:hover,
-form button[type="submit"]:focus {
-  background-color: #967445;
+input[type="number"]:focus,
+select:focus {
+  border-color: #967445;
   outline: none;
 }
 
-/* Mensajes de error */
-.error-message {
-  color: #d9534f;
+/* Mensaje de error */
+#errorMensaje {
+  color: #c94b4b;
   font-weight: 700;
   margin-top: 10px;
+  min-height: 1.3em;
 }
 
-/* Zona de envío */
+/* Zonas de envío */
 .zona-envio ul {
+  max-width: 400px;
+  margin: 10px auto 20px auto;
   list-style-type: disc;
-  margin-left: 20px;
-  margin-bottom: 20px;
+  padding-left: 20px;
+  color: #5c3b1e;
+  font-weight: 600;
 }
 
 /* Footer */
 footer {
-  text-align: center;
-  padding: 20px;
   background-color: #fffaf5;
+  padding: 20px;
+  text-align: center;
   color: #5c3b1e;
-  box-shadow: inset 0 1px 0 #fff;
+  font-weight: 600;
   font-size: 1em;
+  box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
+  margin-top: 50px;
 }
 
 footer a {
-  color: #25D366;
-  text-decoration: none;
-  font-weight: 700;
   margin: 0 10px;
-  display: inline-block;
+  color: #25D366;
+  font-weight: 700;
+  text-decoration: none;
   transition: color 0.3s ease;
 }
 
@@ -295,18 +305,11 @@ footer a:focus {
   outline: none;
 }
 
-/* Links redes sociales */
-.instagram-link, .facebook-link {
-  margin-left: 15px;
-}
-
-/* Responsive ajustes para pantallas pequeñas */
-@media (max-width: 600px) {
-  #banner h1 {
-    font-size: 1.8em;
-  }
-  #banner p {
-    font-size: 1em;
+/* Responsive para dispositivos móviles */
+@media (max-width: 480px) {
+  section {
+    padding: 25px 15px;
+    margin: 25px 15px;
   }
   .producto img {
     max-width: 100%;
@@ -314,11 +317,5 @@ footer a:focus {
   input[type="number"],
   select {
     max-width: 100%;
-  }
-  form button[type="submit"] {
-    max-width: 100%;
-  }
-  nav {
-    width: 180px !important;
   }
 }
