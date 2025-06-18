@@ -1,28 +1,28 @@
 /* Reset básico y tipografía */
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
 html {
-  scroll-behavior: smooth;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  scroll-behavior: smooth;
   background-color: #f8f1e8;
   color: #3e2b1e;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 body {
-  line-height: 1.6;
+  margin: 0;
 }
 
-/* Header */
+/* Header sticky */
 header {
   position: sticky;
   top: 0;
-  background-color: #fffaf5;
+  background: #fffaf5;
   padding: 10px 20px;
   display: flex;
   justify-content: space-between;
@@ -37,24 +37,7 @@ header img {
   object-fit: contain;
 }
 
-/* Menú hamburguesa */
-.menu-toggle {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  border: none;
-  background: none;
-}
-
-.menu-toggle span {
-  height: 3px;
-  width: 25px;
-  background-color: #5c3b1e;
-  margin: 4px 0;
-  border-radius: 2px;
-  transition: all 0.3s ease;
-}
-
+/* Menú navegación */
 nav {
   display: flex;
   gap: 20px;
@@ -65,7 +48,7 @@ nav a {
   color: #5c3b1e;
   text-decoration: none;
   font-weight: 600;
-  font-size: 1em;
+  font-size: 1rem;
   transition: color 0.3s ease;
 }
 
@@ -76,68 +59,37 @@ nav a:focus {
   outline: none;
 }
 
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: flex;
-  }
-  nav {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 70px;
-    right: 20px;
-    background-color: #fffaf5;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    padding: 15px 20px;
-    border-radius: 10px;
-    width: 200px;
-    z-index: 999;
-  }
-  nav.active {
-    display: flex;
-  }
-  nav a {
-    padding: 10px 0;
-    border-bottom: 1px solid #d7c7b4;
-  }
-  nav a:last-child {
-    border-bottom: none;
-  }
-}
-
-/* Banner principal */
+/* Banner */
 #banner {
   background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1470&q=80');
   background-size: cover;
   background-position: center;
-  height: 350px;
+  height: 400px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
   text-align: center;
-  color: #fff;
+  color: white;
   text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
   padding: 20px;
 }
 
 #banner h1 {
-  font-size: 2.4em;
-  max-width: 90%;
-  margin-bottom: 0.3em;
+  font-size: 2.5rem;
+  margin: 0;
 }
 
 #banner p {
-  font-size: 1.3em;
-  max-width: 80%;
-  margin-bottom: 1.2em;
+  font-size: 1.25rem;
+  margin: 12px 0 20px;
 }
 
 #banner a {
   background-color: #b28855;
   color: white;
   text-decoration: none;
-  padding: 12px 25px;
+  padding: 14px 28px;
   border-radius: 8px;
   font-weight: 700;
   box-shadow: 0 3px 6px rgba(0,0,0,0.3);
@@ -150,64 +102,57 @@ nav a:focus {
   outline: none;
 }
 
-/* Secciones generales */
+/* Secciones */
 section {
   padding: 40px 20px;
   max-width: 900px;
-  margin: 40px auto;
-  background-color: #fff;
+  margin: auto;
+  background: white;
   border-radius: 12px;
   box-shadow: 0 0 12px rgba(0,0,0,0.07);
-  transition: box-shadow 0.3s ease;
-}
-
-section:focus-within {
-  outline: 2px solid #b28855;
-}
-
-section:hover {
-  box-shadow: 0 0 18px rgba(0,0,0,0.1);
-}
-
-/* Producto */
-.producto {
   margin-bottom: 45px;
+}
+
+/* Productos */
+.producto {
   text-align: center;
+  margin-bottom: 40px;
 }
 
 .producto img {
-  width: 100%;
-  max-width: 380px;
-  height: auto;
+  max-width: 100%;
+  max-height: 300px;
   border-radius: 12px;
   box-shadow: 0 0 8px rgba(0,0,0,0.05);
+  object-fit: contain;
   margin: 20px auto;
-  object-fit: cover;
+  display: block;
 }
 
-.producto ul {
-  list-style-type: disc;
-  padding-left: 20px;
-  margin: 10px auto 15px auto;
-  max-width: 400px;
-  text-align: left;
+.producto h2 {
+  color: #5c3b1e;
+  font-weight: 700;
+  margin-bottom: 15px;
 }
 
-/* Botones WhatsApp */
+.producto p, .producto ul {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0 0 15px 0;
+}
+
 .boton-wsp {
   display: inline-block;
-  background-color: #25D366;
+  background-color: #25d366;
   color: white;
-  padding: 12px 25px;
-  margin-top: 20px;
+  padding: 14px 28px;
   border-radius: 8px;
   text-decoration: none;
   font-weight: 700;
-  font-size: 1em;
+  font-size: 1.1rem;
   box-shadow: 0 3px 6px rgba(0,0,0,0.2);
-  transition: background-color 0.3s ease;
   user-select: none;
-  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .boton-wsp:hover,
@@ -216,131 +161,41 @@ section:hover {
   outline: none;
 }
 
-/* Títulos */
-h1, h2, h3 {
-  color: #5c3b1e;
-  font-weight: 700;
-  margin-bottom: 15px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/* Formulario de pedido */
+form {
+  max-width: 600px;
+  margin: auto;
 }
 
-h2 {
-  font-size: 1.8em;
-}
-
-h3 {
-  font-size: 1.2em;
-  margin-top: 2em;
-  margin-bottom: 0.5em;
-}
-
-/* Formularios */
-.form-section label {
+form label {
   display: block;
-  margin: 8px 0 4px 0;
+  margin-top: 15px;
   font-weight: 600;
-  color: #5c3b1e;
+  font-size: 1rem;
 }
 
-input[type="number"],
-select {
+form input[type="number"],
+form select {
   width: 100%;
-  max-width: 150px;
-  padding: 8px 10px;
-  border: 1.5px solid #b28855;
-  border-radius: 6px;
-  font-size: 1em;
-  font-family: inherit;
-  color: #3e2b1e;
-  transition: border-color 0.3s ease;
-}
-
-input[type="number"]:focus,
-select:focus {
-  border-color: #967445;
-  outline: none;
-}
-
-/* Mensaje de error */
-#errorMensaje {
-  color: #c94b4b;
-  font-weight: 700;
-  margin-top: 10px;
-  min-height: 1.3em;
-}
-
-/* Zonas de envío */
-.zona-envio ul {
-  max-width: 400px;
-  margin: 10px auto 20px auto;
-  list-style-type: disc;
-  padding-left: 20px;
-  color: #5c3b1e;
-  font-weight: 600;
-}
-
-/* Footer */
-footer {
-  background-color: #fffaf5;
-  padding: 20px;
-  text-align: center;
-  color: #5c3b1e;
-  font-weight: 600;
-  font-size: 1em;
-  box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
-  margin-top: 50px;
-}
-
-footer a {
-  margin: 0 10px;
-  color: #25D366;
-  font-weight: 700;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-footer a:hover,
-footer a:focus {
-  color: #1ebe57;
-  outline: none;
-}
-
-/* Responsive para dispositivos móviles */
-@media (max-width: 480px) {
-  section {
-    padding: 25px 15px;
-    margin: 25px 15px;
-  }
-  .producto img {
-    max-width: 100%;
-  }
-  input[type="number"],
-  select {
-    max-width: 100%;
-  }
-}
-/* Mejoras en inputs y selects para mejor uso */
-input[type="number"],
-select {
-  font-size: 1.1rem;
-  padding: 10px 14px;
-  border-radius: 8px;
+  padding: 10px;
+  font-size: 1rem;
+  margin-top: 5px;
   border: 1.5px solid #c0a678;
-  max-width: 100%;
+  border-radius: 8px;
   box-sizing: border-box;
 }
 
-/* Aumentar tamaño y padding del botón enviar pedido */
 form button[type="submit"] {
-  font-size: 1.3rem;
-  padding: 14px 28px;
-  border-radius: 12px;
-  cursor: pointer;
+  margin-top: 25px;
   background-color: #25d366;
-  border: none;
   color: white;
   font-weight: 700;
-  box-shadow: 0 5px 10px rgba(0, 150, 0, 0.4);
+  font-size: 1.3rem;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 5px 10px rgba(0,150,0,0.4);
   transition: background-color 0.3s ease;
 }
 
@@ -350,37 +205,94 @@ form button[type="submit"]:focus {
   outline: none;
 }
 
-/* Más espacio entre párrafos para mejor lectura */
-section p, section ul {
-  margin-bottom: 1.3em;
-  line-height: 1.6;
-}
-
-/* Ajustar altura del banner para mayor presencia */
-#banner {
-  height: 450px; /* aumenta altura */
+/* Footer */
+footer {
+  background: #fffaf5;
+  text-align: center;
   padding: 30px 20px;
+  font-size: 1rem;
+  color: #5c3b1e;
 }
 
-/* Scroll suave para navegación */
-html {
-  scroll-behavior: smooth;
+footer a {
+  margin: 0 15px;
+  color: #25d366;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.1rem;
 }
 
-/* Mejora para los enlaces del menú en móvil */
+footer a:hover,
+footer a:focus {
+  color: #1ebe57;
+  outline: none;
+}
+
+/* Responsive */
+
 @media (max-width: 768px) {
+  nav {
+    display: none;
+    flex-direction: column;
+    background: #fffaf5;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    padding: 15px 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    width: 200px;
+    z-index: 999;
+  }
+
+  nav.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    border: none;
+    background: none;
+  }
+
+  .menu-toggle span {
+    height: 3px;
+    width: 25px;
+    background-color: #5c3b1e;
+    margin: 4px 0;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
   nav a {
-    font-size: 1.1rem;
     padding: 12px 0;
+    font-size: 1.1rem;
+    border-bottom: 1px solid #d7c7b4;
+  }
+
+  nav a:last-child {
+    border-bottom: none;
+  }
+
+  #banner {
+    height: 300px;
   }
 }
 
-/* Mejor visual para el formulario en móviles */
 @media (max-width: 480px) {
-  input[type="number"],
-  select,
+  #banner h1 {
+    font-size: 1.8rem;
+  }
+
+  #banner p {
+    font-size: 1rem;
+  }
+
+  form input[type="number"],
+  form select,
   form button[type="submit"] {
-    width: 100%;
     font-size: 1.2rem;
   }
 }
