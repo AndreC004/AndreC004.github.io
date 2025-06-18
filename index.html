@@ -7,20 +7,20 @@
   <meta name="description" content="Dulce Pasado: panadería artesanal con recetas familiares y productos frescos como empanadas, rosquitas, pan español y conchas. Horneado con amor." />
   <meta name="author" content="Dulce Pasado" />
 
-  <!-- Open Graph -->
+  <!-- Open Graph para compartir en redes -->
   <meta property="og:title" content="Dulce Pasado - Panadería Artesanal en San Luis Potosí" />
   <meta property="og:description" content="Recetas familiares y productos frescos: empanadas, rosquitas, pan español y conchas horneadas con amor." />
   <meta property="og:image" content="IMG_5514.jpeg" />
   <meta property="og:url" content="https://andrec004.github.io/Pan-artesanal/" />
   <meta property="og:type" content="website" />
 
+  <!-- Icono favicon -->
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
 
-  <!-- Fuente externa -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Fuente Segoe UI -->
   <link href="https://fonts.googleapis.com/css2?family=Segoe+UI&display=swap" rel="stylesheet" />
 
+  <!-- Archivo CSS -->
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -42,7 +42,7 @@
   </nav>
 </header>
 
-<section id="banner" role="img" aria-label="Imagen de panadería artesanal" tabindex="0" style="background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1470&q=80');">
+<section id="banner" role="img" aria-label="Imagen de panadería artesanal">
   <h1>Pan artesanal hecho con amor</h1>
   <p>Directo de San Luis Potosí a tu mesa</p>
   <a href="#carrito-pedidos" role="button" tabindex="0">Haz tu pedido</a>
@@ -54,31 +54,31 @@
 </section>
 
 <section id="productos" tabindex="0">
-  <div class="producto" aria-label="Empanadas dulces">
+  <article class="producto" aria-label="Empanadas dulces">
     <h2>Empanadas Dulces</h2>
     <img src="IMG_6484.jpeg" alt="Empanadas Dulces" loading="lazy" />
     <p><strong>Sabores:</strong> Piña, Cajeta, Nutella, Queso dulce.</p>
     <p><strong>Precios:</strong> Grandes $15 c/u (mínimo 5) — Chicas $7 c/u (mínimo 10)</p>
     <a class="boton-wsp" href="https://wa.me/524445481177?text=Hola!%20Quiero%20pedir%20empanadas%20dulces" aria-label="Pedir empanadas por WhatsApp" target="_blank" rel="noopener noreferrer">Pedir Empanadas</a>
-  </div>
+  </article>
 
-  <div class="producto" aria-label="Rosquitas">
+  <article class="producto" aria-label="Rosquitas">
     <h2>Rosquitas</h2>
     <img src="IMG_6479.jpeg" alt="Rosquitas" loading="lazy" />
     <p><strong>Precio:</strong> $4 c/u</p>
     <p><strong>Mínimo:</strong> 10 piezas</p>
     <a class="boton-wsp" href="https://wa.me/524445481177?text=Hola!%20Quiero%20pedir%20rosquitas" aria-label="Pedir rosquitas por WhatsApp" target="_blank" rel="noopener noreferrer">Pedir Rosquitas</a>
-  </div>
+  </article>
 
-  <div class="producto" aria-label="Pan español">
+  <article class="producto" aria-label="Pan español">
     <h2>Pan Español</h2>
     <img src="IMG_1364.jpeg" alt="Pan Español" loading="lazy" />
     <p><strong>Precio:</strong> $15 c/u</p>
     <p><strong>Mínimo:</strong> 5 piezas</p>
     <a class="boton-wsp" href="https://wa.me/524445481177?text=Hola!%20Quiero%20pedir%20pan%20español" aria-label="Pedir pan español por WhatsApp" target="_blank" rel="noopener noreferrer">Pedir Pan Español</a>
-  </div>
+  </article>
 
-  <div class="producto" aria-label="Conchas Dulce Pasado">
+  <article class="producto" aria-label="Conchas Dulce Pasado">
     <h2>DROP.01C — Conchas (Producto exclusivo)</h2>
     <img src="IMG_6521.jpeg" alt="Conchas Dulce Pasado" loading="lazy" />
     <p><strong>Descripción:</strong> Pan suave, esponjoso y con cobertura crujiente. Nuestras conchas son una pieza especial de colección horneada con esmero para momentos únicos. Solo por pedido.</p>
@@ -88,7 +88,7 @@
     </ul>
     <p><strong>Mínimo:</strong> 4 piezas</p>
     <a class="boton-wsp" href="https://wa.me/524445481177?text=Hola!%20Quisiera%20pedir%20conchas%20DROP.01C" aria-label="Pedir conchas por WhatsApp" target="_blank" rel="noopener noreferrer">Pedir Conchas</a>
-  </div>
+  </article>
 </section>
 
 <section id="carrito-pedidos" tabindex="0" class="form-section" aria-label="Sección para realizar pedido">
@@ -125,7 +125,7 @@
     <input type="number" id="panEspanolCantidad" name="panEspanolCantidad" min="0" value="0" />
 
     <button type="submit" aria-label="Enviar pedido por WhatsApp">Enviar pedido por WhatsApp</button>
-    <p id="errorMensaje" role="alert" aria-live="assertive"></p>
+    <p id="errorMensaje" role="alert" aria-live="assertive" class="error-message"></p>
   </form>
 </section>
 
@@ -157,6 +157,7 @@
   <p>Gracias por elegir Dulce Pasado 🍞</p>
 </footer>
 
+<!-- Archivo JavaScript -->
 <script src="scripts.js"></script>
 
 </body>
