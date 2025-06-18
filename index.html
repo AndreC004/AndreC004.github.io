@@ -134,7 +134,134 @@
   <img src="IMG_1364.jpeg" alt="Pan Español" />
   <p><strong>Precio:</strong> $15 c/u</p>
   <p><strong>Mínimo:</strong> 5 piezas</p>
-  <a class="boton-wsp" href="https://wa.me/524445481177?text=Hola!%20Quiero%20pedir%20pan%20español">Pedir Pan Español</a>
+<a class="boton-wsp" href="https://wa.me/524445481177?text=Hola!%20Quiero%20pedir%20pan%20español">Pedir Pan Español</a>
+
+<section id="carrito-pedidos" style="padding: 2em; background-color: #f8f4ef; color: #222; font-family: sans-serif;">
+  <h2 style="color: #000;">🧺 Tu pedido</h2>
+  <form id="pedidoForm" style="margin-top: 1em;">
+
+    <!-- Empanadas Grandes -->
+    <h3>Empanadas grandes ($15 c/u) - mínimo 5</h3>
+    <label>Cantidad:
+      <input type="number" name="grandesCantidad" min="0" value="0">
+    </label>
+    <label>Sabor:
+      <select name="grandesSabor">
+        <option value="piña">Piña</option>
+        <option value="cajeta">Cajeta</option>
+        <option value="queso dulce">Queso dulce</option>
+        <option value="nutella">Nutella</option>
+      </select>
+    </label>
+
+    <!-- Empanadas Chicas -->
+    <h3 style="margin-top: 1em;">Empanadas chicas ($7 c/u) - mínimo 10</h3>
+    <label>Cantidad:
+      <input type="number" name="chicasCantidad" min="0" value="0">
+    </label>
+    <label>Sabor:
+      <select name="chicasSabor">
+        <option value="piña">Piña</option>
+        <option value="cajeta">Cajeta</option>
+        <option value="queso dulce">Queso dulce</option>
+        <option value="nutella">Nutella</option>
+      </select>
+    </label>
+
+    <!-- Rosquitas -->
+    <h3 style="margin-top: 1em;">Rosquitas ($4 c/u) - mínimo 10</h3>
+    <label>Cantidad:
+      <input type="number" name="rosquitasCantidad" min="0" value="0">
+    </label>
+
+    <!-- Pan Español -->
+    <h3 style="margin-top: 1em;">Pan español ($15 c/u) - mínimo 5</h3>
+    <label>Cantidad:
+      <input type="number" name="panEspanolCantidad" min="0" value="0">
+    </label>
+
+    <!-- Botón de WhatsApp -->
+    <br><br>
+    <button type="button" onclick="generarPedido()" style="margin-top: 1em; padding: 0.7em 1.5em; background-color: #000; color: #fff; border: none; cursor: pointer;">
+      Enviar pedido por WhatsApp
+    </button>
+
+    <p id="errorMensaje" style="color: red; margin-top: 1em;"></p>
+  </form>
+</section>
+
+<script>
+function generarPedido() {
+  const grandesCantidad = parseInt(document.querySelector('[name="grandesCantidad"]').value) || 0;
+  const grandesSabor = document.querySelector('[name="grandesSabor"]').value;
+  const chicasCantidad = parseInt(document.querySelector('[name="chicasCantidad"]').value) || 0;
+  const chicasSabor = document.querySelector('[name="chicasSabor"]').value;
+  const rosquitasCantidad = parseInt(document.querySelector('[name="rosquitasCantidad"]').value) || 0;
+  const panEspanolCantidad = parseInt(document.querySelector('[name="panEspanolCantidad"]').value) || 0;
+  const errorMensaje = document.getElementById('errorMensaje');
+
+  let mensaje = "¡Hola Dulce Pasado! Me gustaría hacer el siguiente pedido:\n";
+  let total = 0;
+
+  // Empanadas grandes
+  if (grandesCantidad > 0) {
+    if (grandesCantidad < 5) {
+      errorMensaje.textContent = "El mínimo de empanadas grandes es 5.";
+      return;
+    }
+    mensaje += `- ${grandesCantidad} empanadas grandes de ${grandesSabor} ($15 c/u)\n`;
+    total += grandesCantidad * 15;
+  }
+
+  // Empanadas chicas
+  if (chicasCantidad > 0) {
+    if (chicasCantidad < 10) {
+      errorMensaje.textContent = "El mínimo de empanadas chicas es 10.";
+      return;
+    }
+    mensaje += `- ${chicasCantidad} empanadas chicas de ${chicasSabor} ($7 c/u)\n`;
+    total += chicasCantidad * 7;
+  }
+
+  // Rosquitas
+  if (rosquitasCantidad > 0) {
+    if (rosquitasCantidad < 10) {
+      errorMensaje.textContent = "El mínimo de rosquitas es 10.";
+      return;
+    }
+    mensaje += `- ${rosquitasCantidad} rosquitas ($4 c/u)\n`;
+    total += rosquitasCantidad * 4;
+  }
+
+  // Pan español
+  if (panEspanolCantidad > 0) {
+    if (panEspanolCantidad < 5) {
+      errorMensaje.textContent = "El mínimo de pan español es 5.";
+      return;
+    }
+    mensaje += `- ${panEspanolCantidad} pan español ($15 c/u)\n`;
+    total += panEspanolCantidad * 15;
+  }
+
+  if (
+    grandesCantidad === 0 &&
+    chicasCantidad === 0 &&
+    rosquitasCantidad === 0 &&
+    panEspanolCantidad === 0
+  ) {
+    errorMensaje.textContent = "Por favor elige al menos un producto.";
+    return;
+  }
+
+  mensaje += `\nTotal: $${total} MXN`;
+  errorMensaje.textContent = "";
+
+  const numero = "524445481177";
+  const mensajeCodificado = encodeURIComponent(mensaje);
+  const url = `https://wa.me/${numero}?text=${mensajeCodificado}`;
+  window.open(url, '_blank');
+}
+</script>
 </section>
 
 <section class="producto">
