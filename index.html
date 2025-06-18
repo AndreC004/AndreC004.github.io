@@ -2,126 +2,289 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Dulce Pasado</title>
   <style>
-    <section id="banner" style=" 
-  background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1470&q=80');
-  background-size: cover;
-  background-position: center;
-  height: 350px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
-  font-family: 'Arial', sans-serif;
-">
-  <h1 style="font-size: 2.8em; margin: 0;">Pan artesanal hecho con amor</h1>
-  <p style="font-size: 1.2em; margin: 10px 0 20px;">Directo de San Luis Potosí a tu mesa</p>
-  <a href="#carrito-pedidos" style="
-    padding: 12px 25px;
-    background-color: #b28855;
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 6px;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.3);
-  ">Haz tu pedido</a>
-</section>
+    /* Reset simple */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
     body {
       background-color: #f8f1e8;
       color: #3e2b1e;
       margin: 0;
       padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.5;
     }
 
     header {
       text-align: center;
-      padding: 15px 20px;
+      padding: 20px 15px 10px;
+      background-color: #fff9f0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     }
 
     header img {
       width: 100px;
       max-width: 100%;
+      border-radius: 15px;
+      object-fit: contain;
+      margin-bottom: 5px;
     }
 
-    h1 {
-      font-size: 2em;
-      margin: 10px 0;
+    header h1 {
+      font-size: 2.4rem;
+      margin: 0;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      color: #5c3b1e;
+    }
+
+    /* Banner arriba */
+    #banner {
+      background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1470&q=80');
+      background-size: cover;
+      background-position: center;
+      height: 350px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      text-shadow: 1px 1px 6px rgba(0,0,0,0.8);
+      font-family: 'Georgia', serif;
+      padding: 0 20px;
+      text-align: center;
+    }
+    #banner h1 {
+      font-size: 3rem;
+      margin: 0;
+      font-weight: 900;
+      line-height: 1.1;
+    }
+    #banner p {
+      font-size: 1.25rem;
+      margin: 12px 0 25px;
+      font-weight: 500;
+      font-style: italic;
+    }
+    #banner a {
+      padding: 14px 36px;
+      background-color: #b28855;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      border-radius: 30px;
+      box-shadow: 0 5px 8px rgba(0,0,0,0.3);
+      transition: background-color 0.3s ease;
+    }
+    #banner a:hover {
+      background-color: #967440;
     }
 
     section {
-      padding: 20px;
       max-width: 800px;
-      margin: auto;
+      margin: 30px auto;
+      padding: 0 20px;
     }
 
     .intencion {
       background-color: #fff3e6;
-      padding: 20px;
-      border-radius: 10px;
-      margin-bottom: 30px;
+      padding: 25px 30px;
+      border-radius: 15px;
+      margin-bottom: 40px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      font-size: 1.1rem;
     }
 
     .producto {
-      margin-bottom: 40px;
-      background-color: #ffffff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      background-color: #fff;
+      padding: 25px 30px;
+      margin-bottom: 50px;
+      border-radius: 15px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.07);
+      transition: box-shadow 0.3s ease;
     }
-
+    .producto:hover {
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    }
     .producto img {
       width: 100%;
-      max-width: 400px;
+      max-width: 420px;
       display: block;
-      margin: 15px auto;
-      border-radius: 10px;
+      margin: 20px auto 30px;
+      border-radius: 15px;
+      object-fit: cover;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
     }
-
-    h2 {
-      font-size: 1.8em;
+    .producto h2 {
+      font-size: 2rem;
       color: #5c3b1e;
+      margin-bottom: 10px;
+      font-weight: 800;
+    }
+    .producto p, .producto ul {
+      font-size: 1.05rem;
+      color: #4a3920;
+      margin-bottom: 12px;
+    }
+    .producto ul {
+      list-style: inside disc;
+      padding-left: 0;
     }
 
-    ul {
-      padding-left: 20px;
+    /* Botones WhatsApp */
+    .boton-wsp {
+      display: inline-block;
+      background-color: #25D366;
+      color: white;
+      padding: 12px 28px;
+      margin-top: 15px;
+      border-radius: 30px;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.5);
+      transition: background-color 0.3s ease;
+    }
+    .boton-wsp:hover {
+      background-color: #1ebe5b;
     }
 
+    /* Zona de envío */
     .zona-envio {
       background-color: #fff3e6;
-      padding: 20px;
-      border-radius: 10px;
-      margin-bottom: 40px;
+      padding: 30px 30px;
+      border-radius: 15px;
+      margin-bottom: 50px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      font-size: 1.1rem;
+      color: #5c3b1e;
+    }
+    .zona-envio ul {
+      margin-top: 10px;
+      margin-bottom: 0;
+      list-style: inside disc;
     }
 
+    /* Carrito/Pedido */
+    #carrito-pedidos {
+      background-color: #f8f4ef;
+      color: #222;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 30px 25px;
+      border-radius: 15px;
+      max-width: 800px;
+      margin: 40px auto 70px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    #carrito-pedidos h2 {
+      color: #5c3b1e;
+      font-size: 2rem;
+      margin-bottom: 25px;
+      font-weight: 800;
+      text-align: center;
+    }
+    #pedidoForm h3 {
+      font-size: 1.3rem;
+      color: #4a3920;
+      margin-bottom: 10px;
+      margin-top: 20px;
+      font-weight: 700;
+    }
+    #pedidoForm label {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 1rem;
+      color: #3e2b1e;
+      font-weight: 600;
+    }
+    #pedidoForm input[type=number], #pedidoForm select {
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1.5px solid #b28855;
+      font-size: 1rem;
+      width: 100%;
+      max-width: 150px;
+      box-sizing: border-box;
+      margin-top: 4px;
+      color: #5c3b1e;
+      font-weight: 600;
+      transition: border-color 0.3s ease;
+    }
+    #pedidoForm input[type=number]:focus, #pedidoForm select:focus {
+      border-color: #967440;
+      outline: none;
+    }
+    #pedidoForm button {
+      display: block;
+      width: 100%;
+      max-width: 280px;
+      margin: 30px auto 0;
+      padding: 14px;
+      background-color: #5c3b1e;
+      color: #fff;
+      border: none;
+      font-weight: 700;
+      font-size: 1.2rem;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 5px 10px rgba(92, 59, 30, 0.7);
+      transition: background-color 0.3s ease;
+    }
+    #pedidoForm button:hover {
+      background-color: #3e2511;
+    }
+    #errorMensaje {
+      color: #b00020;
+      text-align: center;
+      margin-top: 15px;
+      font-weight: 700;
+    }
+
+    /* Footer */
     footer {
       text-align: center;
-      padding: 20px;
-      font-size: 0.9em;
+      padding: 30px 15px 40px;
       background-color: #f0e5db;
-    }
-
-    a {
       color: #5c3b1e;
+      font-size: 1rem;
+      box-shadow: inset 0 1px 5px rgba(0,0,0,0.05);
+    }
+    footer p {
+      margin: 12px 0;
+    }
+    footer a {
+      display: inline-block;
+      margin: 8px 12px;
+      padding: 12px 28px;
+      border-radius: 30px;
+      font-weight: 700;
       text-decoration: none;
+      color: #3e2b1e;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
-
-    a:hover {
-      text-decoration: underline;
+    footer a.boton-wsp {
+      background-color: #25D366;
+      color: white;
+      box-shadow: 0 5px 15px rgba(37, 211, 102, 0.6);
     }
-
-    .boton-wsp {
-      display:inline-block;
-      background-color:#25D366;
-      color:white;
-      padding:10px 20px;
-      margin-top:10px;
-      border-radius:8px;
-      text-decoration:none;
-      font-weight:bold;
+    footer a.boton-wsp:hover {
+      background-color: #1ebe5b;
+    }
+    footer a.instagram {
+      background-color: #f7cfcf;
+    }
+    footer a.instagram:hover {
+      background-color: #e2bcbc;
+    }
+    footer a.facebook {
+      background-color: #d4e3fc;
+    }
+    footer a.facebook:hover {
+      background-color: #b3c1f6;
     }
   </style>
 </head>
@@ -131,6 +294,12 @@
   <img src="IMG_5514.jpeg" alt="Logo Dulce Pasado" />
   <h1>Dulce Pasado</h1>
 </header>
+
+<section id="banner">
+  <h1>Pan artesanal hecho con amor</h1>
+  <p>Directo de San Luis Potosí a tu mesa</p>
+  <a href="#carrito-pedidos">Haz tu pedido</a>
+</section>
 
 <section class="intencion">
   <h2>Nuestra intención</h2>
@@ -158,20 +327,20 @@
   <img src="IMG_1364.jpeg" alt="Pan Español" />
   <p><strong>Precio:</strong> $15 c/u</p>
   <p><strong>Mínimo:</strong> 5 piezas</p>
-<a class="boton-wsp" href="https://wa.me/524445481177?text=Hola!%20Quiero%20pedir%20pan%20español">Pedir Pan Español</a>
-
+  <a class="boton-wsp" href="https://wa.me/524445481177?text=Hola!%20Quiero%20pedir%20pan%20español">Pedir Pan Español</a>
 </section>
-<section id="carrito-pedidos" style="padding: 2em; background-color: #f8f4ef; color: #222; font-family: sans-serif;">
-  <h2 style="color: #000;">🧺 Tu pedido</h2>
-  <form id="pedidoForm" style="margin-top: 1em;">
+
+<section id="carrito-pedidos">
+  <h2>🧺 Tu pedido</h2>
+  <form id="pedidoForm">
 
     <!-- Empanadas Grandes -->
     <h3>Empanadas grandes ($15 c/u) - mínimo 5</h3>
-    <label>Cantidad:
-      <input type="number" name="grandesCantidad" min="0" value="0">
+    <label for="grandesCantidad">Cantidad:
+      <input type="number" id="grandesCantidad" name="grandesCantidad" min="0" value="0" />
     </label>
-    <label>Sabor:
-      <select name="grandesSabor">
+    <label for="grandesSabor">Sabor:
+      <select id="grandesSabor" name="grandesSabor">
         <option value="piña">Piña</option>
         <option value="cajeta">Cajeta</option>
         <option value="queso dulce">Queso dulce</option>
@@ -180,12 +349,12 @@
     </label>
 
     <!-- Empanadas Chicas -->
-    <h3 style="margin-top: 1em;">Empanadas chicas ($7 c/u) - mínimo 10</h3>
-    <label>Cantidad:
-      <input type="number" name="chicasCantidad" min="0" value="0">
+    <h3>Empanadas chicas ($7 c/u) - mínimo 10</h3>
+    <label for="chicasCantidad">Cantidad:
+      <input type="number" id="chicasCantidad" name="chicasCantidad" min="0" value="0" />
     </label>
-    <label>Sabor:
-      <select name="chicasSabor">
+    <label for="chicasSabor">Sabor:
+      <select id="chicasSabor" name="chicasSabor">
         <option value="piña">Piña</option>
         <option value="cajeta">Cajeta</option>
         <option value="queso dulce">Queso dulce</option>
@@ -194,99 +363,20 @@
     </label>
 
     <!-- Rosquitas -->
-    <h3 style="margin-top: 1em;">Rosquitas ($4 c/u) - mínimo 10</h3>
-    <label>Cantidad:
-      <input type="number" name="rosquitasCantidad" min="0" value="0">
+    <h3>Rosquitas ($4 c/u) - mínimo 10</h3>
+    <label for="rosquitasCantidad">Cantidad:
+      <input type="number" id="rosquitasCantidad" name="rosquitasCantidad" min="0" value="0" />
     </label>
 
     <!-- Pan Español -->
-    <h3 style="margin-top: 1em;">Pan español ($15 c/u) - mínimo 5</h3>
-    <label>Cantidad:
-      <input type="number" name="panEspanolCantidad" min="0" value="0">
+    <h3>Pan español ($15 c/u) - mínimo 5</h3>
+    <label for="panEspanolCantidad">Cantidad:
+      <input type="number" id="panEspanolCantidad" name="panEspanolCantidad" min="0" value="0" />
     </label>
 
-    <!-- Botón de WhatsApp -->
-    <br><br>
-    <button type="button" onclick="generarPedido()" style="margin-top: 1em; padding: 0.7em 1.5em; background-color: #000; color: #fff; border: none; cursor: pointer;">
-      Enviar pedido por WhatsApp
-    </button>
-
-    <p id="errorMensaje" style="color: red; margin-top: 1em;"></p>
+    <button type="button" onclick="generarPedido()">Enviar pedido por WhatsApp</button>
+    <p id="errorMensaje"></p>
   </form>
-</section>
-
-<script>
-function generarPedido() {
-  const grandesCantidad = parseInt(document.querySelector('[name="grandesCantidad"]').value) || 0;
-  const grandesSabor = document.querySelector('[name="grandesSabor"]').value;
-  const chicasCantidad = parseInt(document.querySelector('[name="chicasCantidad"]').value) || 0;
-  const chicasSabor = document.querySelector('[name="chicasSabor"]').value;
-  const rosquitasCantidad = parseInt(document.querySelector('[name="rosquitasCantidad"]').value) || 0;
-  const panEspanolCantidad = parseInt(document.querySelector('[name="panEspanolCantidad"]').value) || 0;
-  const errorMensaje = document.getElementById('errorMensaje');
-
-  let mensaje = "¡Hola Dulce Pasado! Me gustaría hacer el siguiente pedido:\n";
-  let total = 0;
-
-  // Empanadas grandes
-  if (grandesCantidad > 0) {
-    if (grandesCantidad < 5) {
-      errorMensaje.textContent = "El mínimo de empanadas grandes es 5.";
-      return;
-    }
-    mensaje += `- ${grandesCantidad} empanadas grandes de ${grandesSabor} ($15 c/u)\n`;
-    total += grandesCantidad * 15;
-  }
-
-  // Empanadas chicas
-  if (chicasCantidad > 0) {
-    if (chicasCantidad < 10) {
-      errorMensaje.textContent = "El mínimo de empanadas chicas es 10.";
-      return;
-    }
-    mensaje += `- ${chicasCantidad} empanadas chicas de ${chicasSabor} ($7 c/u)\n`;
-    total += chicasCantidad * 7;
-  }
-
-  // Rosquitas
-  if (rosquitasCantidad > 0) {
-    if (rosquitasCantidad < 10) {
-      errorMensaje.textContent = "El mínimo de rosquitas es 10.";
-      return;
-    }
-    mensaje += `- ${rosquitasCantidad} rosquitas ($4 c/u)\n`;
-    total += rosquitasCantidad * 4;
-  }
-
-  // Pan español
-  if (panEspanolCantidad > 0) {
-    if (panEspanolCantidad < 5) {
-      errorMensaje.textContent = "El mínimo de pan español es 5.";
-      return;
-    }
-    mensaje += `- ${panEspanolCantidad} pan español ($15 c/u)\n`;
-    total += panEspanolCantidad * 15;
-  }
-
-  if (
-    grandesCantidad === 0 &&
-    chicasCantidad === 0 &&
-    rosquitasCantidad === 0 &&
-    panEspanolCantidad === 0
-  ) {
-    errorMensaje.textContent = "Por favor elige al menos un producto.";
-    return;
-  }
-
-  mensaje += `\nTotal: $${total} MXN`;
-  errorMensaje.textContent = "";
-
-  const numero = "524445481177";
-  const mensajeCodificado = encodeURIComponent(mensaje);
-  const url = `https://wa.me/${numero}?text=${mensajeCodificado}`;
-  window.open(url, '_blank');
-}
-</script>
 </section>
 
 <section class="producto">
@@ -314,22 +404,14 @@ function generarPedido() {
 </section>
 
 <footer>
-  <p style="margin-bottom: 15px;">¿Tienes dudas o quieres hacer un pedido?</p>
-  
-  <a href="https://wa.me/524445481177" target="_blank" class="boton-wsp">
-    Pedir por WhatsApp
-  </a>
-  
-  <a href="https://www.instagram.com/pan_dulcepasado" target="_blank" style="display:inline-block; background-color:#f7cfcf; color:#3e2b1e; padding:10px 20px; margin:5px; border-radius:8px; text-decoration:none; font-weight:bold;">
-    Instagram
-  </a>
-  
-  <a href="https://www.facebook.com/share/16HTqVAuUz/?mibextid=wwXIfr" target="_blank" style="display:inline-block; background-color:#d4e3fc; color:#3e2b1e; padding:10px 20px; margin:5px; border-radius:8px; text-decoration:none; font-weight:bold;">
-    Facebook
-  </a>
-
-  <p style="margin-top: 20px;">Gracias por elegir Dulce Pasado 🍞</p>
+  <p>¿Tienes dudas o quieres hacer un pedido?</p>
+  <a href="https://wa.me/524445481177" target="_blank" class="boton-wsp">Pedir por WhatsApp</a>
+  <a href="https://www.instagram.com/pan_dulcepasado" target="_blank" class="instagram">Instagram</a>
+  <a href="https://www.facebook.com/share/16HTqVAuUz/?mibextid=wwXIfr" target="_blank" class="facebook">Facebook</a>
+  <p style="margin-top: 25px;">Gracias por elegir Dulce Pasado 🍞</p>
 </footer>
 
-</body>
-</html>
+<script>
+  function generarPedido() {
+    const grandesCantidad = parseInt(document.getElementById('grandesCantidad').value) || 0;
+    const grandesSabor = document.getElementById('grandes
