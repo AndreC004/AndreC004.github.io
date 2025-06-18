@@ -162,3 +162,92 @@
 
 </body>
 </html>
+/* Mejora para imágenes de productos */
+.producto img {
+  max-width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin: 20px auto;
+  display: block;
+  box-shadow: 0 0 8px rgba(0,0,0,0.08);
+}
+
+/* Menú siempre visible en escritorio */
+@media (min-width: 769px) {
+  nav {
+    display: flex !important;
+  }
+}
+
+/* Ajustes para móviles */
+@media (max-width: 480px) {
+  header img {
+    height: 40px;
+  }
+
+  form {
+    padding: 0 10px;
+  }
+
+  form label {
+    font-size: 0.95rem;
+  }
+
+  .boton-wsp,
+  form button[type="submit"] {
+    font-size: 1rem;
+    padding: 12px 24px;
+  }
+
+  section {
+    padding: 30px 15px;
+  }
+}
+/* Estilo para la zona de envío */
+.zona-envio {
+  background-color: #fffaf5;
+  padding: 30px 25px;
+  border: 2px dashed #c0a678;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.04);
+  margin-top: 40px;
+}
+
+.zona-envio h2 {
+  color: #5c3b1e;
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+}
+
+.zona-envio p {
+  font-size: 1.05rem;
+  margin-bottom: 12px;
+}
+
+.zona-envio ul {
+  list-style-type: "📍 ";
+  padding-left: 20px;
+  margin-bottom: 15px;
+}
+
+.zona-envio li {
+  margin-bottom: 6px;
+  font-size: 1rem;
+}
+
+/* Responsive zona-envio */
+@media (max-width: 480px) {
+  .zona-envio {
+    padding: 20px 15px;
+  }
+
+  .zona-envio h2 {
+    font-size: 1.3rem;
+  }
+
+  .zona-envio p,
+  .zona-envio li {
+    font-size: 0.95rem;
+  }
+}
