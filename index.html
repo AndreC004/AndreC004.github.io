@@ -6,205 +6,191 @@
   <title>Dulce Pasado</title>
   <style>
     body {
+      margin: 0;
       font-family: 'Georgia', serif;
-      background-color: #fef8f3;
-      color: #4a3628;
+      background-color: #f5f0e6;
+      color: #2d2a26;
       line-height: 1.6;
-      margin: 0;
-      padding: 0 1rem;
     }
-
     header {
-      background-color: #f3e0c7;
-      padding: 2rem 1rem;
+      background-color: #000;
+      color: #f5f0e6;
+      padding: 1rem;
       text-align: center;
     }
-
-    h1 {
+    header h1 {
       margin: 0;
-      color: #a45c2b;
-      font-size: 2.5rem;
+      font-size: 2rem;
     }
-
     nav {
+      background-color: #d9cbb4;
       text-align: center;
-      margin-top: 1rem;
+      padding: 0.5rem 0;
     }
-
     nav a {
       margin: 0 1rem;
+      color: #2d2a26;
       text-decoration: none;
-      color: #7e4c26;
       font-weight: bold;
     }
-
     section {
-      margin: 2rem auto;
-      max-width: 800px;
-      background-color: #fff8f1;
-      border-radius: 8px;
-      padding: 1.5rem;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
     }
-
     h2 {
-      color: #7e4c26;
-      border-bottom: 2px solid #d8bfa3;
+      font-size: 1.8rem;
+      border-bottom: 2px solid #d9cbb4;
       padding-bottom: 0.5rem;
-      margin-bottom: 1rem;
     }
-
-    .producto-card {
-      background-color: #fff6eb;
-      border: 1px solid #e3d4bf;
-      border-radius: 10px;
-      padding: 1rem 1.5rem;
+    .producto {
       margin-bottom: 2rem;
-      box-shadow: 0 4px 6px rgba(123, 92, 61, 0.1);
+      padding: 1rem;
+      background-color: #fffdf8;
+      border-left: 5px solid #d9cbb4;
     }
-
-    .producto-card h3 {
-      color: #bf7f3f;
-      margin-bottom: 0.5rem;
+    .producto h3 {
+      margin-top: 0;
     }
-
-    .foto-placeholder {
-      background-color: #f0e6d2;
-      height: 180px;
-      border-radius: 8px;
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #a38e7a;
+    .resena {
       font-style: italic;
-      font-size: 0.9rem;
+      color: #5c5242;
     }
-
-    .mapa iframe {
-      width: 100%;
-      height: 300px;
-      border: 0;
-      border-radius: 8px;
+    .temporada {
+      background-color: #faeee0;
+      border: 2px dashed #d9cbb4;
+      padding: 1rem;
+      margin-top: 2rem;
     }
-
+    .envios-section {
+      background-color: #f0e6d8;
+      padding: 2rem;
+    }
+    .mapa-envios {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+    .zona {
+      padding: 1rem;
+      background-color: #d9cbb4;
+      color: #000;
+      border-radius: 5px;
+      font-weight: bold;
+      width: fit-content;
+    }
     footer {
       text-align: center;
-      padding: 2rem 1rem;
+      background-color: #000;
+      color: #f5f0e6;
+      padding: 1rem;
       font-size: 0.9rem;
-      color: #7b6a58;
     }
-
     .redes a {
-      margin: 0 0.5rem;
-      color: #7e4c26;
+      margin: 0 10px;
+      color: #f5f0e6;
       text-decoration: none;
-      font-weight: bold;
-    }
-
-    .redes a:hover {
-      text-decoration: underline;
     }
   </style>
 </head>
 <body>
+
   <header>
     <h1>Dulce Pasado</h1>
-    <nav>
-      <a href="#intencion">Intención</a>
-      <a href="#productos">Productos</a>
-      <a href="#envios">Envíos</a>
-      <a href="#contacto">Redes</a>
-    </nav>
+    <p>Panadería artesanal con alma y sabor a tradición</p>
   </header>
 
+  <nav>
+    <a href="#intencion">Nuestra intención</a>
+    <a href="#productos">Productos</a>
+    <a href="#lanzamientos">Lanzamientos</a>
+    <a href="#envios">Envíos</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+
+  <!-- Sección 1: Nuestra intención -->
   <section id="intencion">
     <h2>Nuestra intención</h2>
     <p>
-      En Dulce Pasado, creemos en el poder de la tradición. Nuestra misión es compartir sabores que despiertan recuerdos, momentos familiares y sonrisas sinceras. Cada pan, empanada o rosquita está hecho con cariño, para que cada bocado te conecte con lo más cálido del hogar.
+      En Dulce Pasado, no solo horneamos pan: evocamos recuerdos. Cada pieza está hecha con dedicación y con recetas que nos conectan con lo más profundo de nuestra historia familiar. Queremos que cada mordida sea un regreso al hogar, a la cocina de la abuela, al aroma que llenaba la casa en la infancia.
     </p>
   </section>
 
+  <!-- Sección 2: Productos con reseñas -->
   <section id="productos">
-    <h2>Nuestros productos</h2>
+    <h2>Productos destacados</h2>
 
-    <div class="producto-card">
-      <h3>Empanadas Dulces</h3>
-      <p>
-        Nuestras empanadas dulces están hechas con amor y dedicación, perfectas para compartir en familia. Con sabores caseros como piña, cajeta, Nutella y queso dulce, cada bocado es un abrazo cálido que endulza tus momentos especiales.
-      </p>
-      <div class="foto-placeholder">📸 Aquí se cargará la foto de las empanadas</div>
-      <p><strong>Precios:</strong></p>
-      <ul>
-        <li>Grandes: $15 c/u (mínimo 5)</li>
-        <li>Chicas: $7 c/u (mínimo 10)</li>
-      </ul>
+    <div class="producto">
+      <h3>Empanadas grandes</h3>
+      <p><strong>Sabores:</strong> Piña, Fresa, Manzana.</p>
+      <p><strong>Precio:</strong> $20 c/u (mínimo 4 piezas)</p>
+      <p class="resena">"Crujientes por fuera, suaves por dentro. El relleno de piña me recordó a las que hacía mi mamá los domingos." – Carla M.</p>
     </div>
 
-    <div class="producto-card">
+    <div class="producto">
+      <h3>Empanadas chicas</h3>
+      <p><strong>Precio:</strong> $4 c/u (mínimo 10 piezas)</p>
+      <p class="resena">"Perfectas para una tarde de café con amigas. La de manzana es mi favorita." – Lourdes G.</p>
+    </div>
+
+    <div class="producto">
       <h3>Rosquitas</h3>
-      <p>
-        Las rosquitas de Dulce Pasado son el complemento ideal para esos encuentros familiares o tardes de café. Su sabor tradicional y textura suave te harán sentir como en casa, disfrutando de la compañía que más quieres.
-      </p>
-      <div class="foto-placeholder">📸 Aquí se cargará la foto de las rosquitas</div>
-      <p><strong>Precio:</strong> $4 c/u (mínimo 10)</p>
+      <p><strong>Precio:</strong> $3 c/u (mínimo 10 piezas)</p>
+      <p class="resena">"Saben exactamente como las que comprábamos en el mercado de niñas. ¡Una joya!" – Mariana R.</p>
     </div>
 
-    <div class="producto-card">
-      <h3>Pan Español</h3>
-      <p>
-        Nuestro pan español es la base perfecta para tus desayunos y comidas en familia. Con su textura esponjosa y sabor auténtico, es ese detalle casero que llena de cariño cada mesa.
-      </p>
-      <div class="foto-placeholder">📸 Aquí se cargará la foto del pan español</div>
-      <p><strong>Precio:</strong> $15 c/u (mínimo 5)</p>
+    <div class="producto">
+      <h3>Pan español</h3>
+      <p><strong>Precio:</strong> $15 c/u (mínimo 5 piezas)</p>
+      <p class="resena">"Suavecito, con ese sabor mantequilloso que te hace suspirar. Ideal para el desayuno." – Esteban T.</p>
     </div>
   </section>
 
-  <section id="envios">
-    <section style="background-color: #fdf6ee; padding: 60px 20px; text-align: center; font-family: 'Georgia', serif; color: #5c4033;">
-  <h2 style="font-size: 2.5em; margin-bottom: 20px;">📍 Zonas de Envío</h2>
+  <!-- Sección 3: Lanzamientos de temporada -->
+  <section id="lanzamientos">
+    <h2>Lanzamientos de temporada</h2>
+    <div class="temporada">
+      <h3>Conchas edición limitada – Julio 2025</h3>
+      <p>Durante los primeros 15 días de julio 2025 podrás disfrutar nuestras conchas artesanales en dos versiones:</p>
+      <ul>
+        <li>Conchas normales: $20 c/u</li>
+        <li>Conchas integrales: $25 c/u</li>
+      </ul>
+      <p>Disponible únicamente por tiempo limitado y en pedidos mínimos de 4 piezas.</p>
+      <p><strong>¡Exclusivo de Dulce Pasado!</strong></p>
+    </div>
+  </section>
 
-  <p style="max-width: 700px; margin: 0 auto 30px auto; font-size: 1.1em; line-height: 1.8;">
-    Llevamos el sabor de <strong>Dulce Pasado</strong> hasta tu hogar, con entregas en zonas específicas dentro de <strong>San Luis Potosí Capital</strong>.
-  </p>
+  <!-- Sección 4: Envíos -->
+  <section id="envios" class="envios-section">
+    <h2>Envíos y Zonas de Entrega</h2>
+    <p class="envios-descripcion">
+      Realizamos entregas en las siguientes zonas de San Luis Potosí:
+      Himno Nacional y Carranza.
+      <br />
+      Para pedidos mayores a 6 piezas, ofrecemos envío a domicilio sin costo adicional.
+      Contáctanos para coordinar la entrega.
+    </p>
+    <div class="mapa-envios" aria-label="Mapa ilustrativo de zonas de envío">
+      <div class="zona himno" title="Zona Himno Nacional">Himno Nacional</div>
+      <div class="zona carranza" title="Zona Carranza">Carranza</div>
+    </div>
+  </section>
 
-  <p style="max-width: 700px; margin: 0 auto 20px auto; font-size: 1.1em; line-height: 1.8;">
-    📌 <strong>Zonas con entrega gratuita:</strong><br>
-    Desde <strong>Carranza</strong> (comenzando en la Casa de la Cultura) hasta <strong>Tequis</strong>, incluyendo áreas paralelas sobre <strong>Himno Nacional</strong> y zonas cercanas a <strong>Tangamanga</strong>.
-  </p>
+  <!-- Sección 5: Contacto -->
+  <section id="contacto">
+    <h2>Contacto y Redes Sociales</h2>
+    <p>Haz tu pedido o escríbenos para más información:</p>
+    <div class="redes">
+      <p><a href="https://wa.me/52XXXXXXXXXX" target="_blank">WhatsApp</a></p>
+      <p><a href="https://instagram.com/tu_usuario" target="_blank">Instagram</a></p>
+    </div>
+  </section>
 
-  <p style="max-width: 700px; margin: 0 auto 20px auto; font-size: 1.1em; line-height: 1.8;">
-    🚚 <strong>Zonas fuera del área principal:</strong><br>
-    Para otras zonas dentro de <strong>San Luis Potosí Capital</strong>, el costo de envío <strong>inicia a partir de $20</strong> y puede variar dependiendo de la distancia.
-  </p>
+  <footer>
+    <p>&copy; 2025 Dulce Pasado · Hecho con amor y harina.</p>
+  </footer>
 
-  <p style="max-width: 700px; margin: 0 auto 40px auto; font-size: 1.1em; line-height: 1.8;">
-    📲 ¿Tienes dudas sobre tu ubicación? <br>
-    Contáctanos por mensaje directo y con gusto confirmamos si tu zona está dentro de la cobertura.
-  </p>
-
-  <!-- Mapa embebido -->
-  <div style="max-width: 800px; margin: 0 auto 40px auto;">
-    <iframe 
-      src="https://www.google.com/maps/d/embed?mid=1qDJmMb5lTTaAwAecvU-S9MYUd5mVdzM&ehbc=2E312F" 
-      width="100%" 
-      height="450" 
-      style="border:0; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);"
-      allowfullscreen 
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-  </div>
-
-  <!-- Botones de redes sociales -->
-  <div style="margin-top: 30px;">
-    <a href="https://www.instagram.com/pan_dulcepasado?igsh=MXBxMjJnamc0YW8wbg==" target="_blank" 
-       style="display: inline-block; margin: 10px; padding: 12px 24px; background-color: #e3a592; color: white; border-radius: 8px; text-decoration: none; font-weight: bold;">
-      📸 Instagram
-    </a>
-    <a href="https://www.facebook.com/share/16HTqVAuUz/?mibextid=wwXIfr" target="_blank" 
-       style="display: inline-block; margin: 10px; padding: 12px 24px; background-color: #8b9dc3; color: white; border-radius: 8px; text-decoration: none; font-weight: bold;">
-      📘 Facebook
-    </a>
-  </div>
-</section>
+</body>
+</html>
