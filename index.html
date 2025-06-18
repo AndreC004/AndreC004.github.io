@@ -110,14 +110,52 @@
   </nav>
 
   <!-- Sección 1: Nuestra intención -->
-  <section id="intencion" style="background-color: #f7f0e8; padding: 50px 20px; text-align: center;">
-  <h2 style="font-size: 2em; color: #4b3621;">Nuestra intención</h2>
-  <p style="max-width: 700px; margin: 20px auto; font-size: 1.2em; color: #5a4633; line-height: 1.6;">
-    En <strong>Dulce Pasado</strong>, creemos que los sabores del pan pueden despertar recuerdos, abrazar la tradición y llenar de calidez los momentos compartidos.
-    Nuestra intención es ofrecer un pan artesanal que se sienta como en casa, hecho con cariño, como los de antes.
-    Horneamos con el corazón para que tú coseches recuerdos inolvidables con los tuyos.
-  </p>
-</section>
+  <section id="intencion" .producto {
+  padding: 60px 20px;
+  background-color: #f7f0e8;
+  border-bottom: 1px solid #e0d6ca;
+  color: #3c2f2f;
+}
+
+.contenido-producto {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.texto-producto {
+  flex: 1;
+  min-width: 280px;
+}
+
+.texto-producto h2 {
+  font-family: 'Georgia', serif;
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #2b1e1e;
+}
+
+.texto-producto p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+.imagen-producto {
+  flex: 1;
+  min-width: 280px;
+}
+
+.imagen-producto img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
   <!-- Sección 2: Productos con reseñas -->
 <section id="empanadas" class="producto">
   <div class="contenido-producto">
