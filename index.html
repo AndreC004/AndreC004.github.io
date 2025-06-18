@@ -11,7 +11,7 @@
   <meta property="og:title" content="Dulce Pasado - Panadería Artesanal en San Luis Potosí" />
   <meta property="og:description" content="Recetas familiares y productos frescos: empanadas, rosquitas, pan español y conchas horneadas con amor." />
   <meta property="og:image" content="IMG_5514.jpeg" />
-  <meta property="og:url" content="https://tusitio.com" />
+  <meta property="og:url" content="https://andrec004.github.io/Pan-artesanal/" />
   <meta property="og:type" content="website" />
 
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
@@ -21,155 +21,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Segoe+UI&display=swap" rel="stylesheet" />
 
-  <style>
-    /* Reset y tipografía */
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 100px;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f8f1e8;
-      color: #3e2b1e;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    body {
-      margin: 0;
-      line-height: 1.5;
-    }
-
-    /* Header */
-    header {
-      position: sticky;
-      top: 0;
-      background-color: #fffaf5;
-      padding: 10px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      z-index: 1000;
-    }
-
-    header img {
-      height: 50px;
-      max-width: 150px;
-      object-fit: contain;
-    }
-
-    /* Menú hamburguesa */
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-      border: none;
-      background: none;
-    }
-
-    .menu-toggle span {
-      height: 3px;
-      width: 25px;
-      background-color: #5c3b1e;
-      margin: 4px 0;
-      border-radius: 2px;
-      transition: all 0.3s ease;
-    }
-
-    nav {
-      display: flex;
-      gap: 20px;
-      align-items: center;
-    }
-
-    nav a {
-      color: #5c3b1e;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1em;
-      transition: color 0.3s ease;
-    }
-
-    nav a:hover,
-    nav a:focus {
-      text-decoration: underline;
-      color: #b28855;
-      outline: none;
-    }
-
-    @media (max-width: 768px) {
-      .menu-toggle {
-        display: flex;
-      }
-      nav {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 70px;
-        right: 20px;
-        background-color: #fffaf5;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        padding: 15px 20px;
-        border-radius: 10px;
-        width: 200px;
-        z-index: 999;
-      }
-      nav.active {
-        display: flex;
-      }
-      nav a {
-        padding: 10px 0;
-        border-bottom: 1px solid #d7c7b4;
-      }
-      nav a:last-child {
-        border-bottom: none;
-      }
-    }
-
-    /* Banner principal */
-    #banner {
-      background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1470&q=80');
-      background-size: cover;
-      background-position: center;
-      height: 350px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      text-align: center;
-      color: #fff;
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
-      padding: 20px;
-    }
-
-    #banner h1 {
-      font-size: 2.4em;
-      margin: 0;
-      max-width: 90%;
-    }
-
-    #banner p {
-      font-size: 1.3em;
-      margin: 10px 0 20px;
-      max-width: 80%;
-    }
-
-    #banner a {
-      background-color: #b28855;
-      color: white;
-      text-decoration: none;
-      padding: 12px 25px;
-      border-radius: 8px;
-      font-weight: 700;
-      box-shadow: 0 3px 6px rgba(0,0,0,0.3);
-      transition: background-color 0.3s ease;
-    }
-
-    #banner a:hover,
-    #banner a:focus {
-      background-color: #967445;
-      outline: none;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
@@ -190,7 +42,7 @@
   </nav>
 </header>
 
-<section id="banner" role="img" aria-label="Imagen de panadería artesanal">
+<section id="banner" role="img" aria-label="Imagen de panadería artesanal" tabindex="0" style="background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1470&q=80');">
   <h1>Pan artesanal hecho con amor</h1>
   <p>Directo de San Luis Potosí a tu mesa</p>
   <a href="#carrito-pedidos" role="button" tabindex="0">Haz tu pedido</a>
@@ -306,5 +158,6 @@
 </footer>
 
 <script src="scripts.js"></script>
+
 </body>
 </html>
