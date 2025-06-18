@@ -6,250 +6,143 @@
   <title>Dulce Pasado</title>
   <style>
     body {
-      margin: 0;
       font-family: 'Georgia', serif;
-      background-color: #f5f0e6;
-      color: #2d2a26;
-      line-height: 1.6;
-    }
-    header {
-      background-color: #000;
-      color: #f5f0e6;
-      padding: 1rem;
-      text-align: center;
-    }
-    header h1 {
+      background-color: #f8f1e8;
+      color: #3e2b1e;
       margin: 0;
-      font-size: 2rem;
+      padding: 0;
     }
-    nav {
-      background-color: #d9cbb4;
+
+    header {
       text-align: center;
-      padding: 0.5rem 0;
+      padding: 20px;
     }
-    nav a {
-      margin: 0 1rem;
-      color: #2d2a26;
-      text-decoration: none;
-      font-weight: bold;
+
+    header img {
+      width: 200px;
+      max-width: 90%;
     }
+
+    h1 {
+      font-size: 2.5em;
+      margin: 10px 0;
+    }
+
     section {
-      padding: 2rem;
-      max-width: 900px;
+      padding: 20px;
+      max-width: 800px;
       margin: auto;
     }
-    h2 {
-      font-size: 1.8rem;
-      border-bottom: 2px solid #d9cbb4;
-      padding-bottom: 0.5rem;
+
+    .intencion {
+      background-color: #fff3e6;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 30px;
     }
+
     .producto {
-      margin-bottom: 2rem;
-      padding: 1rem;
-      background-color: #fffdf8;
-      border-left: 5px solid #d9cbb4;
+      margin-bottom: 40px;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
     }
-    .producto h3 {
-      margin-top: 0;
+
+    .producto img {
+      width: 100%;
+      max-width: 400px;
+      display: block;
+      margin: 15px auto;
+      border-radius: 10px;
     }
-    .resena {
-      font-style: italic;
-      color: #5c5242;
+
+    h2 {
+      font-size: 1.8em;
+      color: #5c3b1e;
     }
-    .temporada {
-      background-color: #faeee0;
-      border: 2px dashed #d9cbb4;
-      padding: 1rem;
-      margin-top: 2rem;
+
+    .zona-envio {
+      background-color: #fff3e6;
+      padding: 20px;
+      border-radius: 10px;
     }
-    .envios-section {
-      background-color: #f0e6d8;
-      padding: 2rem;
-    }
-    .mapa-envios {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      margin-top: 1rem;
-    }
-    .zona {
-      padding: 1rem;
-      background-color: #d9cbb4;
-      color: #000;
-      border-radius: 5px;
-      font-weight: bold;
-      width: fit-content;
-    }
+
     footer {
       text-align: center;
-      background-color: #000;
-      color: #f5f0e6;
-      padding: 1rem;
-      font-size: 0.9rem;
+      padding: 20px;
+      font-size: 0.9em;
+      background-color: #f0e5db;
     }
-    .redes a {
-      margin: 0 10px;
-      color: #f5f0e6;
+
+    a {
+      color: #5c3b1e;
       text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Dulce Pasado</h1>
-    <p>Panadería artesanal con alma y sabor a tradición</p>
-  </header>
+<header>
+  <img src="IMG_1364.jpeg" alt="Logo Dulce Pasado" />
+  <h1>Dulce Pasado</h1>
+</header>
 
-  <nav>
-    <a href="#intencion">Nuestra intención</a>
-    <a href="#productos">Productos</a>
-    <a href="#lanzamientos">Lanzamientos</a>
-    <a href="#envios">Envíos</a>
-    <a href="#contacto">Contacto</a>
-  </nav>
-
-  <!-- Sección 1: Nuestra intención -->
-  <section id="intencion" .producto {
-  padding: 60px 20px;
-  background-color: #f7f0e8;
-  border-bottom: 1px solid #e0d6ca;
-  color: #3c2f2f;
-}
-
-.contenido-producto {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  max-width: 1100px;
-  margin: 0 auto;
-  gap: 40px;
-  flex-wrap: wrap;
-}
-
-.texto-producto {
-  flex: 1;
-  min-width: 280px;
-}
-
-.texto-producto h2 {
-  font-family: 'Georgia', serif;
-  font-size: 32px;
-  margin-bottom: 20px;
-  color: #2b1e1e;
-}
-
-.texto-producto p {
-  font-size: 18px;
-  line-height: 1.6;
-  margin-bottom: 15px;
-  font-family: 'Helvetica Neue', sans-serif;
-}
-
-.imagen-producto {
-  flex: 1;
-  min-width: 280px;
-}
-
-.imagen-producto img {
-  width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-}
-  <!-- Sección 2: Productos con reseñas -->
-<section id="empanadas" class="producto">
-  <div class="contenido-producto">
-    <div class="texto-producto">
-      <h2>Empanadas Artesanales</h2>
-      <p>
-        Nuestras empanadas son más que un postre, son un pedacito de historia familiar.  
-        La receta ha pasado de generación en generación, conservando su sabor casero y  
-        esa textura crujiente por fuera, suave por dentro. Las preparamos con cariño,  
-        para que en cada mordida encuentres ese recuerdo que te hace sonreír.
-      </p>
-      <p><strong>Sabores disponibles:</strong> Piña, cajeta, fresa, nuez.</p>
-    </div>
-    <div class="imagen-producto">
-      <img src="img/empanadas.jpg" alt="Empanadas Dulce Pasado">
-    </div>
-  </div>
+<section class="intencion">
+  <h2>Nuestra intención</h2>
+  <p>Queremos llevarte un pedacito del pasado a través de sabores que reconfortan y unen. En Dulce Pasado, cada pan es una invitación a compartir momentos cálidos en familia, a disfrutar lo artesanal y lo hecho con cariño. Nos inspira la tradición y el sabor auténtico, y por eso, cada pieza está horneada con el alma.</p>
 </section>
 
-    <div class="producto">
-    <section id="rosquitas" class="producto">
-  <div class="contenido-producto">
-    <div class="texto-producto">
-      <h2>Rosquitas de la Abuela</h2>
-      <p>
-        Estas rosquitas son como un abrazo de esos que ya casi no se dan.  
-        Su sabor sencillo pero profundo nos recuerda las sobremesas largas en casa de la abuela.  
-        Son perfectas para acompañar tu café, tu chocolate caliente o simplemente el momento.
-      </p>
-    
-    </div>
-    <div class="imagen-producto">
-      <img src="img/rosquitas.jpg" alt="Rosquitas Dulce Pasado">
-    </div>
-  </div>
+<section class="producto">
+  <h2>Empanadas Dulces</h2>
+  <img src="IMG_5514.jpeg" alt="Empanadas Dulces" />
+  <p><strong>Sabores:</strong> Piña, Cajeta, Nutella, Queso dulce.</p>
+  <p><strong>Precios:</strong> Grandes $15 c/u (mínimo 5 piezas) — Chicas $7 c/u (mínimo 10 piezas)</p>
 </section>
 
-    <div class="producto">
-      <h3>Pan español</h3>
-      <p><strong>Precio:</strong> $15 c/u (mínimo 5 piezas)</p>
-      <p class="resena">"Suavecito, con ese sabor mantequilloso que te hace suspirar. Ideal para el desayuno." – Esteban T.</p>
-    </div>
-  </section>
-
-  <!-- Sección 3: Lanzamientos de temporada -->
-  <section id="lanzamientos">
-    <h2>Lanzamientos de temporada</h2>
-    <div class="temporada">
-      <h3>Conchas edición limitada – Julio 2025</h3>
-      <p>Durante los primeros 15 días de julio 2025 podrás disfrutar nuestras conchas artesanales en dos versiones:</p>
-      <ul>
-        <li>Conchas normales: $20 c/u</li>
-        <li>Conchas integrales: $25 c/u</li>
-      </ul>
-      <p>Disponible únicamente por tiempo limitado y en pedidos mínimos de 4 piezas.</p>
-      <p><strong>¡Exclusivo de Dulce Pasado!</strong></p>
-    </div>
-  </section>
-
-  <!-- Sección 4: Envíos -->
-<section id="envios" class="envios-section">
-  <h2>Envíos</h2>
-  <p>
-    En Dulce Pasado llevamos el sabor hasta tu puerta dentro de San Luis Potosí capital.
-    Sabemos que el pan se disfruta mejor en casa, por eso buscamos que tu pedido llegue cálido y puntual.
-  </p>
-  <h3>Zonas con envío gratuito</h3>
-  <ul>
-    <li>Zona Carranza (incluye Casa de la Cultura) hasta Tequis</li>
-    <li>Himno Nacional y calles paralelas</li>
-    <li>Zona Tangamanga (cercana a las zonas anteriores)</li>
-  </ul>
-
-  <h3>Otras zonas</h3>
-  <p>
-    Si te encuentras en otra parte de la ciudad, no te preocupes: realizamos entregas con costo desde $20 según tu ubicación.
-  </p>
-  <p>
-    Al momento de hacer tu pedido, te confirmaremos el costo exacto del envío.
-  </p>
+<section class="producto">
+  <h2>Rosquitas</h2>
+  <img src="IMG_6484.jpeg" alt="Rosquitas" />
+  <p><strong>Precio:</strong> $4 c/u (mínimo 10 piezas)</p>
 </section>
 
-  <!-- Sección 5: Contacto -->
-  <section id="contacto">
-    <h2>Contacto y Redes Sociales</h2>
-    <p>Haz tu pedido o escríbenos para más información:</p>
-    <div class="redes">
-      <p><a href="https://instagram.com/tu_usuario" target="_blank">Instagram</a></p>
-    </div>
-  </section>
+<section class="producto">
+  <h2>Pan Español</h2>
+  <img src="IMG_6521.jpeg" alt="Pan Español" />
+  <p><strong>Precio:</strong> $15 c/u (mínimo 5 piezas)</p>
+</section>
 
-  <footer>
-    <p>&copy; 2025 Dulce Pasado · Hecho con amor y harina.</p>
-  </footer>
+<section class="producto">
+  <h2>Conchas (Producto exclusivo)</h2>
+  <img src="IMG_6479.jpeg" alt="Conchas Dulce Pasado" />
+  <p><strong>Pan suave y esponjoso, ideal para acompañar tu café o chocolate.</strong></p>
+</section>
 
-</body>
-</html>
+<section class="zona-envio">
+  <h2>Zonas de Envío</h2>
+  <p><strong>Entrega gratuita:</strong> En zonas seleccionadas como Carranza (desde la Casa de la Cultura hasta Tequis), Himno Nacional, zonas cercanas a Tangamanga y alrededores del Camerino, dentro de San Luis Potosí Capital.</p>
+  <p><strong>Fuera de estas zonas:</strong> El costo de envío comienza desde $20 en adelante según la distancia.</p>
+  <img src="mapa-envio.png" alt="Mapa de zonas de envío" style="max-width: 100%; margin-top: 10px;" />
+</section>
+
+<footer>
+  <p style="margin-bottom: 15px;">¿Tienes dudas o quieres hacer un pedido?</p>
+  
+  <a href="https://wa.me/524445481177" target="_blank" style="display:inline-block; background-color:#25D366; color:white; padding:10px 20px; margin:5px; border-radius:8px; text-decoration:none; font-weight:bold;">
+    Pedir por WhatsApp
+  </a>
+  
+  <a href="https://www.instagram.com/pan_dulcepasado" target="_blank" style="display:inline-block; background-color:#f7cfcf; color:#3e2b1e; padding:10px 20px; margin:5px; border-radius:8px; text-decoration:none; font-weight:bold;">
+    Instagram
+  </a>
+  
+  <a href="https://www.facebook.com/share/16HTqVAuUz/?mibextid=wwXIfr" target="_blank" style="display:inline-block; background-color:#d4e3fc; color:#3e2b1e; padding:10px 20px; margin:5px; border-radius:8px; text-decoration:none; font-weight:bold;">
+    Facebook
+  </a>
+
+  <p style="margin-top: 20px;">Gracias por elegir Dulce Pasado 🍞</p>
+</footer>
