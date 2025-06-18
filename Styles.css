@@ -1,4 +1,4 @@
-/* Reset y tipografía */
+/* Reset y tipografía base */
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 100px;
@@ -33,7 +33,7 @@ header img {
   object-fit: contain;
 }
 
-/* Menú hamburguesa */
+/* Menú hamburguesa (solo visible en móviles) */
 .menu-toggle {
   display: none;
   flex-direction: column;
@@ -72,6 +72,7 @@ nav a:focus {
   outline: none;
 }
 
+/* Responsive para menú móvil */
 @media (max-width: 768px) {
   .menu-toggle {
     display: flex;
@@ -103,6 +104,7 @@ nav a:focus {
 
 /* Banner principal */
 #banner {
+  background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1470&q=80');
   background-size: cover;
   background-position: center;
   height: 350px;
@@ -221,74 +223,61 @@ h3 {
 /* Inputs y selects */
 input[type="number"],
 select {
-  padding: 6px 10px;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
   border-radius: 6px;
-  border: 1px solid #b28855;
   font-size: 1em;
   width: 100%;
-  max-width: 150px;
+  max-width: 120px;
   box-sizing: border-box;
-  margin-bottom: 12px;
-  color: #3e2b1e;
-  background-color: #fffaf5;
-  transition: border-color 0.3s ease;
+  margin-bottom: 15px;
 }
 
-input[type="number"]:focus,
-select:focus {
-  outline: none;
-  border-color: #967445;
-}
-
-/* Formulario y mensajes */
-form {
-  max-width: 600px;
-  margin: auto;
-}
-
-label {
-  display: block;
-  font-weight: 600;
-  margin-bottom: 6px;
-}
-
-button[type="submit"] {
+/* Botón enviar pedido */
+form button[type="submit"] {
   background-color: #b28855;
-  border: none;
   color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 1.1em;
+  border-radius: 10px;
   font-weight: 700;
-  padding: 12px 25px;
-  border-radius: 8px;
   cursor: pointer;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.3);
   transition: background-color 0.3s ease;
   margin-top: 15px;
+  user-select: none;
   width: 100%;
-  max-width: 250px;
+  max-width: 320px;
 }
 
-button[type="submit"]:hover,
-button[type="submit"]:focus {
+form button[type="submit"]:hover,
+form button[type="submit"]:focus {
   background-color: #967445;
   outline: none;
 }
 
-#errorMensaje {
+/* Mensajes de error */
+.error-message {
   color: #d9534f;
   font-weight: 700;
-  margin-top: 15px;
-  min-height: 1.5em;
-  text-align: center;
+  margin-top: 10px;
+}
+
+/* Zona de envío */
+.zona-envio ul {
+  list-style-type: disc;
+  margin-left: 20px;
+  margin-bottom: 20px;
 }
 
 /* Footer */
 footer {
   text-align: center;
-  padding: 30px 20px;
+  padding: 20px;
   background-color: #fffaf5;
   color: #5c3b1e;
-  box-shadow: 0 -2px 6px rgba(0,0,0,0.05);
-  font-size: 0.9em;
+  box-shadow: inset 0 1px 0 #fff;
+  font-size: 1em;
 }
 
 footer a {
@@ -306,11 +295,30 @@ footer a:focus {
   outline: none;
 }
 
-/* Links sociales */
-.instagram-link::before {
-  content: "📸 ";
+/* Links redes sociales */
+.instagram-link, .facebook-link {
+  margin-left: 15px;
 }
 
-.facebook-link::before {
-  content: "📘 ";
+/* Responsive ajustes para pantallas pequeñas */
+@media (max-width: 600px) {
+  #banner h1 {
+    font-size: 1.8em;
+  }
+  #banner p {
+    font-size: 1em;
+  }
+  .producto img {
+    max-width: 100%;
+  }
+  input[type="number"],
+  select {
+    max-width: 100%;
+  }
+  form button[type="submit"] {
+    max-width: 100%;
+  }
+  nav {
+    width: 180px !important;
+  }
 }
