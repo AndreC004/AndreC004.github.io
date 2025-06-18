@@ -1,0 +1,293 @@
+/* Reset y tipografía */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f1e8;
+  color: #3e2b1e;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Header */
+header {
+  position: sticky;
+  top: 0;
+  background-color: #fffaf5;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+
+header img {
+  height: 50px;
+  max-width: 150px;
+  object-fit: contain;
+}
+
+/* Menú hamburguesa */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.menu-toggle span {
+  height: 3px;
+  width: 25px;
+  background-color: #5c3b1e;
+  margin: 4px 0;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+nav a {
+  color: #5c3b1e;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1em;
+  transition: color 0.3s ease;
+}
+
+nav a:hover,
+nav a:focus {
+  text-decoration: underline;
+  color: #b28855;
+  outline: none;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+  nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background-color: #fffaf5;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    padding: 15px 20px;
+    border-radius: 10px;
+    width: 200px;
+    z-index: 999;
+  }
+  nav.active {
+    display: flex;
+  }
+  nav a {
+    padding: 10px 0;
+    border-bottom: 1px solid #d7c7b4;
+  }
+  nav a:last-child {
+    border-bottom: none;
+  }
+}
+
+/* Banner principal */
+#banner {
+  background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1470&q=80');
+  background-size: cover;
+  background-position: center;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  color: #fff;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+  padding: 20px;
+}
+
+#banner h1 {
+  font-size: 2.4em;
+  margin: 0;
+  max-width: 90%;
+}
+
+#banner p {
+  font-size: 1.3em;
+  margin: 10px 0 20px;
+  max-width: 80%;
+}
+
+#banner a {
+  background-color: #b28855;
+  color: white;
+  text-decoration: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-weight: 700;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+  transition: background-color 0.3s ease;
+}
+
+#banner a:hover,
+#banner a:focus {
+  background-color: #967445;
+  outline: none;
+}
+
+/* Secciones generales */
+section {
+  padding: 40px 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.producto, .zona-envio, .historia, .intencion, .form-section {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 25px 30px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.07);
+  margin-bottom: 45px;
+  transition: box-shadow 0.3s ease;
+}
+
+.producto:hover {
+  box-shadow: 0 0 18px rgba(0,0,0,0.1);
+}
+
+/* Productos */
+.producto img {
+  width: 100%;
+  max-width: 400px;
+  display: block;
+  margin: 20px auto;
+  border-radius: 12px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.05);
+}
+
+.producto ul {
+  padding-left: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* Botones WhatsApp */
+.boton-wsp {
+  display: inline-block;
+  background-color: #25D366;
+  color: white;
+  padding: 12px 25px;
+  margin-top: 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1em;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+.boton-wsp:hover,
+.boton-wsp:focus {
+  background-color: #1ebe57;
+  outline: none;
+}
+
+/* Títulos */
+h2 {
+  color: #5c3b1e;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+h3 {
+  margin-top: 1.5em;
+  margin-bottom: 0.3em;
+  color: #5c3b1e;
+  font-weight: 700;
+  font-size: 1.1em;
+}
+
+/* Inputs y selects */
+input[type="number"],
+select {
+  padding: 6px 10px;
+  border: 1px solid #c2b6a3;
+  border-radius: 6px;
+  font-size: 1em;
+  width: 100px;
+  max-width: 100%;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+  color: #3e2b1e;
+}
+
+input[type="number"]:focus,
+select:focus {
+  outline: 2px solid #b28855;
+}
+
+/* Botón enviar pedido */
+button[type="submit"] {
+  background-color: #b28855;
+  color: #fff;
+  border: none;
+  padding: 12px 30px;
+  font-weight: 700;
+  font-size: 1.1em;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+  transition: background-color 0.3s ease;
+  user-select: none;
+  margin-top: 10px;
+}
+
+button[type="submit"]:hover,
+button[type="submit"]:focus {
+  background-color: #967445;
+  outline: none;
+}
+
+/* Mensaje de error */
+#errorMensaje {
+  color: #c0392b;
+  font-weight: 600;
+  margin-top: 12px;
+  min-height: 1.2em;
+}
+
+/* Footer */
+footer {
+  background-color: #fffaf5;
+  text-align: center;
+  padding: 20px 15px;
+  color: #5c3b1e;
+  font-weight: 600;
+  box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
+}
+
+footer a {
+  color: #5c3b1e;
+  margin: 0 12px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+footer a:hover,
+footer a:focus {
+  color: #b28855;
+  outline: none;
+}
