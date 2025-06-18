@@ -64,3 +64,69 @@ document.getElementById('pedidoForm').addEventListener('submit', function(e) {
 
   window.open(url, '_blank');
 });
+// Función para abrir y cerrar menú hamburguesa
+function toggleMenu(button) {
+  const nav = document.getElementById('navMenu');
+  const expanded = button.getAttribute('aria-expanded') === 'true' || false;
+  button.setAttribute('aria-expanded', !expanded);
+  nav.classList.toggle('active');
+}
+
+// Validar y enviar pedido por WhatsApp
+document.getElementById('pedidoForm').addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  const errorMensaje = document.getElementById('errorMensaje');
+  errorMensaje.textContent = '';
+
+  // Obtener valores
+  const grandesCantidad = parseInt(document.getElementById('grandesCantidad').value, 10);
+  const chicasCantidad = parseInt(document.getElementById('chicasCantidad').value, 10);
+  const rosquitasCantidad = parseInt(document.getElementById('rosquitasCantidad').value, 10);
+  const panEspanolCantidad = parseInt(document.getElementById('panEspanolCantidad').value, 10);
+
+  const grandesSabor = document.getElementById('grandesSabor').value;
+  const chicasSabor = document.getElementById('chicasSabor').value;
+
+  // Validar mínimos
+  if (
+    (grandesCantidad > 0 && grandesCantidad < 5) ||
+    (chicasCantidad > 0 && chicasCantidad < 10) ||
+    (rosquitasCantidad > 0 && rosquitasCantidad < 10) ||
+    (panEspanolCantidad > 0 && panEspanolCantidad < 5)
+  ) {
+    errorMensaje.textContent = 'Por favor, cumple con los mínimos de compra para cada producto.';
+    return;
+  }
+
+  // Validar que haya al menos un producto
+  if (
+    grandesCantidad === 0 &&
+    chicasCantidad === 0 &&
+    rosquitasCantidad === 0 &&
+    panEspanolCantidad === 0
+  ) {
+    errorMensaje.textContent = 'Por favor, selecciona al menos un producto para hacer tu pedido.';
+    return;
+  }
+
+  // Construir mensaje para WhatsApp
+  let mensaje = 'Hola! Quiero hacer un pedido:%0A';
+
+  if (grandesCantidad > 0) {
+    mensaje += `- Empanadas grandes: ${grandesCantidad} (Sabor: ${grandesSabor})%0A`;
+  }
+  if (chicasCantidad > 0) {
+    mensaje += `- Empanadas chicas: ${chicasCantidad} (Sabor: ${chicasSabor})%0A`;
+  }
+  if (rosquitasCantidad > 0) {
+    mensaje += `- Rosquitas: ${rosquitasCantidad}%0A`;
+  }
+  if (panEspanolCantidad > 0) {
+    mensaje += `- Pan español: ${panEspanolCantidad}%0A`;
+  }
+
+  // Abrir WhatsApp con mensaje
+  const url = `https://wa.me/524445481177?text=${mensaje}`;
+  window.open(url, '_blank');
+});
