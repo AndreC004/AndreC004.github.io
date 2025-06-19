@@ -4,121 +4,350 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Dulce Pasado</title>
-  <link rel="stylesheet" href="estilos.css" />
+  <style>
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+
+    body {
+      background-color: #f8f1e8;
+      color: #3e2b1e;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      background-color: #fffaf5;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+
+    header img {
+      height: 60px;
+    }
+
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #5c3b1e;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    #banner {
+      background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1470&q=80');
+      background-size: cover;
+      background-position: center;
+      height: 350px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    #banner h1 {
+      font-size: 2.5em;
+      margin: 0;
+    }
+
+    #banner p {
+      font-size: 1.2em;
+      margin: 10px 0 20px;
+    }
+
+    #banner a {
+      padding: 12px 25px;
+      background-color: #b28855;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 6px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .producto, .zona-envio, .historia, .intencion {
+      background-color: #ffffff;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.04);
+      margin-bottom: 40px;
+    }
+
+    .producto img {
+      width: 100%;
+      max-width: 400px;
+      display: block;
+      margin: 15px auto;
+      border-radius: 10px;
+    }
+
+    .boton-wsp {
+      display: inline-block;
+      background-color: #25D366;
+      color: white;
+      padding: 10px 20px;
+      margin-top: 15px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      background-color: #f0e5db;
+      font-size: 0.9em;
+    }
+
+    footer a {
+      display: inline-block;
+      margin: 5px 10px;
+      padding: 10px 15px;
+      border-radius: 8px;
+      text-decoration: none;
+      color: #3e2b1e;
+      font-weight: bold;
+    }
+
+    footer .instagram { background-color: #f7cfcf; }
+    footer .facebook { background-color: #d4e3fc; }
+    footer .whatsapp { background-color: #bff2d0; }
+
+    h2 {
+      color: #5c3b1e;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <div class="logo">
-      <img src="IMG_5514.jpeg" alt="Logo Dulce Pasado">
-    </div>
-    <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" onclick="toggleMenu(this)">
-      ☰
+
+<header>
+  <img src="IMG_5514.jpeg" alt="Logo Dulce Pasado" />
+  <nav>
+    <a href="#banner">Inicio</a>
+    <a href="#intencion">Intención</a>
+    <a href="#productos">Productos</a>
+    <a href="#carrito-pedidos">Tu pedido</a>
+    <a href="#historia">Historia</a>
+    <a href="#envios">Envíos</a>
+  </nav>
+</header>
+
+<section id="banner">
+  <h1>Pan artesanal hecho con amor</h1>
+  <p>Directo de San Luis Potosí a tu mesa</p>
+  <a href="#carrito-pedidos">Haz tu pedido</a>
+</section>
+
+<section id="intencion" class="intencion">
+  <h2>Nuestra intención</h2>
+  <p>Queremos llevarte un pedacito del pasado a través de sabores que reconfortan y unen. En Dulce Pasado, cada pan es una invitación a compartir momentos cálidos en familia, a disfrutar lo artesanal y lo hecho con cariño. Nos inspira la tradición y el sabor auténtico, y por eso, cada pieza está horneada con el alma.</p>
+</section>
+
+<section id="productos">
+  <div class="producto">
+    <h2>Empanadas Dulces</h2>
+    <img src="IMG_6484.jpeg" alt="Empanadas Dulces" />
+    <p><strong>Sabores:</strong> Piña, Cajeta, Nutella, Queso dulce.</p>
+    <p><strong>Precios:</strong> Grandes $15 c/u (mínimo 5 piezas) — Chicas $7 c/u (mínimo 10 piezas)</p>
+    <a class="boton-wsp" href="https://wa.me/524445481177?text=Hola!%20Quiero%20pedir%20empanadas%20dulces">Pedir Empanadas</a>
+  </div>
+
+  <div class="producto">
+    <h2>Rosquitas</h2>
+    <img src="IMG_6479.jpeg" alt="Rosquitas" />
+    <p><strong>Precio:</strong> $4 c/u</p>
+    <p><strong>Mínimo:</strong> 10 piezas</p>
+    <a class="boton-wsp" href="https://wa.me/524445481177?text=Hola!%20Quiero%20pedir%20rosquitas">Pedir Rosquitas</a>
+  </div>
+
+  <div class="producto">
+    <h2>Pan Español</h2>
+    <img src="IMG_1364.jpeg" alt="Pan Español" />
+    <p><strong>Precio:</strong> $15 c/u</p>
+    <p><strong>Mínimo:</strong> 5 piezas</p>
+    <a class="boton-wsp" href="https://wa.me/524445481177?text=Hola!%20Quiero%20pedir%20pan%20español">Pedir Pan Español</a>
+  </div>
+
+  <div class="producto">
+    <h2>DROP.01C — Conchas (Producto exclusivo)</h2>
+    <img src="IMG_6521.jpeg" alt="Conchas Dulce Pasado" />
+    <p><strong>Descripción:</strong> Pan suave, esponjoso y con cobertura crujiente. Nuestras conchas son una pieza especial de colección horneada con esmero para momentos únicos. Solo por pedido.</p>
+    <ul>
+      <li>Concha normal: $20 c/u</li>
+      <li>Concha integral: $25 c/u</li>
+    </ul>
+    <p><strong>Mínimo:</strong> 4 piezas</p>
+    <a class="boton-wsp" href="https://wa.me/524445481177?text=Hola!%20Quisiera%20pedir%20conchas%20DROP.01C">Pedir Conchas</a>
+  </div>
+</section>
+
+<section id="carrito-pedidos" style="padding: 2em; background-color: #f8f4ef; color: #222; font-family: sans-serif;">
+  <h2 style="color: #000;">🧺 Tu pedido</h2>
+  <form id="pedidoForm" style="margin-top: 1em;">
+    <!-- Empanadas Grandes -->
+    <h3>Empanadas grandes ($15 c/u) - mínimo 5</h3>
+    <label>Cantidad:
+      <input type="number" name="grandesCantidad" min="0" value="0">
+    </label>
+    <label>Sabor:
+      <select name="grandesSabor">
+        <option value="piña">Piña</option>
+        <option value="cajeta">Cajeta</option>
+        <option value="queso dulce">Queso dulce</option>
+        <option value="nutella">Nutella</option>
+      </select>
+    </label>
+
+    <!-- Empanadas Chicas -->
+    <h3 style="margin-top: 1em;">Empanadas chicas ($7 c/u) - mínimo 10</h3>
+    <label>Cantidad:
+      <input type="number" name="chicasCantidad" min="0" value="0">
+    </label>
+    <label>Sabor:
+      <select name="chicasSabor">
+        <option value="piña">Piña</option>
+        <option value="cajeta">Cajeta</option>
+        <option value="queso dulce">Queso dulce</option>
+        <option value="nutella">Nutella</option>
+      </select>
+    </label>
+
+    <!-- Rosquitas -->
+    <h3 style="margin-top: 1em;">Rosquitas ($4 c/u) - mínimo 10</h3>
+    <label>Cantidad:
+      <input type="number" name="rosquitasCantidad" min="0" value="0">
+    </label>
+
+    <!-- Pan Español -->
+    <h3 style="margin-top: 1em;">Pan español ($15 c/u) - mínimo 5</h3>
+    <label>Cantidad:
+      <input type="number" name="panEspanolCantidad" min="0" value="0">
+    </label>
+
+    <!-- Botón de WhatsApp -->
+    <br><br>
+    <button type="button" onclick="generarPedido()" style="margin-top: 1em; padding: 0.7em 1.5em; background-color: #000; color: #fff; border: none; cursor: pointer;">
+      Enviar pedido por WhatsApp
     </button>
-    <nav id="navMenu">
-      <ul>
-        <li><a href="#intencion">Nuestra intención</a></li>
-        <li><a href="#productos">Productos</a></li>
-        <li><a href="#producto-exclusivo">DROP.01C</a></li>
-        <li><a href="#historia">Nuestra historia</a></li>
-        <li><a href="#envios">Envíos</a></li>
-        <li><a href="#carrito-pedidos">Pedidos</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <main>
-    <section id="intencion">
-      <h1>Nuestra intención</h1>
-      <p>En <strong>Dulce Pasado</strong> queremos compartir contigo el sabor de nuestras raíces. Cada pan que horneamos está hecho con amor, tiempo y una receta que ha pasado por generaciones. Que cada bocado te conecte con tus momentos más cálidos y familiares.</p>
-    </section>
+    <p id="errorMensaje" style="color: red; margin-top: 1em;"></p>
+  </form>
+</section>
 
-    <section id="productos">
-      <h2>Productos</h2>
+</section>
 
-      <article class="producto">
-        <h3>Empanadas</h3>
-        <img src="IMG_6484.jpeg" alt="Empanadas dulces">
-        <p>Rellenas con sabores tradicionales: piña, cajeta, queso dulce y nutella.</p>
-        <ul>
-          <li>Grandes: $15 c/u (mínimo 5 piezas)</li>
-          <li>Chicas: $7 c/u (mínimo 10 piezas)</li>
-        </ul>
-        <a href="https://wa.me/521XXXXXXXXXX?text=Hola!%20Quiero%20hacer%20un%20pedido%20de%20empanadas" class="boton-whatsapp" target="_blank">Enviar pedido por WhatsApp</a>
-      </article>
+<section class="zona-envio" id="envios">
+  <h2>Zonas de Envío</h2>
+  <p><strong>Entrega gratuita:</strong> En zonas seleccionadas como:</p>
+  <ul>
+    <li>Carranza (desde la Casa de la Cultura hasta Tequis)</li>
+    <li>Himno Nacional</li>
+    <li>Zona Tangamanga</li>
+    <li>Alrededores del Camerino</li>
+  </ul>
+  <p><strong>Fuera de estas zonas:</strong> El costo de envío comienza desde $20 en adelante, dentro de San Luis Potosí Capital.</p>
+</section>
 
-      <article class="producto">
-        <h3>Rosquitas</h3>
-        <img src="IMG_6479.jpeg" alt="Rosquitas">
-        <p>Ideales para el café o compartir en familia. Crujientes por fuera y suaves por dentro.</p>
-        <ul>
-          <li>$3 c/u</li>
-          <li>Mínimo de compra: 10 piezas</li>
-        </ul>
-        <a href="https://wa.me/521XXXXXXXXXX?text=Hola!%20Quiero%20hacer%20un%20pedido%20de%20rosquitas" class="boton-whatsapp" target="_blank">Enviar pedido por WhatsApp</a>
-      </article>
+<section class="intencion" id="historia">
+  <h2>Nuestra Historia</h2>
+  <p>Remontándonos a años atrás, les comparto la historia detrás de nuestra panadería familiar. Todo comenzó con mis dos hermosas abuelas, quienes jugaron un papel fundamental en la creación de nuestras recetas tradicionales.</p>
+  <p>Mi abuela paterna, Victoria, creció en Haltipan, Veracruz, donde aprendió el arte de hacer pan de su madre. Lo que comenzó como un pan familiar pronto se convirtió en una tradición que ha perdurado por más de 90 años.</p>
+  <p>Por otro lado, mi abuela materna, Juanita, nació en la Huasteca Potosina y vendía pan fresco en Tanquian de Escobedo, horneado en hornos de barro. Con el tiempo, hemos mejorado las recetas, sin perder el alma de la tradición.</p>
+  <p>Hoy en día, cada pan y cada empanada es un pedacito de nuestra historia y nuestra dedicación, horneado con amor para llegar a tu mesa.</p>
+</section>
 
-      <article class="producto">
-        <h3>Pan español</h3>
-        <img src="IMG_1364.jpeg" alt="Pan español">
-        <p>Receta antigua con textura firme y sabor profundo. Un favorito de toda la vida.</p>
-        <ul>
-          <li>$12 c/u</li>
-          <li>Mínimo de compra: 6 piezas</li>
-        </ul>
-        <a href="https://wa.me/521XXXXXXXXXX?text=Hola!%20Quiero%20hacer%20un%20pedido%20de%20pan%20español" class="boton-whatsapp" target="_blank">Enviar pedido por WhatsApp</a>
-      </article>
-    </section>
+<footer>
+  <p style="margin-bottom: 15px;">¿Tienes dudas o quieres hacer un pedido?</p>
+  <a href="https://wa.me/524445481177" target="_blank" class="boton-wsp">Pedir por WhatsApp</a>
+  <a href="https://www.instagram.com/pan_dulcepasado" target="_blank" style="display:inline-block; background-color:#f7cfcf; color:#3e2b1e; padding:10px 20px; margin:5px; border-radius:8px; text-decoration:none; font-weight:bold;">Instagram</a>
+  <a href="https://www.facebook.com/share/16HTqVAuUz/?mibextid=wwXIfr" target="_blank" style="display:inline-block; background-color:#d4e3fc; color:#3e2b1e; padding:10px 20px; margin:5px; border-radius:8px; text-decoration:none; font-weight:bold;">Facebook</a>
+  <p style="margin-top: 20px;">Gracias por elegir Dulce Pasado 🍞</p>
+</footer>
 
-    <section id="producto-exclusivo" class="producto">
-      <h2 class="titulo-exclusivo">DROP.01C</h2>
-      <img src="IMG_6521.jpeg" alt="Conchas exclusivas" class="producto-img">
-      <div class="producto-info">
-        <p>Conchas tradicionales con receta especial de la casa. Suaves, aromáticas y únicas.</p>
-        <ul>
-          <li>Normales: $20 c/u</li>
-          <li>Integrales: $25 c/u</li>
-          <li>Mínimo de compra: 4 piezas</li>
-        </ul>
-        <a href="https://wa.me/521XXXXXXXXXX?text=Hola!%20Quiero%20hacer%20un%20pedido%20de%20conchas%20DROP.01C" class="boton-whatsapp" target="_blank">Enviar pedido por WhatsApp</a>
-      </div>
-    </section>
+<script>
+function generarPedido() {
+  const grandesCantidad = parseInt(document.querySelector('[name="grandesCantidad"]').value) || 0;
+  const grandesSabor = document.querySelector('[name="grandesSabor"]').value;
+  const chicasCantidad = parseInt(document.querySelector('[name="chicasCantidad"]').value) || 0;
+  const chicasSabor = document.querySelector('[name="chicasSabor"]').value;
+  const rosquitasCantidad = parseInt(document.querySelector('[name="rosquitasCantidad"]').value) || 0;
+  const panEspanolCantidad = parseInt(document.querySelector('[name="panEspanolCantidad"]').value) || 0;
+  const errorMensaje = document.getElementById('errorMensaje');
 
-    <section id="historia">
-      <h2>Nuestra historia</h2>
-      <p>Nuestras recetas tienen más de 90 años. Todo comenzó con las manos de nuestras abuelas: Victoria, originaria de Jáltipan, Veracruz, y Juanita, quien en cada reunión familiar preparaba pan con dedicación. Hoy, seguimos su legado trayéndote ese mismo sabor artesanal, directo del corazón familiar.</p>
-    </section>
+  let mensaje = "¡Hola Dulce Pasado! Me gustaría hacer el siguiente pedido:\n";
+  let total = 0;
 
-    <section id="envios">
-      <h2>Envíos y zonas de entrega</h2>
-      <p>Entregamos en las siguientes zonas de San Luis Potosí:</p>
-      <ul>
-        <li>Colonia Himno Nacional</li>
-        <li>Colonia Carranza</li>
-        <li>Cercanías del Camerino</li>
-      </ul>
-      <p>Consulta disponibilidad para otras zonas por WhatsApp.</p>
-    </section>
-
-    <section id="carrito-pedidos">
-      <h2>Haz tu pedido</h2>
-      <p>Escríbenos directamente por WhatsApp para realizar tu pedido:</p>
-      <a href="https://wa.me/521XXXXXXXXXX?text=Hola!%20Quiero%20hacer%20un%20pedido" class="boton-whatsapp" target="_blank">Enviar pedido por WhatsApp</a>
-    </section>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 Dulce Pasado. Todos los derechos reservados.</p>
-    <p>Síguenos en <a href="https://instagram.com/tu_usuario" target="_blank">Instagram</a> y <a href="https://facebook.com/tu_usuario" target="_blank">Facebook</a>.</p>
-  </footer>
-
-  <script>
-    // Función para abrir/cerrar menú hamburguesa
-    function toggleMenu(button) {
-      const nav = document.getElementById('navMenu');
-      const expanded = button.getAttribute('aria-expanded') === 'true' || false;
-      button.setAttribute('aria-expanded', !expanded);
-      nav.classList.toggle('activo');
+  if (grandesCantidad > 0) {
+    if (grandesCantidad < 5) {
+      errorMensaje.textContent = "El mínimo de empanadas grandes es 5.";
+      return;
     }
-  </script>
+    mensaje += `- ${grandesCantidad} empanadas grandes de ${grandesSabor} ($15 c/u)\n`;
+    total += grandesCantidad * 15;
+  }
+
+  if (chicasCantidad > 0) {
+    if (chicasCantidad < 10) {
+      errorMensaje.textContent = "El mínimo de empanadas chicas es 10.";
+      return;
+    }
+    mensaje += `- ${chicasCantidad} empanadas chicas de ${chicasSabor} ($7 c/u)\n`;
+    total += chicasCantidad * 7;
+  }
+
+  if (rosquitasCantidad > 0) {
+    if (rosquitasCantidad < 10) {
+      errorMensaje.textContent = "El mínimo de rosquitas es 10.";
+      return;
+    }
+    mensaje += `- ${rosquitasCantidad} rosquitas ($4 c/u)\n`;
+    total += rosquitasCantidad * 4;
+  }
+
+  if (panEspanolCantidad > 0) {
+    if (panEspanolCantidad < 5) {
+      errorMensaje.textContent = "El mínimo de pan español es 5.";
+      return;
+    }
+    mensaje += `- ${panEspanolCantidad} pan español ($15 c/u)\n`;
+    total += panEspanolCantidad * 15;
+  }
+
+  if (grandesCantidad === 0 && chicasCantidad === 0 && rosquitasCantidad === 0 && panEspanolCantidad === 0) {
+    errorMensaje.textContent = "Por favor elige al menos un producto.";
+    return;
+  }
+
+  mensaje += `\nTotal: $${total} MXN`;
+  errorMensaje.textContent = "";
+
+  const numero = "524445481177";
+  const mensajeCodificado = encodeURIComponent(mensaje);
+  const url = `https://wa.me/${numero}?text=${mensajeCodificado}`;
+  window.open(url, '_blank');
+}
+</script>
+
 </body>
 </html>
