@@ -1,3 +1,5 @@
+Versión 2.0
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -5,11 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Dulce Pasado</title>
   <style>
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 80px;
-    }
-
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
     body {
       background-color: #f8f1e8;
       color: #3e2b1e;
@@ -17,7 +15,6 @@
       padding: 0;
       font-family: 'Segoe UI', sans-serif;
     }
-
     header {
       position: sticky;
       top: 0;
@@ -29,22 +26,14 @@
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       z-index: 1000;
     }
-
-    header img {
-      height: 60px;
-    }
-
+    header img { height: 60px; }
     nav a {
       margin: 0 10px;
       text-decoration: none;
       color: #5c3b1e;
       font-weight: bold;
     }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
+    nav a:hover { text-decoration: underline; }
     #banner {
       background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1470&q=80');
       background-size: cover;
@@ -59,17 +48,8 @@
       text-align: center;
       padding: 0 20px;
     }
-
-    #banner h1 {
-      font-size: 2.5em;
-      margin: 0;
-    }
-
-    #banner p {
-      font-size: 1.2em;
-      margin: 10px 0 20px;
-    }
-
+    #banner h1 { font-size: 2.5em; margin: 0; }
+    #banner p { font-size: 1.2em; margin: 10px 0 20px; }
     #banner a {
       padding: 12px 25px;
       background-color: #b28855;
@@ -79,13 +59,11 @@
       border-radius: 6px;
       box-shadow: 0 3px 6px rgba(0,0,0,0.3);
     }
-
     section {
       padding: 40px 20px;
       max-width: 900px;
       margin: auto;
     }
-
     .producto, .zona-envio, .historia, .intencion {
       background-color: #ffffff;
       border-radius: 12px;
@@ -93,7 +71,6 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.04);
       margin-bottom: 40px;
     }
-
     .producto img {
       width: 100%;
       max-width: 400px;
@@ -101,7 +78,6 @@
       margin: 15px auto;
       border-radius: 10px;
     }
-
     .boton-wsp {
       display: inline-block;
       background-color: #25D366;
@@ -112,14 +88,12 @@
       text-decoration: none;
       font-weight: bold;
     }
-
     footer {
       text-align: center;
       padding: 30px;
       background-color: #f0e5db;
       font-size: 0.9em;
     }
-
     footer a {
       display: inline-block;
       margin: 5px 10px;
@@ -129,14 +103,10 @@
       color: #3e2b1e;
       font-weight: bold;
     }
-
     footer .instagram { background-color: #f7cfcf; }
     footer .facebook { background-color: #d4e3fc; }
     footer .whatsapp { background-color: #bff2d0; }
-
-    h2 {
-      color: #5c3b1e;
-    }
+    h2 { color: #5c3b1e; }
   </style>
 </head>
 <body>
@@ -150,6 +120,7 @@
     <a href="#carrito-pedidos">Tu pedido</a>
     <a href="#historia">Historia</a>
     <a href="#envios">Envíos</a>
+    <a href="#drop">¿DROP?</a>
   </nav>
 </header>
 
@@ -190,15 +161,15 @@
   </div>
 
   <div class="producto">
-    <h2>DROP.01C — Conchas (Producto exclusivo)</h2>
+    <h2>Conchas</h2>
     <img src="IMG_6521.jpeg" alt="Conchas Dulce Pasado" />
-    <p><strong>Descripción:</strong> Pan suave, esponjoso y con cobertura crujiente. Nuestras conchas son una pieza especial de colección horneada con esmero para momentos únicos. Solo por pedido.</p>
+    <p><strong>Descripción:</strong> Pan suave, esponjoso y con cobertura crujiente. Nuestras conchas son una pieza especial horneada con esmero para momentos únicos.</p>
     <ul>
       <li>Concha normal: $20 c/u</li>
       <li>Concha integral: $25 c/u</li>
     </ul>
     <p><strong>Mínimo:</strong> 4 piezas</p>
-    <a class="boton-wsp" href="https://wa.me/524445481177?text=Hola!%20Quisiera%20pedir%20conchas%20DROP.01C">Pedir Conchas</a>
+    <a class="boton-wsp" href="https://wa.me/524445481177?text=Hola!%20Quisiera%20pedir%20conchas">Pedir Conchas</a>
   </div>
 </section>
 
@@ -245,6 +216,15 @@
       <input type="number" name="panEspanolCantidad" min="0" value="0">
     </label>
 
+    <!-- Conchas -->
+    <h3 style="margin-top: 1em;">Conchas - mínimo 4</h3>
+    <label>Cantidad normales ($20 c/u):
+      <input type="number" name="conchasNormalesCantidad" min="0" value="0">
+    </label>
+    <label>Cantidad integrales ($25 c/u):
+      <input type="number" name="conchasIntegralesCantidad" min="0" value="0">
+    </label>
+
     <!-- Botón de WhatsApp -->
     <br><br>
     <button type="button" onclick="generarPedido()" style="margin-top: 1em; padding: 0.7em 1.5em; background-color: #000; color: #fff; border: none; cursor: pointer;">
@@ -253,8 +233,6 @@
 
     <p id="errorMensaje" style="color: red; margin-top: 1em;"></p>
   </form>
-</section>
-
 </section>
 
 <section class="zona-envio" id="envios">
@@ -276,6 +254,19 @@
   <p>Hoy, más de 90 años de recetas familiares después, seguimos horneando con el mismo amor. Las hemos mejorado con el tiempo, pero con el alma intacta.</p>
 </section>
 
+<section id="drop" class="intencion" style="background-color: #fff3e6; text-align: center; margin-top: 60px;">
+  <h2 style="font-size: 2em;">¿DROP?</h2>
+  <p style="font-size: 1.1em; max-width: 700px; margin: auto;">
+    ¿Qué crees que será el siguiente DROP? 🎁<br/>
+    Si adivinas, ¡te damos una sorpresa gratis!<br/><br/>
+    Mándanos tu idea por WhatsApp o Instagram.
+  </p>
+  <img src="https://cdn.pixabay.com/photo/2016/12/06/18/27/question-mark-1889440_1280.png" alt="Imagen misteriosa" style="max-width: 150px; margin-top: 20px;"/>
+  <div style="margin-top: 25px;">
+    <a class="boton-wsp" href="https://wa.me/524445481177?text=Hola!%20Quiero%20adivinar%20el%20siguiente%20DROP">Mandar mi idea por WhatsApp</a>
+  </div>
+</section>
+
 <footer>
   <p style="margin-bottom: 15px;">¿Tienes dudas o quieres hacer un pedido?</p>
   <a href="https://wa.me/524445481177" target="_blank" class="boton-wsp">Pedir por WhatsApp</a>
@@ -292,6 +283,8 @@ function generarPedido() {
   const chicasSabor = document.querySelector('[name="chicasSabor"]').value;
   const rosquitasCantidad = parseInt(document.querySelector('[name="rosquitasCantidad"]').value) || 0;
   const panEspanolCantidad = parseInt(document.querySelector('[name="panEspanolCantidad"]').value) || 0;
+  const conchasNormalesCantidad = parseInt(document.querySelector('[name="conchasNormalesCantidad"]').value) || 0;
+  const conchasIntegralesCantidad = parseInt(document.querySelector('[name="conchasIntegralesCantidad"]').value) || 0;
   const errorMensaje = document.getElementById('errorMensaje');
 
   let mensaje = "¡Hola Dulce Pasado! Me gustaría hacer el siguiente pedido:\n";
@@ -333,7 +326,23 @@ function generarPedido() {
     total += panEspanolCantidad * 15;
   }
 
-  if (grandesCantidad === 0 && chicasCantidad === 0 && rosquitasCantidad === 0 && panEspanolCantidad === 0) {
+  if (conchasNormalesCantidad > 0 || conchasIntegralesCantidad > 0) {
+    const totalConchas = conchasNormalesCantidad + conchasIntegralesCantidad;
+    if (totalConchas < 4) {
+      errorMensaje.textContent = "El mínimo de conchas es 4 en total.";
+      return;
+    }
+    if (conchasNormalesCantidad > 0) {
+      mensaje += `- ${conchasNormalesCantidad} conchas normales ($20 c/u)\n`;
+      total += conchasNormalesCantidad * 20;
+    }
+    if (conchasIntegralesCantidad > 0) {
+      mensaje += `- ${conchasIntegralesCantidad} conchas integrales ($25 c/u)\n`;
+      total += conchasIntegralesCantidad * 25;
+    }
+  }
+
+  if (grandesCantidad === 0 && chicasCantidad === 0 && rosquitasCantidad === 0 && panEspanolCantidad === 0 && conchasNormalesCantidad === 0 && conchasIntegralesCantidad === 0) {
     errorMensaje.textContent = "Por favor elige al menos un producto.";
     return;
   }
