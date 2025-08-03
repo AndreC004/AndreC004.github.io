@@ -20,7 +20,6 @@ background-color: #f8f1e8;
 color: #3e2b1e;
 margin: 0;
 padding: 0;
-/* ✅ Fuente principal con fallback seguro */
 font-family: 'Segoe UI', Arial, sans-serif;
 }
 header {
@@ -91,7 +90,7 @@ nav.active { right: 0; }
 .menu-toggle { display: flex; }
 }
 #banner {
-background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1470&q=80'); /* ✅ En el futuro usar .webp comprimida */
+background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1470&q=80');
 background-size: cover;
 background-position: center;
 min-height: 450px;
@@ -171,7 +170,6 @@ font-weight: bold;
 <div class="bar"></div>
 <div class="bar"></div>
 </div>
-<!-- ✅ Accesibilidad añadida -->
 <nav id="nav-menu" role="navigation" aria-label="Menú principal">
 <a data-section="banner" onclick="closeMenu()">Inicio</a>
 <a data-section="intencion" onclick="closeMenu()">Intención</a>
@@ -198,7 +196,7 @@ font-weight: bold;
 <h2>Productos</h2>
 <div class="producto">
 <h3>Empanadas Dulces</h3>
-<img src="IMG_6484.jpeg" alt="Empanadas Dulces de piña, cajeta, nutella y queso dulce" />
+<img src="IMG_6484.jpeg" alt="Empanadas Dulces de piña, cajeta, nutella y queso dulce" loading="lazy"/>
 <p><strong>Sabores:</strong> Piña, Cajeta, Nutella, Queso dulce.</p>
 <p><strong>Precios:</strong> Grandes $15 c/u (mínimo 5 piezas) — Chicas $7 c/u (mínimo 10 piezas)</p>
 <a class="boton-wsp" href="https://wa.me/524445481177?text=Hola!%20Quiero%20pedir%20empanadas%20dulces">Pedir Empanadas</a>
@@ -206,7 +204,7 @@ font-weight: bold;
 
 <div class="producto">
 <h3>Rosquitas</h3>
-<img src="IMG_6479.jpeg" alt="Rosquitas tradicionales de Dulce Pasado" />
+<img src="IMG_6479.jpeg" alt="Rosquitas tradicionales de Dulce Pasado" loading="lazy"/>
 <p><strong>Precio:</strong> $4 c/u</p>
 <p><strong>Mínimo:</strong> 10 piezas</p>
 <a class="boton-wsp" href="https://wa.me/524445481177?text=Hola!%20Quiero%20pedir%20rosquitas">Pedir Rosquitas</a>
@@ -214,7 +212,7 @@ font-weight: bold;
 
 <div class="producto">
 <h3>Pan Español</h3>
-<img src="IMG_1364.jpeg" alt="Pan español artesanal de Dulce Pasado" />
+<img src="IMG_1364.jpeg" alt="Pan español artesanal de Dulce Pasado" loading="lazy"/>
 <p><strong>Precio:</strong> $15 c/u</p>
 <p><strong>Mínimo:</strong> 5 piezas</p>
 <a class="boton-wsp" href="https://wa.me/524445481177?text=Hola!%20Quiero%20pedir%20pan%20español">Pedir Pan Español</a>
@@ -222,7 +220,7 @@ font-weight: bold;
 
 <div class="producto">
 <h3>Conchas</h3>
-<img src="IMG_6521.jpeg" alt="Conchas esponjosas con cobertura crujiente de Dulce Pasado" />
+<img src="IMG_6521.jpeg" alt="Conchas esponjosas con cobertura crujiente de Dulce Pasado" loading="lazy"/>
 <p><strong>Descripción:</strong> Pan suave, esponjoso y con cobertura crujiente.</p>
 <ul>
 <li>Concha normal: $20 c/u</li>
