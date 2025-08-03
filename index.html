@@ -115,7 +115,7 @@
     <a href="#banner">Inicio</a>
     <a href="#intencion">Intención</a>
     <a href="#productos">Productos</a>
-    <a href="#carrito-pedidos">Tu pedido</a>
+    <a href="#pedido">Tu pedido</a>
     <a href="#historia">Historia</a>
     <a href="#envios">Envíos</a>
   </nav>
@@ -124,7 +124,7 @@
 <section id="banner">
   <h1>Pan artesanal hecho con amor</h1>
   <p>Directo de San Luis Potosí a tu mesa</p>
-  <a href="#carrito-pedidos">Haz tu pedido</a>
+  <a href="#pedido">Haz tu pedido</a>
 </section>
 
 <section id="intencion" class="intencion">
@@ -137,19 +137,19 @@
     <h2>Empanadas Dulces</h2>
     <img src="IMG_6484.jpeg" alt="Empanadas Dulces" />
     <p><strong>Sabores:</strong> Piña, Cajeta, Nutella, Queso dulce.</p>
-    <p><strong>Precio:</strong> $15 c/u (mínimo sugerido: 5 piezas)</p>
+    <p><strong>Precio:</strong> $15 c/u</p>
   </div>
 
   <div class="producto">
     <h2>Rosquitas</h2>
     <img src="IMG_6479.jpeg" alt="Rosquitas" />
-    <p><strong>Precio:</strong> $4 c/u (mínimo sugerido: 10 piezas)</p>
+    <p><strong>Precio:</strong> $4 c/u</p>
   </div>
 
   <div class="producto">
     <h2>Pan Español</h2>
     <img src="IMG_1364.jpeg" alt="Pan Español" />
-    <p><strong>Precio:</strong> $15 c/u (mínimo sugerido: 5 piezas)</p>
+    <p><strong>Precio:</strong> $15 c/u</p>
   </div>
 
   <div class="producto">
@@ -159,90 +159,55 @@
       <li>Concha normal: $20 c/u</li>
       <li>Concha integral: $25 c/u</li>
     </ul>
-    <p><strong>Mínimo sugerido:</strong> 4 piezas</p>
   </div>
 </section>
 
-<section id="carrito-pedidos" style="padding: 2em; background-color: #f8f4ef; color: #222;">
-  <h2 style="color: #000;">🧺 Tu pedido</h2>
-  <form id="pedidoForm" style="margin-top: 1em;">
+<!-- 🥐 PEDIDO NORMAL -->
+<section id="pedido" style="padding: 2em; background-color: #f8f4ef;">
+  <h2>🧺 Tu pedido</h2>
+  <p style="color:red; font-weight:bold;">📦 Recuerda: al total se le agrega el costo de envío según tu zona.</p>
 
-    <h3>Empanadas dulces ($15 c/u)</h3>
-    <p style="font-size:0.9em; color:#5c3b1e;">*Sugerencia: mínimo 5 piezas, puedes combinar sabores</p>
-    <label>Cajeta: <input type="number" name="emp_cajeta" min="0" value="0"></label><br>
-    <label>Piña: <input type="number" name="emp_pina" min="0" value="0"></label><br>
-    <label>Nutella: <input type="number" name="emp_nutella" min="0" value="0"></label><br>
-    <label>Queso dulce: <input type="number" name="emp_queso" min="0" value="0"></label><br><br>
+  <form id="pedidoForm">
+    <h3>Empanadas ($15 c/u)</h3>
+    <label>Cajeta: <input type="number" id="emp_cajeta" value="0" min="0"></label><br>
+    <label>Piña: <input type="number" id="emp_pina" value="0" min="0"></label><br>
+    <label>Nutella: <input type="number" id="emp_nutella" value="0" min="0"></label><br>
+    <label>Queso dulce: <input type="number" id="emp_queso" value="0" min="0"></label><br><br>
 
     <h3>Rosquitas ($4 c/u)</h3>
-    <label>Cantidad: <input type="number" name="rosquitas" min="0" value="0"></label><br><br>
+    <label>Cantidad: <input type="number" id="rosquitas" value="0" min="0"></label><br><br>
 
-    <h3>Pan español ($15 c/u)</h3>
-    <label>Cantidad: <input type="number" name="pan" min="0" value="0"></label><br><br>
+    <h3>Pan Español ($15 c/u)</h3>
+    <label>Cantidad: <input type="number" id="pan" value="0" min="0"></label><br><br>
 
     <h3>Conchas</h3>
-    <label>Normales ($20 c/u): <input type="number" name="concha_normal" min="0" value="0"></label><br>
-    <label>Integrales ($25 c/u): <input type="number" name="concha_integral" min="0" value="0"></label><br><br>
+    <label>Normales ($20 c/u): <input type="number" id="concha_normal" value="0" min="0"></label><br>
+    <label>Integrales ($25 c/u): <input type="number" id="concha_integral" value="0" min="0"></label><br><br>
 
-    <!-- BOTÓN PRINCIPAL -->
-    <button type="button" onclick="mostrarOpciones()" 
-      style="margin-top: 1.5em; padding: 1em 2em; background-color: #000; color: #fff; border: none; cursor: pointer; font-size: 1.1em; border-radius: 8px;">
-      🥐 Ver resumen y enviar
-    </button>
-
-    <!-- RESUMEN DEL PEDIDO -->
-    <div id="resumenPedido" style="margin-top:20px; background:#fff; padding:15px; border-radius:10px; display:none;">
-      <h3>📝 Tu pedido</h3>
-      <p id="contenidoResumen"></p>
-      <p id="avisoMinimo" style="color:red; font-weight:bold;"></p>
-
-      <!-- OPCIONES DE ENVÍO -->
-      <div id="opcionesEnvio" style="margin-top:15px; text-align:center;">
-        <p style="font-weight:bold;">¿Por dónde quieres mandar tu pedido?</p>
-        <button type="button" onclick="enviarPedido('whatsapp')" style="margin:5px; padding:10px 15px; background:#25D366; color:#fff; border:none; border-radius:6px; cursor:pointer;">
-          WhatsApp
-        </button>
-        <button type="button" onclick="enviarPedido('instagram')" style="margin:5px; padding:10px 15px; background:#f7cfcf; color:#3e2b1e; border:none; border-radius:6px; cursor:pointer;">
-          Instagram DM
-        </button>
-        <button type="button" onclick="enviarPedido('facebook')" style="margin:5px; padding:10px 15px; background:#3b5998; color:#fff; border:none; border-radius:6px; cursor:pointer;">
-          Facebook Messenger
-        </button>
-      </div>
-    </div>
-
+    <button type="button" onclick="generarPedido()" style="padding: 10px 20px; background-color:#000; color:#fff; border:none; border-radius:8px; cursor:pointer;">📲 Ver resumen y enviar</button>
   </form>
-</section>
 
-<!-- 🚀 PEDIDO RÁPIDO -->
-<section style="background:#fff3e6; padding:30px; text-align:center; margin-top:40px; border-radius:10px;">
-  <h2>📲 ¿Tienes prisa? Pide rápido aquí</h2>
-  <p style="max-width:500px; margin:auto; margin-bottom:15px;">
-    Escribe lo que quieres (ejemplo: “5 empanadas: 2 de piña, 3 de cajeta, 4 conchas”) y mándalo en un clic.
-  </p>
-  <p style="color:red; font-weight:bold;">📌 Te recomendamos usar el pedido normal para mayor claridad.</p>
+  <div id="resumen" style="margin-top:20px; display:none; background:white; padding:15px; border-radius:10px;">
+    <h3>📝 Resumen de tu pedido</h3>
+    <p id="listaPedido"></p>
+    <p id="totalPedido" style="font-weight:bold;"></p>
+    <p>📦 A esto se le agrega el costo de envío según tu zona.</p>
 
-  <textarea id="pedidoRapido" placeholder="Escribe tu pedido aquí..." 
-    style="width:90%; max-width:400px; height:90px; padding:10px; border-radius:8px; border:1px solid #ccc; font-size:1em;"></textarea><br>
-
-  <button onclick="enviarRapido()" 
-    style="margin-top:15px; padding:12px 24px; background:#25D366; color:white; border:none; border-radius:8px; cursor:pointer; font-size:1.1em;">
-    🚀 Enviar por WhatsApp
-  </button>
+    <button onclick="enviarWhatsApp()" style="background:#25D366; color:white; padding:10px 15px; border:none; border-radius:8px; cursor:pointer;">Enviar por WhatsApp</button>
+  </div>
 </section>
 
 <!-- 📦 ZONA DE ENVÍOS -->
 <section class="zona-envio" id="envios">
   <h2>🚚 Llevamos tu pan hasta tu puerta</h2>
-  <p><strong>Entregamos pan recién horneado en San Luis Potosí capital.</strong></p>
-  <p><strong>Áreas con entrega disponible:</strong></p>
-  <ul style="line-height: 1.8;">
+  <p>Entregamos pan recién horneado en San Luis Potosí capital.</p>
+  <ul>
     <li>🏡 Carranza (de la Casa de la Cultura a Tequis)</li>
     <li>🌳 Himno Nacional</li>
     <li>🏞 Zona Tangamanga</li>
     <li>🎭 Alrededores del Camerino</li>
   </ul>
-  <p><strong>📍 Fuera de estas zonas:</strong> el envío tiene un costo desde $20 MXN (según la distancia).</p>
+  <p><strong>📍 Fuera de estas zonas:</strong> el envío tiene un costo desde $20 MXN (depende la distancia).</p>
 </section>
 
 <!-- 📜 HISTORIA -->
@@ -254,51 +219,56 @@
 </section>
 
 <footer>
-  <p style="margin-bottom: 15px;">¿Tienes dudas o quieres hacer un pedido?</p>
-  <a href="https://wa.me/524445481177" target="_blank" class="boton-wsp">Pedir por WhatsApp</a>
-  <a href="https://www.instagram.com/pan_dulcepasado" target="_blank" style="display:inline-block; background-color:#f7cfcf; color:#3e2b1e; padding:10px 20px; margin:5px; border-radius:8px; text-decoration:none; font-weight:bold;">Instagram</a>
-  <a href="https://www.facebook.com/share/16HTqVAuUz/?mibextid=wwXIfr" target="_blank" style="display:inline-block; background-color:#d4e3fc; color:#3e2b1e; padding:10px 20px; margin:5px; border-radius:8px; text-decoration:none; font-weight:bold;">Facebook</a>
-  <p style="margin-top: 20px;">Gracias por elegir Dulce Pasado 🍞</p>
+  <p>¿Tienes dudas o quieres hacer un pedido?</p>
+  <a href="https://wa.me/524445481177" target="_blank" class="boton-wsp">WhatsApp</a>
+  <a href="https://www.instagram.com/pan_dulcepasado" target="_blank" class="instagram">Instagram</a>
+  <a href="https://www.facebook.com/share/16HTqVAuUz/?mibextid=wwXIfr" target="_blank" class="facebook">Facebook</a>
+  <p style="margin-top: 15px;">Gracias por elegir Dulce Pasado 🍞</p>
 </footer>
 
 <script>
-function mostrarOpciones() {
-  const emp_cajeta = parseInt(document.querySelector('[name="emp_cajeta"]').value) || 0;
-  const emp_pina = parseInt(document.querySelector('[name="emp_pina"]').value) || 0;
-  const emp_nutella = parseInt(document.querySelector('[name="emp_nutella"]').value) || 0;
-  const emp_queso = parseInt(document.querySelector('[name="emp_queso"]').value) || 0;
-  const rosquitas = parseInt(document.querySelector('[name="rosquitas"]').value) || 0;
-  const pan = parseInt(document.querySelector('[name="pan"]').value) || 0;
-  const concha_normal = parseInt(document.querySelector('[name="concha_normal"]').value) || 0;
-  const concha_integral = parseInt(document.querySelector('[name="concha_integral"]').value) || 0;
-
+function generarPedido() {
   let mensaje = "";
   let total = 0;
 
-  if (emp_cajeta + emp_pina + emp_nutella + emp_queso > 0) {
+  const empCajeta = parseInt(document.getElementById('emp_cajeta').value) || 0;
+  const empPina = parseInt(document.getElementById('emp_pina').value) || 0;
+  const empNutella = parseInt(document.getElementById('emp_nutella').value) || 0;
+  const empQueso = parseInt(document.getElementById('emp_queso').value) || 0;
+  const rosquitas = parseInt(document.getElementById('rosquitas').value) || 0;
+  const pan = parseInt(document.getElementById('pan').value) || 0;
+  const conchaNormal = parseInt(document.getElementById('concha_normal').value) || 0;
+  const conchaIntegral = parseInt(document.getElementById('concha_integral').value) || 0;
+
+  if(empCajeta + empPina + empNutella + empQueso > 0){
     mensaje += "🥟 Empanadas:\n";
-    if (emp_cajeta > 0) { mensaje += `- ${emp_cajeta} de Cajeta\n`; total += emp_cajeta * 15; }
-    if (emp_pina > 0) { mensaje += `- ${emp_pina} de Piña\n`; total += emp_pina * 15; }
-    if (emp_nutella > 0) { mensaje += `- ${emp_nutella} de Nutella\n`; total += emp_nutella * 15; }
-    if (emp_queso > 0) { mensaje += `- ${emp_queso} de Queso dulce\n`; total += emp_queso * 15; }
+    if(empCajeta > 0){ mensaje += `- ${empCajeta} de Cajeta\n`; total += empCajeta * 15; }
+    if(empPina > 0){ mensaje += `- ${empPina} de Piña\n`; total += empPina * 15; }
+    if(empNutella > 0){ mensaje += `- ${empNutella} de Nutella\n`; total += empNutella * 15; }
+    if(empQueso > 0){ mensaje += `- ${empQueso} de Queso dulce\n`; total += empQueso * 15; }
   }
 
-  if (rosquitas > 0) { mensaje += `🍩 Rosquitas: ${rosquitas} piezas\n`; total += rosquitas * 4; }
-  if (pan > 0) { mensaje += `🥖 Pan Español: ${pan} piezas\n`; total += pan * 15; }
+  if(rosquitas > 0){ mensaje += `🍩 Rosquitas: ${rosquitas}\n`; total += rosquitas * 4; }
+  if(pan > 0){ mensaje += `🥖 Pan Español: ${pan}\n`; total += pan * 15; }
+  if(conchaNormal > 0){ mensaje += `🍪 Conchas normales: ${conchaNormal}\n`; total += conchaNormal * 20; }
+  if(conchaIntegral > 0){ mensaje += `🍪 Conchas integrales: ${conchaIntegral}\n`; total += conchaIntegral * 25; }
 
-  if (concha_normal + concha_integral > 0) {
-    mensaje += "🍪 Conchas:\n";
-    if (concha_normal > 0) { mensaje += `- ${concha_normal} normales\n`; total += concha_normal * 20; }
-    if (concha_integral > 0) { mensaje += `- ${concha_integral} integrales\n`; total += concha_integral * 25; }
+  if(mensaje === ""){
+    alert("Por favor agrega al menos un producto");
+    return;
   }
 
-  if (mensaje === "") {
-    mensaje = "⚠️ No has agregado ningún producto aún.";
-  } else {
-    mensaje += `\n💰 Total: $${total} MXN\n📦 A esto se le agrega el costo de envío según tu zona.`;
-  }
+  document.getElementById('listaPedido').innerText = mensaje;
+  document.getElementById('totalPedido').innerText = `💰 Total: $${total} MXN`;
+  document.getElementById('resumen').style.display = "block";
+}
 
-  document.getElementById('contenidoResumen').innerHTML = mensaje.replace(/\n/g, "<br>");
-  document.getElementById('resumenPedido').style.display = 'block';
+function enviarWhatsApp(){
+  const mensaje = document.getElementById('listaPedido').innerText + "\n" + document.getElementById('totalPedido').innerText + "\n📦 A esto se le agrega el costo de envío según tu zona.";
+  const url = `https://wa.me/524445481177?text=${encodeURIComponent(mensaje)}`;
+  window.open(url, '_blank');
+}
+</script>
 
-  const aviso = document.getElementById('av
+</body>
+</html>
