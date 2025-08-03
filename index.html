@@ -62,12 +62,13 @@
       max-width: 900px;
       margin: auto;
     }
-    .producto, .zona-envio, .historia, .intencion {
+    .producto {
       background-color: #ffffff;
       border-radius: 12px;
       padding: 25px;
       box-shadow: 0 0 10px rgba(0,0,0,0.04);
       margin-bottom: 40px;
+      text-align: center;
     }
     .producto img {
       width: 100%;
@@ -76,7 +77,7 @@
       margin: 15px auto;
       border-radius: 10px;
     }
-    .boton-wsp {
+    .boton {
       display: inline-block;
       background-color: #25D366;
       color: white;
@@ -113,7 +114,6 @@
   <img src="IMG_5514.jpeg" alt="Logo Dulce Pasado" />
   <nav>
     <a href="#banner">Inicio</a>
-    <a href="#intencion">Intención</a>
     <a href="#productos">Productos</a>
     <a href="#pedido">Tu pedido</a>
     <a href="#historia">Historia</a>
@@ -127,29 +127,27 @@
   <a href="#pedido">Haz tu pedido</a>
 </section>
 
-<section id="intencion" class="intencion">
-  <h2>Nuestra intención</h2>
-  <p>Queremos llevarte un pedacito del pasado a través de sabores que reconfortan y unen. En Dulce Pasado, cada pan es una invitación a compartir momentos cálidos en familia, a disfrutar lo artesanal y lo hecho con cariño. Nos inspira la tradición y el sabor auténtico, y por eso, cada pieza está horneada con el alma.</p>
-</section>
-
 <section id="productos">
   <div class="producto">
     <h2>Empanadas Dulces</h2>
     <img src="IMG_6484.jpeg" alt="Empanadas Dulces" />
     <p><strong>Sabores:</strong> Piña, Cajeta, Nutella, Queso dulce.</p>
-    <p><strong>Precio:</strong> $15 c/u</p>
+    <p><strong>Precio:</strong> Grandes $15 c/u — Chicas $7 c/u</p>
+    <p><strong>Mínimo sugerido:</strong> 5 grandes o 10 chicas</p>
   </div>
 
   <div class="producto">
     <h2>Rosquitas</h2>
     <img src="IMG_6479.jpeg" alt="Rosquitas" />
     <p><strong>Precio:</strong> $4 c/u</p>
+    <p><strong>Mínimo sugerido:</strong> 10 piezas</p>
   </div>
 
   <div class="producto">
     <h2>Pan Español</h2>
     <img src="IMG_1364.jpeg" alt="Pan Español" />
     <p><strong>Precio:</strong> $15 c/u</p>
+    <p><strong>Mínimo sugerido:</strong> 5 piezas</p>
   </div>
 
   <div class="producto">
@@ -159,20 +157,27 @@
       <li>Concha normal: $20 c/u</li>
       <li>Concha integral: $25 c/u</li>
     </ul>
+    <p><strong>Mínimo sugerido:</strong> 4 piezas</p>
   </div>
 </section>
 
-<!-- 🥐 PEDIDO NORMAL -->
+<!-- 🥐 FORMULARIO DE PEDIDO -->
 <section id="pedido" style="padding: 2em; background-color: #f8f4ef;">
   <h2>🧺 Tu pedido</h2>
-  <p style="color:red; font-weight:bold;">📦 Recuerda: al total se le agrega el costo de envío según tu zona.</p>
+  <p style="color:red; font-weight:bold;">📦 Al total se le agrega el costo de envío según tu zona.</p>
 
   <form id="pedidoForm">
-    <h3>Empanadas ($15 c/u)</h3>
-    <label>Cajeta: <input type="number" id="emp_cajeta" value="0" min="0"></label><br>
-    <label>Piña: <input type="number" id="emp_pina" value="0" min="0"></label><br>
-    <label>Nutella: <input type="number" id="emp_nutella" value="0" min="0"></label><br>
-    <label>Queso dulce: <input type="number" id="emp_queso" value="0" min="0"></label><br><br>
+    <h3>Empanadas grandes ($15 c/u)</h3>
+    <label>Cajeta: <input type="number" id="emp_grande_cajeta" value="0" min="0"></label><br>
+    <label>Piña: <input type="number" id="emp_grande_pina" value="0" min="0"></label><br>
+    <label>Nutella: <input type="number" id="emp_grande_nutella" value="0" min="0"></label><br>
+    <label>Queso dulce: <input type="number" id="emp_grande_queso" value="0" min="0"></label><br><br>
+
+    <h3>Empanadas chicas ($7 c/u)</h3>
+    <label>Cajeta: <input type="number" id="emp_chica_cajeta" value="0" min="0"></label><br>
+    <label>Piña: <input type="number" id="emp_chica_pina" value="0" min="0"></label><br>
+    <label>Nutella: <input type="number" id="emp_chica_nutella" value="0" min="0"></label><br>
+    <label>Queso dulce: <input type="number" id="emp_chica_queso" value="0" min="0"></label><br><br>
 
     <h3>Rosquitas ($4 c/u)</h3>
     <label>Cantidad: <input type="number" id="rosquitas" value="0" min="0"></label><br><br>
@@ -193,7 +198,10 @@
     <p id="totalPedido" style="font-weight:bold;"></p>
     <p>📦 A esto se le agrega el costo de envío según tu zona.</p>
 
-    <button onclick="enviarWhatsApp()" style="background:#25D366; color:white; padding:10px 15px; border:none; border-radius:8px; cursor:pointer;">Enviar por WhatsApp</button>
+    <p style="margin-top:10px;">👉 ¿A dónde quieres enviarlo?</p>
+    <button onclick="enviarPedido('whatsapp')" style="background:#25D366; color:white; padding:10px 15px; border:none; border-radius:8px; cursor:pointer;">WhatsApp</button>
+    <button onclick="enviarPedido('instagram')" style="background:#f7cfcf; color:#3e2b1e; padding:10px 15px; border:none; border-radius:8px; cursor:pointer;">Instagram DM</button>
+    <button onclick="enviarPedido('facebook')" style="background:#3b5998; color:white; padding:10px 15px; border:none; border-radius:8px; cursor:pointer;">Facebook</button>
   </div>
 </section>
 
@@ -207,7 +215,7 @@
     <li>🏞 Zona Tangamanga</li>
     <li>🎭 Alrededores del Camerino</li>
   </ul>
-  <p><strong>📍 Fuera de estas zonas:</strong> el envío tiene un costo desde $20 MXN (depende la distancia).</p>
+  <p><strong>📍 Fuera de estas zonas:</strong> el envío tiene un costo desde $20 MXN (depende de la distancia).</p>
 </section>
 
 <!-- 📜 HISTORIA -->
@@ -220,7 +228,7 @@
 
 <footer>
   <p>¿Tienes dudas o quieres hacer un pedido?</p>
-  <a href="https://wa.me/524445481177" target="_blank" class="boton-wsp">WhatsApp</a>
+  <a href="https://wa.me/524445481177" target="_blank" class="whatsapp">WhatsApp</a>
   <a href="https://www.instagram.com/pan_dulcepasado" target="_blank" class="instagram">Instagram</a>
   <a href="https://www.facebook.com/share/16HTqVAuUz/?mibextid=wwXIfr" target="_blank" class="facebook">Facebook</a>
   <p style="margin-top: 15px;">Gracias por elegir Dulce Pasado 🍞</p>
@@ -231,27 +239,52 @@ function generarPedido() {
   let mensaje = "";
   let total = 0;
 
-  const empCajeta = parseInt(document.getElementById('emp_cajeta').value) || 0;
-  const empPina = parseInt(document.getElementById('emp_pina').value) || 0;
-  const empNutella = parseInt(document.getElementById('emp_nutella').value) || 0;
-  const empQueso = parseInt(document.getElementById('emp_queso').value) || 0;
+  // EMPANADAS GRANDES
+  const empGrandeSabores = [
+    {id: 'emp_grande_cajeta', nombre: 'Cajeta'},
+    {id: 'emp_grande_pina', nombre: 'Piña'},
+    {id: 'emp_grande_nutella', nombre: 'Nutella'},
+    {id: 'emp_grande_queso', nombre: 'Queso dulce'}
+  ];
+  let totalGrandes = 0;
+  empGrandeSabores.forEach(sabor => {
+    let cantidad = parseInt(document.getElementById(sabor.id).value) || 0;
+    if (cantidad > 0) {
+      mensaje += `🥟 ${cantidad} empanadas GRANDES de ${sabor.nombre}\n`;
+      total += cantidad * 15;
+      totalGrandes += cantidad;
+    }
+  });
+
+  // EMPANADAS CHICAS
+  const empChicaSabores = [
+    {id: 'emp_chica_cajeta', nombre: 'Cajeta'},
+    {id: 'emp_chica_pina', nombre: 'Piña'},
+    {id: 'emp_chica_nutella', nombre: 'Nutella'},
+    {id: 'emp_chica_queso', nombre: 'Queso dulce'}
+  ];
+  let totalChicas = 0;
+  empChicaSabores.forEach(sabor => {
+    let cantidad = parseInt(document.getElementById(sabor.id).value) || 0;
+    if (cantidad > 0) {
+      mensaje += `🥟 ${cantidad} empanadas CHICAS de ${sabor.nombre}\n`;
+      total += cantidad * 7;
+      totalChicas += cantidad;
+    }
+  });
+
+  // OTROS PRODUCTOS
   const rosquitas = parseInt(document.getElementById('rosquitas').value) || 0;
+  if(rosquitas > 0){ mensaje += `🍩 ${rosquitas} rosquitas\n`; total += rosquitas * 4; }
+
   const pan = parseInt(document.getElementById('pan').value) || 0;
+  if(pan > 0){ mensaje += `🥖 ${pan} pan español\n`; total += pan * 15; }
+
   const conchaNormal = parseInt(document.getElementById('concha_normal').value) || 0;
+  if(conchaNormal > 0){ mensaje += `🍪 ${conchaNormal} conchas normales\n`; total += conchaNormal * 20; }
+
   const conchaIntegral = parseInt(document.getElementById('concha_integral').value) || 0;
-
-  if(empCajeta + empPina + empNutella + empQueso > 0){
-    mensaje += "🥟 Empanadas:\n";
-    if(empCajeta > 0){ mensaje += `- ${empCajeta} de Cajeta\n`; total += empCajeta * 15; }
-    if(empPina > 0){ mensaje += `- ${empPina} de Piña\n`; total += empPina * 15; }
-    if(empNutella > 0){ mensaje += `- ${empNutella} de Nutella\n`; total += empNutella * 15; }
-    if(empQueso > 0){ mensaje += `- ${empQueso} de Queso dulce\n`; total += empQueso * 15; }
-  }
-
-  if(rosquitas > 0){ mensaje += `🍩 Rosquitas: ${rosquitas}\n`; total += rosquitas * 4; }
-  if(pan > 0){ mensaje += `🥖 Pan Español: ${pan}\n`; total += pan * 15; }
-  if(conchaNormal > 0){ mensaje += `🍪 Conchas normales: ${conchaNormal}\n`; total += conchaNormal * 20; }
-  if(conchaIntegral > 0){ mensaje += `🍪 Conchas integrales: ${conchaIntegral}\n`; total += conchaIntegral * 25; }
+  if(conchaIntegral > 0){ mensaje += `🍪 ${conchaIntegral} conchas integrales\n`; total += conchaIntegral * 25; }
 
   if(mensaje === ""){
     alert("Por favor agrega al menos un producto");
@@ -263,10 +296,22 @@ function generarPedido() {
   document.getElementById('resumen').style.display = "block";
 }
 
-function enviarWhatsApp(){
+function enviarPedido(red) {
   const mensaje = document.getElementById('listaPedido').innerText + "\n" + document.getElementById('totalPedido').innerText + "\n📦 A esto se le agrega el costo de envío según tu zona.";
-  const url = `https://wa.me/524445481177?text=${encodeURIComponent(mensaje)}`;
-  window.open(url, '_blank');
+  const mensajeCodificado = encodeURIComponent(mensaje);
+
+  if (red === 'whatsapp') {
+    window.open(`https://wa.me/524445481177?text=${mensajeCodificado}`, '_blank');
+  } else {
+    navigator.clipboard.writeText(mensaje).then(() => {
+      alert("✅ Tu pedido se copió al portapapeles. Abre " + red.toUpperCase() + " y pégalo en el mensaje.");
+      if (red === 'instagram') {
+        window.open("https://www.instagram.com/pan_dulcepasado", "_blank");
+      } else if (red === 'facebook') {
+        window.open("https://www.facebook.com/share/16HTqVAuUz/?mibextid=wwXIfr", "_blank");
+      }
+    });
+  }
 }
 </script>
 
