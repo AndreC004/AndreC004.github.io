@@ -22,6 +22,8 @@ margin: 0;
 padding: 0;
 font-family: 'Segoe UI', Arial, sans-serif;
 }
+
+/* ---------- HEADER ---------- */
 header {
 position: fixed;
 top: 0; left: 0; right: 0;
@@ -33,7 +35,14 @@ padding: 10px 20px;
 box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 z-index: 1000;
 }
-header img { height: 55px; }
+header a img.logo {
+  height: 50px;
+  transition: transform 0.3s ease;
+}
+header a img.logo:hover {
+  transform: scale(1.05);
+}
+
 nav { display: flex; gap: 15px; }
 nav a {
 text-decoration: none;
@@ -42,6 +51,7 @@ font-weight: bold;
 transition: color 0.2s ease;
 }
 nav a:hover { color: #b28855; }
+
 .menu-toggle {
 display: none;
 flex-direction: column;
@@ -64,6 +74,8 @@ transition: 0.4s;
 .menu-toggle.change .bar:nth-child(1) { transform: rotate(-45deg) translate(-5px, 6px); }
 .menu-toggle.change .bar:nth-child(2) { opacity: 0; }
 .menu-toggle.change .bar:nth-child(3) { transform: rotate(45deg) translate(-5px, -6px); }
+
+/* ---------- RESPONSIVE NAV ---------- */
 @media (max-width: 1024px) {
 nav {
 position: fixed;
@@ -89,6 +101,8 @@ width: 100%;
 nav.active { right: 0; }
 .menu-toggle { display: flex; }
 }
+
+/* ---------- BANNER ---------- */
 #banner {
 background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1470&q=80');
 background-size: cover;
@@ -116,6 +130,8 @@ border-radius: 6px;
 box-shadow: 0 3px 6px rgba(0,0,0,0.3);
 }
 #banner a:hover { background-color: #9c7147; transform: scale(1.05); }
+
+/* ---------- PRODUCTOS ---------- */
 section { padding: 40px 20px; max-width: 900px; margin: auto; }
 .producto {
 background-color: #ffffff;
@@ -132,6 +148,20 @@ display: block;
 margin: 15px auto;
 border-radius: 10px;
 }
+.boton-agregar {
+display: inline-block;
+background-color: #b28855;
+color: white;
+padding: 10px 20px;
+margin-top: 15px;
+border-radius: 8px;
+text-decoration: none;
+font-weight: bold;
+cursor: pointer;
+}
+.boton-agregar:hover { background-color: #9c7147; }
+
+/* ---------- BOTÓN WHATSAPP ---------- */
 .boton-wsp {
 display: inline-block;
 background-color: #25D366;
@@ -141,8 +171,39 @@ margin-top: 15px;
 border-radius: 8px;
 text-decoration: none;
 font-weight: bold;
+cursor: pointer;
 }
 .boton-wsp:hover { background-color: #1ebe57; }
+
+/* ---------- CARRITO ---------- */
+#carrito-pedidos {
+background-color: #f8f4ef;
+padding: 2em;
+}
+#lista-carrito {
+list-style: none;
+padding: 0;
+margin-top: 15px;
+}
+#lista-carrito li {
+background: #fff;
+margin: 8px 0;
+padding: 10px;
+border-radius: 6px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+#lista-carrito button {
+background: red;
+color: #fff;
+border: none;
+padding: 4px 8px;
+border-radius: 5px;
+cursor: pointer;
+}
+
+/* ---------- FOOTER ---------- */
 footer {
 text-align: center;
 padding: 30px;
@@ -164,21 +225,23 @@ font-weight: bold;
 <body>
 
 <header>
-<img src="IMG_5514.png" alt="Logo Dulce Pasado - Panadería artesanal" />
-<div class="menu-toggle" onclick="toggleMenu()" aria-label="Abrir o cerrar menú de navegación">
-<div class="bar"></div>
-<div class="bar"></div>
-<div class="bar"></div>
-</div>
-<nav id="nav-menu" role="navigation" aria-label="Menú principal">
-<a data-section="banner" onclick="closeMenu()">Inicio</a>
-<a data-section="intencion" onclick="closeMenu()">Intención</a>
-<a data-section="productos" onclick="closeMenu()">Productos</a>
-<a data-section="carrito-pedidos" onclick="closeMenu()">Tu pedido</a>
-<a data-section="historia" onclick="closeMenu()">Historia</a>
-<a data-section="envios" onclick="closeMenu()">Envíos</a>
-<a data-section="drop" onclick="closeMenu()">¿DROP?</a>
-</nav>
+  <a href="#banner">
+    <img src="IMG_5514.png" alt="Logo Dulce Pasado" class="logo">
+  </a>
+  <div class="menu-toggle" onclick="toggleMenu()" aria-label="Abrir o cerrar menú de navegación">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+  <nav id="nav-menu" role="navigation" aria-label="Menú principal">
+    <a data-section="banner" onclick="closeMenu()">Inicio</a>
+    <a data-section="intencion" onclick="closeMenu()">Intención</a>
+    <a data-section="productos" onclick="closeMenu()">Productos</a>
+    <a data-section="carrito-pedidos" onclick="closeMenu()">Tu pedido</a>
+    <a data-section="historia" onclick="closeMenu()">Historia</a>
+    <a data-section="envios" onclick="closeMenu()">Envíos</a>
+    <a data-section="drop" onclick="closeMenu()">¿DROP?</a>
+  </nav>
 </header>
 
 <section id="banner">
@@ -194,12 +257,13 @@ font-weight: bold;
 
 <section id="productos">
 <h2>Productos</h2>
+
 <div class="producto">
 <h3>Empanadas Dulces</h3>
 <img src="IMG_6484.jpeg" alt="Empanadas Dulces de piña, cajeta, nutella y queso dulce" loading="lazy"/>
 <p><strong>Sabores:</strong> Piña, Cajeta, Nutella, Queso dulce.</p>
 <p><strong>Precios:</strong> Grandes $15 c/u (mínimo 5 piezas) — Chicas $7 c/u (mínimo 10 piezas)</p>
-<a class="boton-wsp" href="https://wa.me/524445481177?text=Hola!%20Quiero%20pedir%20empanadas%20dulces">Pedir Empanadas</a>
+<button class="boton-agregar" onclick="agregarCarrito('Empanadas Dulces')">Agregar al carrito</button>
 </div>
 
 <div class="producto">
@@ -207,7 +271,7 @@ font-weight: bold;
 <img src="IMG_6479.jpeg" alt="Rosquitas tradicionales de Dulce Pasado" loading="lazy"/>
 <p><strong>Precio:</strong> $4 c/u</p>
 <p><strong>Mínimo:</strong> 10 piezas</p>
-<a class="boton-wsp" href="https://wa.me/524445481177?text=Hola!%20Quiero%20pedir%20rosquitas">Pedir Rosquitas</a>
+<button class="boton-agregar" onclick="agregarCarrito('Rosquitas')">Agregar al carrito</button>
 </div>
 
 <div class="producto">
@@ -215,7 +279,7 @@ font-weight: bold;
 <img src="IMG_1364.jpeg" alt="Pan español artesanal de Dulce Pasado" loading="lazy"/>
 <p><strong>Precio:</strong> $15 c/u</p>
 <p><strong>Mínimo:</strong> 5 piezas</p>
-<a class="boton-wsp" href="https://wa.me/524445481177?text=Hola!%20Quiero%20pedir%20pan%20español">Pedir Pan Español</a>
+<button class="boton-agregar" onclick="agregarCarrito('Pan Español')">Agregar al carrito</button>
 </div>
 
 <div class="producto">
@@ -227,29 +291,16 @@ font-weight: bold;
 <li>Concha integral: $25 c/u</li>
 </ul>
 <p><strong>Mínimo:</strong> 4 piezas</p>
-<a class="boton-wsp" href="https://wa.me/524445481177?text=Hola!%20Quisiera%20pedir%20conchas">Pedir Conchas</a>
+<button class="boton-agregar" onclick="agregarCarrito('Conchas')">Agregar al carrito</button>
 </div>
 </section>
 
-<section id="carrito-pedidos" style="padding: 2em; background-color: #f8f4ef;">
+<!-- ---------- CARRITO INTERACTIVO ---------- -->
+<section id="carrito-pedidos">
 <h2 style="color: #000;">🧺 Tu pedido</h2>
-<form id="pedido-form">
-<label for="nombre">Nombre:</label><br>
-<input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required><br><br>
+<ul id="lista-carrito"></ul>
 
-<label for="producto">Producto:</label><br>
-<select id="producto" name="producto">
-<option value="Empanadas">Empanadas</option>
-<option value="Rosquitas">Rosquitas</option>
-<option value="Pan Español">Pan Español</option>
-<option value="Conchas">Conchas</option>
-</select><br><br>
-
-<label for="cantidad">Cantidad:</label><br>
-<input type="number" id="cantidad" name="cantidad" min="1" required><br><br>
-
-<button type="button" class="boton-wsp" onclick="enviarPedido()" aria-label="Enviar pedido por WhatsApp">Enviar pedido por WhatsApp</button>
-</form>
+<button class="boton-wsp" onclick="enviarPedidoWhatsApp()">Enviar pedido por WhatsApp</button>
 </section>
 
 <section id="historia">
@@ -275,48 +326,80 @@ font-weight: bold;
 </footer>
 
 <script>
+/* --------- MENU --------- */
 function toggleMenu() {
-const menu = document.getElementById('nav-menu');
-const toggle = document.querySelector('.menu-toggle');
-menu.classList.toggle('active');
-toggle.classList.toggle('change');
+  const menu = document.getElementById('nav-menu');
+  const toggle = document.querySelector('.menu-toggle');
+  menu.classList.toggle('active');
+  toggle.classList.toggle('change'); 
 }
 function closeMenu() {
-setTimeout(() => {
-document.getElementById('nav-menu').classList.remove('active');
-document.querySelector('.menu-toggle').classList.remove('change');
-}, 200);
+  setTimeout(() => {
+    document.getElementById('nav-menu').classList.remove('active');
+    document.querySelector('.menu-toggle').classList.remove('change');
+  }, 200);
 }
 document.querySelectorAll('nav a[data-section]').forEach(link => {
-link.addEventListener('click', function() {
-const id = this.getAttribute('data-section');
-const target = document.getElementById(id);
-if (target) {
-const offset = target.offsetTop - 70;
-window.scrollTo({ top: offset, behavior: 'smooth' });
-closeMenu();
-}
-});
+  link.addEventListener('click', function() {
+    const id = this.getAttribute('data-section');
+    const target = document.getElementById(id);
+    if (target) {
+      const offset = target.offsetTop - 70; 
+      window.scrollTo({ top: offset, behavior: 'smooth' });
+      closeMenu();
+    }
+  });
 });
 document.addEventListener('click', function(e) {
-const menu = document.getElementById('nav-menu');
-const toggle = document.querySelector('.menu-toggle');
-if (!menu.contains(e.target) && !toggle.contains(e.target)) {
-menu.classList.remove('active');
-toggle.classList.remove('change');
-}
+  const menu = document.getElementById('nav-menu');
+  const toggle = document.querySelector('.menu-toggle');
+  if (!menu.contains(e.target) && !toggle.contains(e.target)) {
+    menu.classList.remove('active');
+    toggle.classList.remove('change');
+  }
 });
-function enviarPedido() {
-const nombre = document.getElementById('nombre').value;
-const producto = document.getElementById('producto').value;
-const cantidad = document.getElementById('cantidad').value;
-if (nombre && producto && cantidad) {
-const mensaje = `Hola! Soy ${nombre} y quiero pedir ${cantidad} ${producto}`;
-window.open(`https://wa.me/524445481177?text=${encodeURIComponent(mensaje)}`, '_blank');
-} else {
-alert('Por favor completa todos los campos');
+
+/* --------- CARRITO --------- */
+let carrito = [];
+
+function agregarCarrito(producto) {
+  const index = carrito.findIndex(item => item.nombre === producto);
+  if (index >= 0) {
+    carrito[index].cantidad += 1;
+  } else {
+    carrito.push({ nombre: producto, cantidad: 1 });
+  }
+  actualizarCarrito();
 }
+
+function eliminarProducto(index) {
+  carrito.splice(index, 1);
+  actualizarCarrito();
+}
+
+function actualizarCarrito() {
+  const lista = document.getElementById('lista-carrito');
+  lista.innerHTML = '';
+  carrito.forEach((item, i) => {
+    const li = document.createElement('li');
+    li.innerHTML = `${item.cantidad} × ${item.nombre} <button onclick="eliminarProducto(${i})">X</button>`;
+    lista.appendChild(li);
+  });
+}
+
+function enviarPedidoWhatsApp() {
+  if (carrito.length === 0) {
+    alert('Tu carrito está vacío.');
+    return;
+  }
+  let mensaje = 'Hola! Me gustaría pedir:\n';
+  carrito.forEach(item => {
+    mensaje += `• ${item.cantidad} × ${item.nombre}\n`;
+  });
+  const url = `https://wa.me/524445481177?text=${encodeURIComponent(mensaje)}`;
+  window.open(url, '_blank');
 }
 </script>
+
 </body>
 </html>
