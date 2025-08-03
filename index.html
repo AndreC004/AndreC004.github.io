@@ -73,7 +73,7 @@ nav a:hover { color: #b28855; }
 .menu-toggle.change .bar:nth-child(2) { opacity: 0; }
 .menu-toggle.change .bar:nth-child(3) { transform: rotate(45deg) translate(-5px, -6px); }
 
-/* --- MENÚ EN PANTALLAS CHICAS Y TABLET --- */
+/* --- MENÚ EN PANTALLAS CHICAS Y TABLET (CORREGIDO) --- */
 @media (max-width: 1024px) {
   nav {
     position: fixed;
@@ -84,13 +84,22 @@ nav a:hover { color: #b28855; }
     background: rgba(255, 250, 245, 0.97);
     backdrop-filter: blur(8px);
     flex-direction: column;
-    padding-top: 110px;
-    padding-left: 40px;  /* ✅ MÁS ESPACIO A LA IZQUIERDA */
-    gap: 35px; /* ✅ MÁS ESPACIO ENTRE ENLACES */
+    padding-top: 80px;   /* ✅ ANTES 110px */
+    padding-left: 40px;
+    gap: 20px;           /* ✅ ANTES 35px */
     transition: right 0.3s ease;
     box-shadow: -3px 0 10px rgba(0,0,0,0.15);
     z-index: 2000;
   }
+  nav a {
+    font-size: 1.1em;
+    padding: 10px 0;
+    font-weight: bold;
+    width: 100%;
+  }
+  nav.active { right: 0; }
+  .menu-toggle { display: flex; }
+}
   nav a {
     font-size: 1.2em;
     padding: 14px 0;
@@ -308,18 +317,11 @@ function closeMenu() {
   }, 200);
 }
 
-/* ✅ Ajuste: scroll suave solo para los links internos (corregido) */
+/* ✅ Links internos: cerrar menú y dejar que hagan scroll normal */
 document.querySelectorAll('nav a[href^="#"]').forEach(link => {
-  link.addEventListener('click', function(e) {
-    e.preventDefault();
-    const targetId = this.getAttribute('href');
-    const section = document.querySelector(targetId);
-    if (section) {
-      closeMenu();
-      setTimeout(() => {
-        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 300);
-    }
+  link.addEventListener('click', function() {
+    closeMenu(); // ✅ cerramos el menú
+    // ❌ ya no bloqueamos el link, dejamos que haga scroll nativo
   });
 });
 
