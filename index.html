@@ -5,59 +5,149 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dulce Pasado</title>
 <style>
-body{margin:0;font-family:Arial,sans-serif;background:#f8f1e8;color:#3e2b1e;line-height:1.5;}
-header{position:fixed;top:0;left:0;right:0;background:#fffaf5;
-  display:flex;justify-content:space-between;align-items:center;
-  padding:10px 20px;box-shadow:0 2px 4px rgba(0,0,0,0.1);}
-header img{height:50px;cursor:pointer;transition:.3s;}
-header img:hover{transform:scale(1.05);}
-nav{display:flex;gap:15px;}
-nav a{text-decoration:none;color:#5c3b1e;font-weight:bold;transition:.2s;}
-nav a:hover{color:#b28855;}
-.menu{display:none;flex-direction:column;cursor:pointer;}
-.menu div{height:3px;width:25px;background:#5c3b1e;margin:4px 0;}
-@media(max-width:800px){
-  nav{position:fixed;right:-230px;top:0;width:200px;height:100%;
-      flex-direction:column;background:#fff;padding:80px 20px;
-      transition:.3s;}
-  nav.show{right:0;}
-  .menu{display:flex;}
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#f8f1e8;
+  color:#3e2b1e;
+  line-height:1.5;
 }
-#banner{text-align:center;padding:150px 20px 80px;color:white;
+
+/* HEADER */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #fffaf5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+.logo-container img {
+  height: 55px;
+  display: block;
+  cursor: pointer;
+  transition: transform .3s ease;
+}
+.logo-container img:hover {
+  transform: scale(1.05);
+}
+nav {
+  display: flex;
+  gap: 15px;
+}
+nav a {
+  text-decoration: none;
+  color: #5c3b1e;
+  font-weight: bold;
+  transition: .2s;
+}
+nav a:hover { color: #b28855; }
+.menu { display: none; flex-direction: column; cursor: pointer; }
+.menu div { height: 3px; width: 25px; background: #5c3b1e; margin: 4px 0; }
+
+@media(max-width:800px){
+  nav{
+    position:fixed;
+    right:-230px;
+    top:0;
+    width:200px;
+    height:100%;
+    flex-direction:column;
+    background:#fff;
+    padding:80px 20px;
+    transition:.3s;
+  }
+  nav.show{ right:0; }
+  .menu{ display:flex; }
+}
+
+/* BANNER */
+#banner{
+  text-align:center;
+  padding:150px 20px 80px;
+  color:white;
   background-image:url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1470&q=80');
-  background-size:cover;background-position:center;}
-#banner h1{font-size:2.5em;margin:0;text-shadow:1px 1px 5px rgba(0,0,0,0.5);}
-#banner p{font-size:1.2em;text-shadow:1px 1px 4px rgba(0,0,0,0.4);}
+  background-size:cover;
+  background-position:center;
+}
+#banner h1{
+  font-size:2.5em;
+  margin:0;
+  text-shadow:1px 1px 5px rgba(0,0,0,0.5);
+}
+#banner p{
+  font-size:1.2em;
+  text-shadow:1px 1px 4px rgba(0,0,0,0.4);
+}
+
+/* SECCIONES */
 section{padding:40px 20px;max-width:900px;margin:auto;}
 h2{text-align:center;margin-bottom:20px;}
-.producto{background:#fff;padding:20px;margin-bottom:25px;text-align:center;border-radius:10px;}
+
+/* PRODUCTOS */
+.producto{
+  background:#fff;
+  padding:20px;
+  margin-bottom:25px;
+  text-align:center;
+  border-radius:10px;
+}
 .producto img{max-width:100%;border-radius:10px;}
-button{background:#b28855;color:white;border:none;padding:10px 18px;border-radius:6px;margin-top:10px;cursor:pointer;transition:.2s;}
+button{
+  background:#b28855;
+  color:white;
+  border:none;
+  padding:10px 18px;
+  border-radius:6px;
+  margin-top:10px;
+  cursor:pointer;
+  transition:.2s;
+}
 button:hover{background:#9c7147;transform:scale(1.03);}
+
+/* CARRITO */
 #lista{list-style:none;padding:0;}
-#lista li{background:#fff;margin:5px 0;padding:8px;border-radius:6px;display:flex;justify-content:space-between;}
+#lista li{background:#fff;margin:5px 0;padding:8px;
+          border-radius:6px;display:flex;justify-content:space-between;}
+
+/* REDES */
 .redes{display:flex;justify-content:center;gap:15px;}
-.redes a{background:#b28855;color:white;padding:10px 15px;border-radius:6px;text-decoration:none;font-weight:bold;transition:.2s;}
+.redes a{background:#b28855;color:white;padding:10px 15px;
+         border-radius:6px;text-decoration:none;font-weight:bold;transition:.2s;}
 .redes a:hover{background:#9c7147;}
-.faq{background:#fff;padding:15px;border-radius:10px;margin-bottom:10px;}
+
+/* DROP */
 .drop{background:#fff3e6;text-align:center;padding:30px;border-radius:10px;}
+
+/* FOOTER */
 footer{text-align:center;padding:20px;background:#f0e5db;margin-top:40px;font-size:0.9em;}
-footer a{color:#3e2b1e;text-decoration:none;font-weight:bold;}
 </style>
 </head>
 
 <body>
 
 <header>
-  <a href="#banner"><img src="IMG_5514.png" alt="Logo Dulce Pasado"></a>
-  <div class="menu" onclick="toggleMenu()"><div></div><div></div><div></div></div>
+  <div class="logo-container">
+    <a href="#banner">
+      <img src="IMG_5514.png" alt="Logo Dulce Pasado">
+    </a>
+  </div>
+
+  <div class="menu" onclick="toggleMenu()">
+    <div></div><div></div><div></div>
+  </div>
+
   <nav id="nav">
     <a href="#banner" onclick="closeMenu()">Inicio</a>
+    <a href="#historia" onclick="closeMenu()">Historia</a>
     <a href="#productos" onclick="closeMenu()">Productos</a>
     <a href="#pedido" onclick="closeMenu()">Pedido</a>
-    <a href="#historia" onclick="closeMenu()">Historia</a>
     <a href="#envios" onclick="closeMenu()">Envíos</a>
-    <a href="#faq" onclick="closeMenu()">FAQ</a>
     <a href="#drop" onclick="closeMenu()">¿DROP?</a>
     <a href="#redes" onclick="closeMenu()">Redes</a>
   </nav>
@@ -68,12 +158,32 @@ footer a{color:#3e2b1e;text-decoration:none;font-weight:bold;}
   <p>Directo de San Luis Potosí a tu mesa</p>
 </section>
 
+<!-- HISTORIA ARRIBA -->
+<section id="historia">
+  <h2>Nuestra Historia</h2>
+  <p>Hace más de 90 años, nuestras abuelas Victoria y Juanita comenzaron a hornear pan en sus cocinas, 
+  mezclando tradición, amor y recetas únicas. Hoy seguimos compartiendo ese legado en cada pieza de pan 
+  que llega a tu mesa. Dulce Pasado no es solo pan, es memoria y unión familiar.</p>
+</section>
+
 <section id="productos">
   <h2>Productos</h2>
-  <div class="producto"><h3>Empanadas</h3><img src="IMG_6484.jpeg"><p>$15 c/u (mín. 5)</p><button onclick="add('Empanadas')">Agregar</button></div>
-  <div class="producto"><h3>Rosquitas</h3><img src="IMG_6479.jpeg"><p>$4 c/u (mín. 10)</p><button onclick="add('Rosquitas')">Agregar</button></div>
-  <div class="producto"><h3>Pan Español</h3><img src="IMG_1364.jpeg"><p>$15 c/u (mín. 5)</p><button onclick="add('Pan Español')">Agregar</button></div>
-  <div class="producto"><h3>Conchas</h3><img src="IMG_6521.jpeg"><p>$20 c/u (mín. 4)</p><button onclick="add('Conchas')">Agregar</button></div>
+  <div class="producto">
+    <h3>Empanadas</h3><img src="IMG_6484.jpeg" alt="Empanadas">
+    <p>$15 c/u (mín. 5)</p><button onclick="add('Empanadas')">Agregar</button>
+  </div>
+  <div class="producto">
+    <h3>Rosquitas</h3><img src="IMG_6479.jpeg" alt="Rosquitas">
+    <p>$4 c/u (mín. 10)</p><button onclick="add('Rosquitas')">Agregar</button>
+  </div>
+  <div class="producto">
+    <h3>Pan Español</h3><img src="IMG_1364.jpeg" alt="Pan Español">
+    <p>$15 c/u (mín. 5)</p><button onclick="add('Pan Español')">Agregar</button>
+  </div>
+  <div class="producto">
+    <h3>Conchas</h3><img src="IMG_6521.jpeg" alt="Conchas">
+    <p>$20 c/u (mín. 4)</p><button onclick="add('Conchas')">Agregar</button>
+  </div>
 </section>
 
 <section id="pedido">
@@ -82,24 +192,10 @@ footer a{color:#3e2b1e;text-decoration:none;font-weight:bold;}
   <button onclick="send()">Enviar pedido por WhatsApp</button>
 </section>
 
-<section id="historia">
-  <h2>Nuestra Historia</h2>
-  <p>Hace más de 90 años, nuestras abuelas Victoria y Juanita comenzaron a hornear pan en sus cocinas,
-  mezclando tradición, amor y recetas únicas. Hoy seguimos compartiendo ese legado en cada pieza de pan
-  que llega a tu mesa. Dulce Pasado no es solo pan, es memoria y unión familiar.</p>
-</section>
-
 <section id="envios">
   <h2>Envíos</h2>
   <p><strong>Gratis en:</strong> Carranza, Himno Nacional y Zona Tangamanga.</p>
   <p><strong>Otros lugares:</strong> Envío desde $20 en S.L.P. capital.</p>
-</section>
-
-<section id="faq">
-  <h2>Preguntas Frecuentes</h2>
-  <div class="faq"><strong>¿Con cuánta anticipación debo pedir?</strong><br>Lo ideal es pedir con 1 día de anticipación para asegurar disponibilidad.</div>
-  <div class="faq"><strong>¿Hacen pan sin azúcar?</strong><br>¡Sí! Tenemos opciones especiales bajo pedido.</div>
-  <div class="faq"><strong>¿Puedo pedir por WhatsApp directo?</strong><br>Claro, todos los pedidos se confirman vía WhatsApp.</div>
 </section>
 
 <section id="drop" class="drop">
@@ -118,7 +214,6 @@ footer a{color:#3e2b1e;text-decoration:none;font-weight:bold;}
 
 <footer>
   <p>© 2025 Dulce Pasado · Todos los derechos reservados</p>
-  <p><a href="mailto:contacto@dulcepasado.com">contacto@dulcepasado.com</a></p>
 </footer>
 
 <script>
