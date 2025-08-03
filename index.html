@@ -214,104 +214,16 @@
   </form>
 </section>
 
-<section class="zona-envio" id="envios">
-  <h2>🚚 Llevamos tu pan hasta tu puerta</h2>
-  <p><strong>Entregamos pan recién horneado en San Luis Potosí capital.</strong></p>
-  <p><strong>Áreas con entrega disponible:</strong></p>
-  <ul style="line-height: 1.8;">
-    <li>🏡 Carranza (de la Casa de la Cultura a Tequis)</li>
-    <li>🌳 Himno Nacional</li>
-    <li>🏞 Zona Tangamanga</li>
-    <li>🎭 Alrededores del Camerino</li>
-  </ul>
-  <p><strong>📍 Fuera de estas zonas:</strong> el envío tiene un costo desde $20 MXN (según la distancia).</p>
-</section>
+<!-- 🚀 PEDIDO RÁPIDO -->
+<section style="background:#fff3e6; padding:30px; text-align:center; margin-top:40px; border-radius:10px;">
+  <h2>📲 ¿Tienes prisa? Pide rápido aquí</h2>
+  <p style="max-width:500px; margin:auto; margin-bottom:15px;">
+    Escribe lo que quieres (ejemplo: “5 empanadas: 2 de piña, 3 de cajeta, 4 conchas”) y mándalo en un clic.
+  </p>
+  <p style="color:red; font-weight:bold;">📌 Te recomendamos usar el pedido normal para mayor claridad.</p>
 
-<section class="intencion" id="historia">
-  <h2>Nuestra Historia</h2>
-  <p>Mi abuela paterna creció en Jáltipan, Veracruz, donde aprendió a hacer pan de su madre. Lo que comenzó como una receta familiar se volvió una tradición. </p>
-  <p>Por su parte, mi abuela materna nació en la Huasteca Potosina y vendía pan fresco en Tanquián de Escobedo, horneado en hornos de barro. </p>
-  <p>Hoy, más de 90 años de recetas familiares después, seguimos horneando con el mismo amor. Las hemos mejorado con el tiempo, pero con el alma intacta.</p>
-</section>
+  <textarea id="pedidoRapido" placeholder="Escribe tu pedido aquí..." 
+    style="width:90%; max-width:400px; height:90px; padding:10px; border-radius:8px; border:1px solid #ccc; font-size:1em;"></textarea><br>
 
-<footer>
-  <p style="margin-bottom: 15px;">¿Tienes dudas o quieres hacer un pedido?</p>
-  <a href="https://wa.me/524445481177" target="_blank" class="boton-wsp">Pedir por WhatsApp</a>
-  <a href="https://www.instagram.com/pan_dulcepasado" target="_blank" style="display:inline-block; background-color:#f7cfcf; color:#3e2b1e; padding:10px 20px; margin:5px; border-radius:8px; text-decoration:none; font-weight:bold;">Instagram</a>
-  <a href="https://www.facebook.com/share/16HTqVAuUz/?mibextid=wwXIfr" target="_blank" style="display:inline-block; background-color:#d4e3fc; color:#3e2b1e; padding:10px 20px; margin:5px; border-radius:8px; text-decoration:none; font-weight:bold;">Facebook</a>
-  <p style="margin-top: 20px;">Gracias por elegir Dulce Pasado 🍞</p>
-</footer>
-
-<script>
-function mostrarOpciones() {
-  // Obtenemos cantidades
-  const emp_cajeta = parseInt(document.querySelector('[name="emp_cajeta"]').value) || 0;
-  const emp_pina = parseInt(document.querySelector('[name="emp_pina"]').value) || 0;
-  const emp_nutella = parseInt(document.querySelector('[name="emp_nutella"]').value) || 0;
-  const emp_queso = parseInt(document.querySelector('[name="emp_queso"]').value) || 0;
-  const rosquitas = parseInt(document.querySelector('[name="rosquitas"]').value) || 0;
-  const pan = parseInt(document.querySelector('[name="pan"]').value) || 0;
-  const concha_normal = parseInt(document.querySelector('[name="concha_normal"]').value) || 0;
-  const concha_integral = parseInt(document.querySelector('[name="concha_integral"]').value) || 0;
-
-  let mensaje = "";
-  let total = 0;
-
-  // Empanadas
-  if (emp_cajeta + emp_pina + emp_nutella + emp_queso > 0) {
-    mensaje += "🥟 Empanadas:\n";
-    if (emp_cajeta > 0) { mensaje += `- ${emp_cajeta} de Cajeta\n`; total += emp_cajeta * 15; }
-    if (emp_pina > 0) { mensaje += `- ${emp_pina} de Piña\n`; total += emp_pina * 15; }
-    if (emp_nutella > 0) { mensaje += `- ${emp_nutella} de Nutella\n`; total += emp_nutella * 15; }
-    if (emp_queso > 0) { mensaje += `- ${emp_queso} de Queso dulce\n`; total += emp_queso * 15; }
-  }
-
-  // Rosquitas
-  if (rosquitas > 0) { mensaje += `🍩 Rosquitas: ${rosquitas} piezas\n`; total += rosquitas * 4; }
-
-  // Pan español
-  if (pan > 0) { mensaje += `🥖 Pan Español: ${pan} piezas\n`; total += pan * 15; }
-
-  // Conchas
-  if (concha_normal + concha_integral > 0) {
-    mensaje += "🍪 Conchas:\n";
-    if (concha_normal > 0) { mensaje += `- ${concha_normal} normales\n`; total += concha_normal * 20; }
-    if (concha_integral > 0) { mensaje += `- ${concha_integral} integrales\n`; total += concha_integral * 25; }
-  }
-
-  if (mensaje === "") {
-    mensaje = "⚠️ No has agregado ningún producto aún.";
-  } else {
-    mensaje += `\n💰 Total: $${total} MXN`;
-  }
-
-  document.getElementById('contenidoResumen').innerHTML = mensaje.replace(/\n/g, "<br>");
-  document.getElementById('resumenPedido').style.display = 'block';
-
-  // Aviso si no se cumple mínimo sugerido
-  const aviso = document.getElementById('avisoMinimo');
-  if (total < 70 && total > 0) {
-    aviso.textContent = "📌 Recuerda: el pedido mínimo sugerido es de $70 MXN + envío.";
-  } else {
-    aviso.textContent = "";
-  }
-}
-
-function enviarPedido(red) {
-  const mensaje = document.getElementById('contenidoResumen').innerText;
-  const mensajeCodificado = encodeURIComponent(mensaje);
-
-  if (red === 'whatsapp') {
-    window.open(`https://wa.me/524445481177?text=${mensajeCodificado}`, '_blank');
-  } else if (red === 'instagram') {
-    window.open(`https://www.instagram.com/pan_dulcepasado`, '_blank');
-    alert("📋 Copia tu pedido y pégalo en un mensaje directo de Instagram.");
-  } else if (red === 'facebook') {
-    window.open(`https://www.facebook.com/share/16HTqVAuUz/?mibextid=wwXIfr`, '_blank');
-    alert("📋 Copia tu pedido y pégalo en un mensaje directo de Facebook.");
-  }
-}
-</script>
-
-</body>
-</html>
+  <button onclick="enviarRapido()" 
+    style="margin-top:15px; padding:12px 24px; background:#25D366; color:white; border:none; border-radius:8px; cursor:pointer; font-size:1
