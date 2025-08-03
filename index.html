@@ -33,7 +33,7 @@ padding: 10px 20px;
 box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 z-index: 1000;
 }
-header img { height: 55px; }
+header img { height: 55px; cursor:pointer; }
 nav { display: flex; gap: 15px; }
 nav a {
 text-decoration: none;
@@ -103,6 +103,7 @@ color: #fff;
 text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
 text-align: center;
 padding: 0 20px;
+animation: fadeIn 1.5s ease-in;
 }
 #banner h1 { font-size: clamp(2rem, 5vw, 3rem); margin: 0; }
 #banner p { font-size: 1.2em; margin: 10px 0 20px; }
@@ -114,6 +115,7 @@ text-decoration: none;
 font-weight: bold;
 border-radius: 6px;
 box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+transition: transform 0.3s ease;
 }
 #banner a:hover { background-color: #9c7147; transform: scale(1.05); }
 section { padding: 40px 20px; max-width: 900px; margin: auto; }
@@ -124,6 +126,9 @@ padding: 25px;
 box-shadow: 0 0 10px rgba(0,0,0,0.04);
 margin-bottom: 40px;
 text-align: center;
+opacity: 0;
+transform: translateY(20px);
+animation: slideIn 0.8s ease-out forwards;
 }
 .producto img {
 width: 100%;
@@ -141,8 +146,29 @@ margin-top: 15px;
 border-radius: 8px;
 text-decoration: none;
 font-weight: bold;
+transition: transform 0.3s ease;
 }
-.boton-wsp:hover { background-color: #1ebe57; }
+.boton-wsp:hover { background-color: #1ebe57; transform: scale(1.05); }
+#carrito {
+background-color: #fff;
+padding: 20px;
+border-radius: 12px;
+box-shadow: 0 0 10px rgba(0,0,0,0.05);
+margin-top: 20px;
+}
+#notificacion {
+position: fixed;
+top: 20px;
+right: 20px;
+background: #25D366;
+color: white;
+padding: 12px 20px;
+border-radius: 8px;
+display: none;
+font-weight: bold;
+z-index: 2000;
+box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
 footer {
 text-align: center;
 padding: 30px;
@@ -158,13 +184,23 @@ text-decoration: none;
 color: #3e2b1e;
 font-weight: bold;
 }
+@keyframes fadeIn {
+from { opacity: 0; }
+to { opacity: 1; }
+}
+@keyframes slideIn {
+from { opacity: 0; transform: translateY(30px); }
+to { opacity: 1; transform: translateY(0); }
+}
 </style>
 </head>
 
 <body>
 
+<div id="notificacion">✅ Producto añadido al carrito</div>
+
 <header>
-<img src="IMG_5514.png" alt="Logo Dulce Pasado - Panadería artesanal" />
+<img src="IMG_5514.png" alt="Logo Dulce Pasado" onclick="location.href='#banner'"/>
 <div class="menu-toggle" onclick="toggleMenu()" aria-label="Abrir o cerrar menú de navegación">
 <div class="bar"></div>
 <div class="bar"></div>
@@ -187,85 +223,67 @@ font-weight: bold;
 <a href="#carrito-pedidos">Haz tu pedido</a>
 </section>
 
-<section id="intencion">
-<h2>Nuestra intención</h2>
-<p>Queremos llevarte un pedacito del pasado a través de sabores que reconfortan y unen. En Dulce Pasado, cada pan es una invitación a compartir momentos cálidos en familia, a disfrutar lo artesanal y lo hecho con cariño.</p>
-</section>
-
 <section id="productos">
 <h2>Productos</h2>
 <div class="producto">
 <h3>Empanadas Dulces</h3>
-<img src="IMG_6484.jpeg" alt="Empanadas Dulces de piña, cajeta, nutella y queso dulce" loading="lazy"/>
+<img src="IMG_6484.jpeg" alt="Empanadas Dulces" loading="lazy"/>
 <p><strong>Sabores:</strong> Piña, Cajeta, Nutella, Queso dulce.</p>
-<p><strong>Precios:</strong> Grandes $15 c/u (mínimo 5 piezas) — Chicas $7 c/u (mínimo 10 piezas)</p>
-<a class="boton-wsp" href="https://wa.me/524445481177?text=Hola!%20Quiero%20pedir%20empanadas%20dulces">Pedir Empanadas</a>
+<p><strong>Precios:</strong> Grandes $15 c/u (mín. 5) — Chicas $7 c/u (mín. 10)</p>
+<label>Tamaño:</label>
+<select id="empanada-tamano">
+<option value="Grande">Grande</option>
+<option value="Chica">Chica</option>
+</select>
+<label>Sabor:</label>
+<select id="empanada-sabor">
+<option value="Piña">Piña</option>
+<option value="Cajeta">Cajeta</option>
+<option value="Nutella">Nutella</option>
+<option value="Queso dulce">Queso dulce</option>
+</select>
+<input type="number" id="empanada-cant" min="1" placeholder="Cantidad"/>
+<button onclick="addToCart('Empanada Dulce')">Añadir al carrito</button>
 </div>
 
 <div class="producto">
 <h3>Rosquitas</h3>
-<img src="IMG_6479.jpeg" alt="Rosquitas tradicionales de Dulce Pasado" loading="lazy"/>
-<p><strong>Precio:</strong> $4 c/u</p>
-<p><strong>Mínimo:</strong> 10 piezas</p>
-<a class="boton-wsp" href="https://wa.me/524445481177?text=Hola!%20Quiero%20pedir%20rosquitas">Pedir Rosquitas</a>
+<img src="IMG_6479.jpeg" alt="Rosquitas" loading="lazy"/>
+<p><strong>Precio:</strong> $4 c/u (mín. 10)</p>
+<input type="number" id="rosquita-cant" min="1" placeholder="Cantidad"/>
+<button onclick="addToCart('Rosquitas')">Añadir al carrito</button>
 </div>
 
 <div class="producto">
 <h3>Pan Español</h3>
-<img src="IMG_1364.jpeg" alt="Pan español artesanal de Dulce Pasado" loading="lazy"/>
-<p><strong>Precio:</strong> $15 c/u</p>
-<p><strong>Mínimo:</strong> 5 piezas</p>
-<a class="boton-wsp" href="https://wa.me/524445481177?text=Hola!%20Quiero%20pedir%20pan%20español">Pedir Pan Español</a>
+<img src="IMG_1364.jpeg" alt="Pan Español" loading="lazy"/>
+<p><strong>Precio:</strong> $15 c/u (mín. 5)</p>
+<input type="number" id="pan-cant" min="1" placeholder="Cantidad"/>
+<button onclick="addToCart('Pan Español')">Añadir al carrito</button>
 </div>
 
 <div class="producto">
 <h3>Conchas</h3>
-<img src="IMG_6521.jpeg" alt="Conchas esponjosas con cobertura crujiente de Dulce Pasado" loading="lazy"/>
+<img src="IMG_6521.jpeg" alt="Conchas" loading="lazy"/>
 <p><strong>Descripción:</strong> Pan suave, esponjoso y con cobertura crujiente.</p>
 <ul>
-<li>Concha normal: $20 c/u</li>
-<li>Concha integral: $25 c/u</li>
+<li>Normal: $20 c/u</li>
+<li>Integral: $25 c/u</li>
 </ul>
-<p><strong>Mínimo:</strong> 4 piezas</p>
-<a class="boton-wsp" href="https://wa.me/524445481177?text=Hola!%20Quisiera%20pedir%20conchas">Pedir Conchas</a>
+<select id="concha-tipo">
+<option value="Normal">Normal</option>
+<option value="Integral">Integral</option>
+</select>
+<input type="number" id="concha-cant" min="1" placeholder="Cantidad"/>
+<button onclick="addToCart('Conchas')">Añadir al carrito</button>
 </div>
 </section>
 
-<section id="carrito-pedidos" style="padding: 2em; background-color: #f8f4ef;">
-<h2 style="color: #000;">🧺 Tu pedido</h2>
-<form id="pedido-form">
-<label for="nombre">Nombre:</label><br>
-<input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required><br><br>
-
-<label for="producto">Producto:</label><br>
-<select id="producto" name="producto">
-<option value="Empanadas">Empanadas</option>
-<option value="Rosquitas">Rosquitas</option>
-<option value="Pan Español">Pan Español</option>
-<option value="Conchas">Conchas</option>
-</select><br><br>
-
-<label for="cantidad">Cantidad:</label><br>
-<input type="number" id="cantidad" name="cantidad" min="1" required><br><br>
-
-<button type="button" class="boton-wsp" onclick="enviarPedido()" aria-label="Enviar pedido por WhatsApp">Enviar pedido por WhatsApp</button>
-</form>
-</section>
-
-<section id="historia">
-<h2>Nuestra Historia</h2>
-<p>Mi abuela paterna creció en Jáltipan, Veracruz, donde aprendió a hacer pan de su madre. Mi abuela materna vendía pan fresco en la Huasteca. Hoy, más de 90 años de recetas después, seguimos horneando con el mismo amor.</p>
-</section>
-
-<section id="envios">
-<h2>Zonas de Envío</h2>
-<p><strong>Entrega gratuita:</strong> Carranza, Himno Nacional, Zona Tangamanga, alrededores del Camerino.</p>
-<p><strong>Fuera de estas zonas:</strong> Costo de envío desde $20 en adelante (S.L.P. capital).</p>
-</section>
-
-<section id="drop" style="background-color: #fff3e6; text-align: center;">
-<h2 style="font-size: 2em;">¿DROP?</h2>
-<p>¿Qué crees que será el siguiente DROP? 🎁 Mándanos tu idea por WhatsApp.</p>
+<section id="carrito-pedidos">
+<h2>🛒 Tu Carrito</h2>
+<p>Aquí verás todo lo que añadas antes de enviarlo a WhatsApp.</p>
+<div id="carrito"></div>
+<button class="boton-wsp" onclick="sendOrder()">Enviar pedido por WhatsApp</button>
 </section>
 
 <footer>
@@ -275,48 +293,96 @@ font-weight: bold;
 </footer>
 
 <script>
-function toggleMenu() {
-const menu = document.getElementById('nav-menu');
-const toggle = document.querySelector('.menu-toggle');
-menu.classList.toggle('active');
-toggle.classList.toggle('change');
+let cart = [];
+
+function showNotification() {
+ const notif = document.getElementById('notificacion');
+ notif.style.display = 'block';
+ setTimeout(() => { notif.style.display = 'none'; }, 2000);
 }
-function closeMenu() {
-setTimeout(() => {
-document.getElementById('nav-menu').classList.remove('active');
-document.querySelector('.menu-toggle').classList.remove('change');
-}, 200);
+
+function addToCart(product) {
+ let quantity = 0;
+ let detail = "";
+ let price = 0;
+
+ if (product === "Empanada Dulce") {
+     quantity = parseInt(document.getElementById('empanada-cant').value);
+     let size = document.getElementById('empanada-tamano').value;
+     let flavor = document.getElementById('empanada-sabor').value;
+     detail = size + " de " + flavor;
+     price = (size === "Grande") ? 15 : 7;
+     if ((size === "Grande" && quantity < 5) || (size === "Chica" && quantity < 10)) {
+         alert("Mínimo: 5 grandes o 10 chicas.");
+         return;
+     }
+ }
+ else if (product === "Rosquitas") {
+     quantity = parseInt(document.getElementById('rosquita-cant').value);
+     detail = "Tradicionales";
+     price = 4;
+     if (quantity < 10) { alert("Mínimo: 10 rosquitas."); return; }
+ }
+ else if (product === "Pan Español") {
+     quantity = parseInt(document.getElementById('pan-cant').value);
+     detail = "Clásico";
+     price = 15;
+     if (quantity < 5) { alert("Mínimo: 5 panes."); return; }
+ }
+ else if (product === "Conchas") {
+     quantity = parseInt(document.getElementById('concha-cant').value);
+     let tipo = document.getElementById('concha-tipo').value;
+     detail = tipo;
+     price = (tipo === "Normal") ? 20 : 25;
+     if (quantity < 4) { alert("Mínimo: 4 conchas."); return; }
+ }
+
+ if (!quantity || quantity < 1) { alert("Ingresa una cantidad válida."); return; }
+
+ cart.push({ product, detail, quantity, price });
+ displayCart();
+ showNotification();
 }
-document.querySelectorAll('nav a[data-section]').forEach(link => {
-link.addEventListener('click', function() {
-const id = this.getAttribute('data-section');
-const target = document.getElementById(id);
-if (target) {
-const offset = target.offsetTop - 70;
-window.scrollTo({ top: offset, behavior: 'smooth' });
-closeMenu();
+
+function displayCart() {
+ let carritoDiv = document.getElementById('carrito');
+ carritoDiv.innerHTML = "";
+
+ if (cart.length === 0) {
+     carritoDiv.innerHTML = "<p>Tu carrito está vacío 🛒</p>";
+     return;
+ }
+
+ let total = 0;
+ cart.forEach((item, index) => {
+     total += item.price * item.quantity;
+     carritoDiv.innerHTML += `<p>${item.quantity} x ${item.product} (${item.detail}) - $${item.price * item.quantity} 
+     <button onclick="removeItem(${index})">❌</button></p>`;
+ });
+
+ carritoDiv.innerHTML += `<h3>Total: $${total}</h3>`;
 }
-});
-});
-document.addEventListener('click', function(e) {
-const menu = document.getElementById('nav-menu');
-const toggle = document.querySelector('.menu-toggle');
-if (!menu.contains(e.target) && !toggle.contains(e.target)) {
-menu.classList.remove('active');
-toggle.classList.remove('change');
+
+function removeItem(index) {
+ cart.splice(index, 1);
+ displayCart();
 }
-});
-function enviarPedido() {
-const nombre = document.getElementById('nombre').value;
-const producto = document.getElementById('producto').value;
-const cantidad = document.getElementById('cantidad').value;
-if (nombre && producto && cantidad) {
-const mensaje = `Hola! Soy ${nombre} y quiero pedir ${cantidad} ${producto}`;
-window.open(`https://wa.me/524445481177?text=${encodeURIComponent(mensaje)}`, '_blank');
-} else {
-alert('Por favor completa todos los campos');
-}
+
+function sendOrder() {
+ if (cart.length === 0) {
+     alert("Tu carrito está vacío.");
+     return;
+ }
+ let message = "Hola! Me gustaría pedir:%0A";
+ cart.forEach(item => {
+     message += `${item.quantity} x ${item.product} (${item.detail}) - $${item.price * item.quantity}%0A`;
+ });
+ let total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+ message += `%0ATotal: $${total}`;
+
+ window.open(`https://wa.me/524445481177?text=${message}`, '_blank');
 }
 </script>
+
 </body>
 </html>
