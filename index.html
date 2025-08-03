@@ -118,7 +118,6 @@
     <a href="#carrito-pedidos">Tu pedido</a>
     <a href="#historia">Historia</a>
     <a href="#envios">Envíos</a>
-    <a href="#drop">¿DROP?</a>
   </nav>
 </header>
 
@@ -138,104 +137,80 @@
     <h2>Empanadas Dulces</h2>
     <img src="IMG_6484.jpeg" alt="Empanadas Dulces" />
     <p><strong>Sabores:</strong> Piña, Cajeta, Nutella, Queso dulce.</p>
-    <p><strong>Precios:</strong> Grandes $15 c/u (mínimo 5 piezas) — Chicas $7 c/u (mínimo 10 piezas)</p>
+    <p><strong>Precio:</strong> $15 c/u (mínimo sugerido: 5 piezas)</p>
   </div>
 
   <div class="producto">
     <h2>Rosquitas</h2>
     <img src="IMG_6479.jpeg" alt="Rosquitas" />
-    <p><strong>Precio:</strong> $4 c/u</p>
-    <p><strong>Mínimo:</strong> 10 piezas</p>
+    <p><strong>Precio:</strong> $4 c/u (mínimo sugerido: 10 piezas)</p>
   </div>
 
   <div class="producto">
     <h2>Pan Español</h2>
     <img src="IMG_1364.jpeg" alt="Pan Español" />
-    <p><strong>Precio:</strong> $15 c/u</p>
-    <p><strong>Mínimo:</strong> 5 piezas</p>
+    <p><strong>Precio:</strong> $15 c/u (mínimo sugerido: 5 piezas)</p>
   </div>
 
   <div class="producto">
     <h2>Conchas</h2>
     <img src="IMG_6521.jpeg" alt="Conchas Dulce Pasado" />
-    <p><strong>Descripción:</strong> Pan suave, esponjoso y con cobertura crujiente. Nuestras conchas son una pieza especial horneada con esmero para momentos únicos.</p>
     <ul>
       <li>Concha normal: $20 c/u</li>
       <li>Concha integral: $25 c/u</li>
     </ul>
-    <p><strong>Mínimo:</strong> 4 piezas</p>
+    <p><strong>Mínimo sugerido:</strong> 4 piezas</p>
   </div>
 </section>
 
-<section id="carrito-pedidos" style="padding: 2em; background-color: #f8f4ef; color: #222; font-family: sans-serif;">
+<section id="carrito-pedidos" style="padding: 2em; background-color: #f8f4ef; color: #222;">
   <h2 style="color: #000;">🧺 Tu pedido</h2>
   <form id="pedidoForm" style="margin-top: 1em;">
-    <!-- Empanadas Grandes -->
-    <h3>Empanadas grandes ($15 c/u) - mínimo 5</h3>
-    <label>Cantidad:
-      <input type="number" name="grandesCantidad" min="0" value="0">
-    </label>
-    <label>Sabor:
-      <select name="grandesSabor">
-        <option value="piña">Piña</option>
-        <option value="cajeta">Cajeta</option>
-        <option value="queso dulce">Queso dulce</option>
-        <option value="nutella">Nutella</option>
-      </select>
-    </label>
 
-    <!-- Empanadas Chicas -->
-    <h3 style="margin-top: 1em;">Empanadas chicas ($7 c/u) - mínimo 10</h3>
-    <label>Cantidad:
-      <input type="number" name="chicasCantidad" min="0" value="0">
-    </label>
-    <label>Sabor:
-      <select name="chicasSabor">
-        <option value="piña">Piña</option>
-        <option value="cajeta">Cajeta</option>
-        <option value="queso dulce">Queso dulce</option>
-        <option value="nutella">Nutella</option>
-      </select>
-    </label>
+    <h3>Empanadas dulces ($15 c/u)</h3>
+    <p style="font-size:0.9em; color:#5c3b1e;">*Sugerencia: mínimo 5 piezas, puedes combinar sabores</p>
+    <label>Cajeta: <input type="number" name="emp_cajeta" min="0" value="0"></label><br>
+    <label>Piña: <input type="number" name="emp_pina" min="0" value="0"></label><br>
+    <label>Nutella: <input type="number" name="emp_nutella" min="0" value="0"></label><br>
+    <label>Queso dulce: <input type="number" name="emp_queso" min="0" value="0"></label><br><br>
 
-    <!-- Rosquitas -->
-    <h3 style="margin-top: 1em;">Rosquitas ($4 c/u) - mínimo 10</h3>
-    <label>Cantidad:
-      <input type="number" name="rosquitasCantidad" min="0" value="0">
-    </label>
+    <h3>Rosquitas ($4 c/u)</h3>
+    <label>Cantidad: <input type="number" name="rosquitas" min="0" value="0"></label><br><br>
 
-    <!-- Pan Español -->
-    <h3 style="margin-top: 1em;">Pan español ($15 c/u) - mínimo 5</h3>
-    <label>Cantidad:
-      <input type="number" name="panEspanolCantidad" min="0" value="0">
-    </label>
+    <h3>Pan español ($15 c/u)</h3>
+    <label>Cantidad: <input type="number" name="pan" min="0" value="0"></label><br><br>
 
-    <!-- Conchas -->
-    <h3 style="margin-top: 1em;">Conchas - mínimo 4</h3>
-    <label>Cantidad normales ($20 c/u):
-      <input type="number" name="conchasNormalesCantidad" min="0" value="0">
-    </label>
-    <label>Cantidad integrales ($25 c/u):
-      <input type="number" name="conchasIntegralesCantidad" min="0" value="0">
-    </label>
+    <h3>Conchas</h3>
+    <label>Normales ($20 c/u): <input type="number" name="concha_normal" min="0" value="0"></label><br>
+    <label>Integrales ($25 c/u): <input type="number" name="concha_integral" min="0" value="0"></label><br><br>
 
-    <!-- Botón de WhatsApp -->
-    <br><br>
-    <button type="button" onclick="generarPedido()" 
-    style="margin-top: 1.5em; padding: 1em 2em; background-color: #000; color: #fff; border: none; cursor: pointer; font-size: 1.1em; border-radius: 8px;">
-    🥐 ¡Quiero mi pan ahora!
+    <!-- BOTÓN PRINCIPAL -->
+    <button type="button" onclick="mostrarOpciones()" 
+      style="margin-top: 1.5em; padding: 1em 2em; background-color: #000; color: #fff; border: none; cursor: pointer; font-size: 1.1em; border-radius: 8px;">
+      🥐 Ver resumen y enviar
     </button>
 
-    <p id="errorMensaje" style="color: red; margin-top: 1em;"></p>
+    <!-- RESUMEN DEL PEDIDO -->
+    <div id="resumenPedido" style="margin-top:20px; background:#fff; padding:15px; border-radius:10px; display:none;">
+      <h3>📝 Tu pedido</h3>
+      <p id="contenidoResumen"></p>
+      <p id="avisoMinimo" style="color:red; font-weight:bold;"></p>
 
-    <!-- Mensaje de contacto directo -->
-    <div style="margin-top: 30px; text-align: center; font-size: 1em; color: #3e2b1e;">
-      <p>📩 <strong>¿Tienes dudas antes de hacer tu pedido?</strong></p>
-      <p>Envíanos un mensaje directo:</p>
-      <a href="https://wa.me/524445481177" target="_blank" style="display:inline-block; background-color:#25D366; color:white; padding:10px 15px; margin:5px; border-radius:6px; text-decoration:none;">WhatsApp</a>
-      <a href="https://www.instagram.com/pan_dulcepasado" target="_blank" style="display:inline-block; background-color:#f7cfcf; color:#3e2b1e; padding:10px 15px; margin:5px; border-radius:6px; text-decoration:none;">Instagram</a>
-      <a href="https://www.facebook.com/share/16HTqVAuUz/?mibextid=wwXIfr" target="_blank" style="display:inline-block; background-color:#d4e3fc; color:#3e2b1e; padding:10px 15px; margin:5px; border-radius:6px; text-decoration:none;">Facebook</a>
+      <!-- OPCIONES DE ENVÍO -->
+      <div id="opcionesEnvio" style="margin-top:15px; text-align:center;">
+        <p style="font-weight:bold;">¿Por dónde quieres mandar tu pedido?</p>
+        <button type="button" onclick="enviarPedido('whatsapp')" style="margin:5px; padding:10px 15px; background:#25D366; color:#fff; border:none; border-radius:6px; cursor:pointer;">
+          WhatsApp
+        </button>
+        <button type="button" onclick="enviarPedido('instagram')" style="margin:5px; padding:10px 15px; background:#f7cfcf; color:#3e2b1e; border:none; border-radius:6px; cursor:pointer;">
+          Instagram DM
+        </button>
+        <button type="button" onclick="enviarPedido('facebook')" style="margin:5px; padding:10px 15px; background:#3b5998; color:#fff; border:none; border-radius:6px; cursor:pointer;">
+          Facebook Messenger
+        </button>
+      </div>
     </div>
+
   </form>
 </section>
 
@@ -259,19 +234,6 @@
   <p>Hoy, más de 90 años de recetas familiares después, seguimos horneando con el mismo amor. Las hemos mejorado con el tiempo, pero con el alma intacta.</p>
 </section>
 
-<section id="drop" class="intencion" style="background-color: #fff3e6; text-align: center; margin-top: 60px;">
-  <h2 style="font-size: 2em;">¿DROP?</h2>
-  <p style="font-size: 1.1em; max-width: 700px; margin: auto;">
-    ¿Qué crees que será el siguiente DROP? 🎁<br/>
-    Si adivinas, ¡te damos una sorpresa gratis!<br/><br/>
-    Mándanos tu idea por WhatsApp o Instagram.
-  </p>
-  <img src="https://cdn.pixabay.com/photo/2016/12/06/18/27/question-mark-1889440_1280.png" alt="Imagen misteriosa" style="max-width: 150px; margin-top: 20px;"/>
-  <div style="margin-top: 25px;">
-    <a class="boton-wsp" href="https://wa.me/524445481177?text=Hola!%20Quiero%20adivinar%20el%20siguiente%20DROP">Mandar mi idea por WhatsApp</a>
-  </div>
-</section>
-
 <footer>
   <p style="margin-bottom: 15px;">¿Tienes dudas o quieres hacer un pedido?</p>
   <a href="https://wa.me/524445481177" target="_blank" class="boton-wsp">Pedir por WhatsApp</a>
@@ -281,48 +243,75 @@
 </footer>
 
 <script>
-function generarPedido() {
-  const grandesCantidad = parseInt(document.querySelector('[name="grandesCantidad"]').value) || 0;
-  const grandesSabor = document.querySelector('[name="grandesSabor"]').value;
-  const chicasCantidad = parseInt(document.querySelector('[name="chicasCantidad"]').value) || 0;
-  const chicasSabor = document.querySelector('[name="chicasSabor"]').value;
-  const rosquitasCantidad = parseInt(document.querySelector('[name="rosquitasCantidad"]').value) || 0;
-  const panEspanolCantidad = parseInt(document.querySelector('[name="panEspanolCantidad"]').value) || 0;
-  const conchasNormalesCantidad = parseInt(document.querySelector('[name="conchasNormalesCantidad"]').value) || 0;
-  const conchasIntegralesCantidad = parseInt(document.querySelector('[name="conchasIntegralesCantidad"]').value) || 0;
-  const errorMensaje = document.getElementById('errorMensaje');
+function mostrarOpciones() {
+  // Obtenemos cantidades
+  const emp_cajeta = parseInt(document.querySelector('[name="emp_cajeta"]').value) || 0;
+  const emp_pina = parseInt(document.querySelector('[name="emp_pina"]').value) || 0;
+  const emp_nutella = parseInt(document.querySelector('[name="emp_nutella"]').value) || 0;
+  const emp_queso = parseInt(document.querySelector('[name="emp_queso"]').value) || 0;
+  const rosquitas = parseInt(document.querySelector('[name="rosquitas"]').value) || 0;
+  const pan = parseInt(document.querySelector('[name="pan"]').value) || 0;
+  const concha_normal = parseInt(document.querySelector('[name="concha_normal"]').value) || 0;
+  const concha_integral = parseInt(document.querySelector('[name="concha_integral"]').value) || 0;
 
-  let mensaje = "¡Hola Dulce Pasado! Me gustaría hacer el siguiente pedido:\n";
+  let mensaje = "";
   let total = 0;
 
-  if (grandesCantidad > 0) {
-    if (grandesCantidad < 5) {
-      errorMensaje.textContent = "El mínimo de empanadas grandes es 5.";
-      return;
-    }
-    mensaje += `- ${grandesCantidad} empanadas grandes de ${grandesSabor} ($15 c/u)\n`;
-    total += grandesCantidad * 15;
+  // Empanadas
+  if (emp_cajeta + emp_pina + emp_nutella + emp_queso > 0) {
+    mensaje += "🥟 Empanadas:\n";
+    if (emp_cajeta > 0) { mensaje += `- ${emp_cajeta} de Cajeta\n`; total += emp_cajeta * 15; }
+    if (emp_pina > 0) { mensaje += `- ${emp_pina} de Piña\n`; total += emp_pina * 15; }
+    if (emp_nutella > 0) { mensaje += `- ${emp_nutella} de Nutella\n`; total += emp_nutella * 15; }
+    if (emp_queso > 0) { mensaje += `- ${emp_queso} de Queso dulce\n`; total += emp_queso * 15; }
   }
 
-  if (chicasCantidad > 0) {
-    if (chicasCantidad < 10) {
-      errorMensaje.textContent = "El mínimo de empanadas chicas es 10.";
-      return;
-    }
-    mensaje += `- ${chicasCantidad} empanadas chicas de ${chicasSabor} ($7 c/u)\n`;
-    total += chicasCantidad * 7;
+  // Rosquitas
+  if (rosquitas > 0) { mensaje += `🍩 Rosquitas: ${rosquitas} piezas\n`; total += rosquitas * 4; }
+
+  // Pan español
+  if (pan > 0) { mensaje += `🥖 Pan Español: ${pan} piezas\n`; total += pan * 15; }
+
+  // Conchas
+  if (concha_normal + concha_integral > 0) {
+    mensaje += "🍪 Conchas:\n";
+    if (concha_normal > 0) { mensaje += `- ${concha_normal} normales\n`; total += concha_normal * 20; }
+    if (concha_integral > 0) { mensaje += `- ${concha_integral} integrales\n`; total += concha_integral * 25; }
   }
 
-  if (rosquitasCantidad > 0) {
-    if (rosquitasCantidad < 10) {
-      errorMensaje.textContent = "El mínimo de rosquitas es 10.";
-      return;
-    }
-    mensaje += `- ${rosquitasCantidad} rosquitas ($4 c/u)\n`;
-    total += rosquitasCantidad * 4;
+  if (mensaje === "") {
+    mensaje = "⚠️ No has agregado ningún producto aún.";
+  } else {
+    mensaje += `\n💰 Total: $${total} MXN`;
   }
 
-  if (panEspanolCantidad > 0) {
-    if (panEspanolCantidad < 5) {
-      error
-    
+  document.getElementById('contenidoResumen').innerHTML = mensaje.replace(/\n/g, "<br>");
+  document.getElementById('resumenPedido').style.display = 'block';
+
+  // Aviso si no se cumple mínimo sugerido
+  const aviso = document.getElementById('avisoMinimo');
+  if (total < 70 && total > 0) {
+    aviso.textContent = "📌 Recuerda: el pedido mínimo sugerido es de $70 MXN + envío.";
+  } else {
+    aviso.textContent = "";
+  }
+}
+
+function enviarPedido(red) {
+  const mensaje = document.getElementById('contenidoResumen').innerText;
+  const mensajeCodificado = encodeURIComponent(mensaje);
+
+  if (red === 'whatsapp') {
+    window.open(`https://wa.me/524445481177?text=${mensajeCodificado}`, '_blank');
+  } else if (red === 'instagram') {
+    window.open(`https://www.instagram.com/pan_dulcepasado`, '_blank');
+    alert("📋 Copia tu pedido y pégalo en un mensaje directo de Instagram.");
+  } else if (red === 'facebook') {
+    window.open(`https://www.facebook.com/share/16HTqVAuUz/?mibextid=wwXIfr`, '_blank');
+    alert("📋 Copia tu pedido y pégalo en un mensaje directo de Facebook.");
+  }
+}
+</script>
+
+</body>
+</html>
