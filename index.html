@@ -254,7 +254,7 @@
 
 <script>
 function generarPedido() {
-  let mensaje = "📩 Hola, me comunico con Dulce Pasado.\nQuisiera hacer un pedido:\n\n";
+  let mensaje = "Hola, me comunico con Dulce Pasado.\nQuisiera hacer un pedido:\n\n";
   let total = 0;
 
   // Empanadas grandes
@@ -267,7 +267,7 @@ function generarPedido() {
   grandes.forEach(item => {
     const cantidad = parseInt(document.getElementById(item.id).value) || 0;
     if (cantidad > 0) {
-      mensaje += `🥟 ${cantidad} empanadas GRANDES de ${item.sabor}\n`;
+      mensaje += `${cantidad} empanadas GRANDES de ${item.sabor}\n`;
       total += cantidad * 15;
     }
   });
@@ -282,7 +282,7 @@ function generarPedido() {
   chicas.forEach(item => {
     const cantidad = parseInt(document.getElementById(item.id).value) || 0;
     if (cantidad > 0) {
-      mensaje += `🥟 ${cantidad} empanadas CHICAS de ${item.sabor}\n`;
+      mensaje += `${cantidad} empanadas CHICAS de ${item.sabor}\n`;
       total += cantidad * 7;
     }
   });
@@ -290,34 +290,35 @@ function generarPedido() {
   // Otros productos
   const rosquitas = parseInt(document.getElementById('rosquitas').value) || 0;
   if (rosquitas > 0) {
-    mensaje += `🍩 ${rosquitas} rosquitas\n`;
+    mensaje += `${rosquitas} rosquitas\n`;
     total += rosquitas * 4;
   }
 
   const pan = parseInt(document.getElementById('pan').value) || 0;
   if (pan > 0) {
-    mensaje += `🥖 ${pan} pan español\n`;
+    mensaje += `${pan} pan español\n`;
     total += pan * 15;
   }
 
   const conchaNormal = parseInt(document.getElementById('concha_normal').value) || 0;
   if (conchaNormal > 0) {
-    mensaje += `🍪 ${conchaNormal} conchas normales\n`;
+    mensaje += `${conchaNormal} conchas normales\n`;
     total += conchaNormal * 20;
   }
 
   const conchaIntegral = parseInt(document.getElementById('concha_integral').value) || 0;
   if (conchaIntegral > 0) {
-    mensaje += `🍪 ${conchaIntegral} conchas integrales\n`;
+    mensaje += `${conchaIntegral} conchas integrales\n`;
     total += conchaIntegral * 25;
   }
 
-  if (mensaje === "📩 Hola, me comunico con Dulce Pasado.\nQuisiera hacer un pedido:\n\n") {
+  // Validar si no hay nada
+  if (mensaje === "Hola, me comunico con Dulce Pasado.\nQuisiera hacer un pedido:\n\n") {
     alert("Por favor agrega al menos un producto");
     return;
   }
 
-  mensaje += `\n💰 Total: $${total} MXN\n📦 A esto se le agrega el costo de envío según tu zona.`;
+  mensaje += `\nTotal: $${total} MXN\nA esto se le agrega el costo de envío según tu zona.`;
 
   document.getElementById('listaPedido').innerText = mensaje;
   document.getElementById('resumen').style.display = "block";
