@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Dulce Pasado - Pan artesanal hecho con amor en San Luis Potosí.">
+<meta name="description" content="Dulce Pasado - Pan artesanal hecho con amor en San Luis Potosí. Empanadas, rosquitas, conchas y más.">
 <meta property="og:title" content="Dulce Pasado - Pan Artesanal">
 <meta property="og:description" content="Pan artesanal hecho con amor en San Luis Potosí.">
 <meta property="og:image" content="IMG_5514.png">
@@ -12,110 +12,260 @@
 <meta name="theme-color" content="#f8f1e8">
 <title>Dulce Pasado</title>
 <link rel="icon" href="IMG_5514.png" type="image/png">
+
 <style>
-/* ESTILOS GLOBALES Y RESET */
 html { scroll-behavior: smooth; scroll-padding-top: 90px; }
-body { background-color: #f8f1e8; color: #3e2b1e; margin: 0; padding: 0; font-family: 'Segoe UI', Arial, sans-serif; }
-header { position: fixed; top: 0; left: 0; right: 0; background-color: #fffaf5; display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); z-index: 1000; }
-header img { height: 55px; cursor:pointer; transition: transform 0.3s ease; }
-header img:hover { transform: scale(1.05); }
+body {
+background-color: #f8f1e8;
+color: #3e2b1e;
+margin: 0;
+padding: 0;
+font-family: 'Segoe UI', Arial, sans-serif;
+}
+header {
+position: fixed;
+top: 0; left: 0; right: 0;
+background-color: #fffaf5;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 10px 20px;
+box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+z-index: 1000;
+}
+header img { height: 55px; }
 nav { display: flex; gap: 15px; }
-nav a { text-decoration: none; color: #5c3b1e; font-weight: bold; transition: color 0.2s ease; }
+nav a {
+text-decoration: none;
+color: #5c3b1e;
+font-weight: bold;
+transition: color 0.2s ease;
+}
 nav a:hover { color: #b28855; }
-.menu-toggle { display: none; flex-direction: column; cursor: pointer; z-index: 2001; padding: 8px; border-radius: 6px; background: rgba(255, 250, 245, 0.9); }
-.bar { height: 3px; width: 28px; background: #5c3b1e; margin: 5px 0; border-radius: 3px; transition: 0.4s; }
+.menu-toggle {
+display: none;
+flex-direction: column;
+cursor: pointer;
+z-index: 2001;
+padding: 8px;
+border-radius: 6px;
+background: rgba(255, 250, 245, 0.9);
+transition: background-color 0.2s ease;
+}
+.menu-toggle:hover { background-color: rgba(255,250,245,1); }
+.bar {
+height: 3px;
+width: 28px;
+background: #5c3b1e;
+margin: 5px 0;
+border-radius: 3px;
+transition: 0.4s;
+}
 .menu-toggle.change .bar:nth-child(1) { transform: rotate(-45deg) translate(-5px, 6px); }
 .menu-toggle.change .bar:nth-child(2) { opacity: 0; }
 .menu-toggle.change .bar:nth-child(3) { transform: rotate(45deg) translate(-5px, -6px); }
 @media (max-width: 1024px) {
-nav { position: fixed; top: 0; right: -280px; height: 100%; width: 260px; background: rgba(255, 250, 245, 0.97); flex-direction: column; padding-top: 80px; padding-left: 40px; gap: 20px; transition: right 0.3s ease; box-shadow: -3px 0 10px rgba(0,0,0,0.15); z-index: 2000; }
-nav a { font-size: 1.1em; padding: 10px 0; width: 100%; }
+nav {
+position: fixed;
+top: 0;
+right: -280px;
+height: 100%;
+width: 260px;
+background: rgba(255, 250, 245, 0.97);
+flex-direction: column;
+padding-top: 80px;
+padding-left: 40px;
+gap: 20px;
+transition: right 0.3s ease;
+box-shadow: -3px 0 10px rgba(0,0,0,0.15);
+z-index: 2000;
+}
+nav a {
+font-size: 1.1em;
+padding: 10px 0;
+font-weight: bold;
+width: 100%;
+}
 nav.active { right: 0; }
 .menu-toggle { display: flex; }
 }
-#banner { background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1470&q=80'); background-size: cover; background-position: center; min-height: 450px; width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; color: #fff; text-shadow: 1px 1px 4px rgba(0,0,0,0.7); text-align: center; padding: 0 20px; animation: fadeIn 1.5s ease-in; }
+#banner {
+background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1470&q=80');
+background-size: cover;
+background-position: center;
+min-height: 450px;
+width: 100%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+color: #fff;
+text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+text-align: center;
+padding: 0 20px;
+}
 #banner h1 { font-size: clamp(2rem, 5vw, 3rem); margin: 0; }
 #banner p { font-size: 1.2em; margin: 10px 0 20px; }
-#banner a { padding: 12px 25px; background-color: #b28855; color: #fff; text-decoration: none; font-weight: bold; border-radius: 6px; box-shadow: 0 3px 6px rgba(0,0,0,0.3); transition: transform 0.3s ease; }
+#banner a {
+padding: 12px 25px;
+background-color: #b28855;
+color: #fff;
+text-decoration: none;
+font-weight: bold;
+border-radius: 6px;
+box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+}
 #banner a:hover { background-color: #9c7147; transform: scale(1.05); }
 section { padding: 40px 20px; max-width: 900px; margin: auto; }
-.producto { background-color: #ffffff; border-radius: 12px; padding: 25px; box-shadow: 0 0 10px rgba(0,0,0,0.04); margin-bottom: 40px; text-align: center; }
-.producto img { width: 100%; max-width: 450px; display: block; margin: 15px auto; border-radius: 10px; }
-.boton-wsp { display: inline-block; background-color: #25D366; color: white; padding: 10px 20px; margin-top: 15px; border-radius: 8px; text-decoration: none; font-weight: bold; transition: transform 0.3s ease; }
-.boton-wsp:hover { background-color: #1ebe57; transform: scale(1.05); }
-#carrito { background-color: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 0 10px rgba(0,0,0,0.05); margin-top: 20px; }
-#notificacion { position: fixed; top: 20px; right: 20px; background: #25D366; color: white; padding: 12px 20px; border-radius: 8px; display: none; font-weight: bold; z-index: 3000; box-shadow: 0 2px 8px rgba(0,0,0,0.2); opacity: 0; transition: opacity 0.4s ease; }
-#notificacion.show { display: block; opacity: 1; }
-footer { text-align: center; padding: 30px; background-color: #f0e5db; font-size: 0.9em; }
-footer a { display: inline-block; margin: 5px 10px; padding: 10px 15px; border-radius: 8px; text-decoration: none; color: #3e2b1e; font-weight: bold; }
+.producto {
+background-color: #ffffff;
+border-radius: 12px;
+padding: 25px;
+box-shadow: 0 0 10px rgba(0,0,0,0.04);
+margin-bottom: 40px;
+text-align: center;
+}
+.producto img {
+width: 100%;
+max-width: 450px;
+display: block;
+margin: 15px auto;
+border-radius: 10px;
+}
+.boton-wsp {
+display: inline-block;
+background-color: #25D366;
+color: white;
+padding: 10px 20px;
+margin-top: 15px;
+border-radius: 8px;
+text-decoration: none;
+font-weight: bold;
+}
+.boton-wsp:hover { background-color: #1ebe57; }
+footer {
+text-align: center;
+padding: 30px;
+background-color: #f0e5db;
+font-size: 0.9em;
+}
+footer a {
+display: inline-block;
+margin: 5px 10px;
+padding: 10px 15px;
+border-radius: 8px;
+text-decoration: none;
+color: #3e2b1e;
+font-weight: bold;
+}
 </style>
 </head>
+
 <body>
+
 <header>
-<img src="IMG_5514.png" alt="Logo Dulce Pasado" onclick="location.href='#banner'"/>
-<div class="menu-toggle" id="menu-toggle" onclick="toggleMenu()">
+<img src="IMG_5514.png" alt="Logo Dulce Pasado - Panadería artesanal" />
+<div class="menu-toggle" onclick="toggleMenu()" aria-label="Abrir o cerrar menú de navegación">
 <div class="bar"></div>
 <div class="bar"></div>
 <div class="bar"></div>
 </div>
-<nav id="nav-menu">
-<a href="#banner" onclick="closeMenu()">Inicio</a>
-<a href="#intencion" onclick="closeMenu()">Intención</a>
-<a href="#productos" onclick="closeMenu()">Productos</a>
-<a href="#carrito-pedidos" onclick="closeMenu()">Tu pedido</a>
-<a href="#historia" onclick="closeMenu()">Historia</a>
-<a href="#envios" onclick="closeMenu()">Envíos</a>
-<a href="#drop" onclick="closeMenu()">¿DROP?</a>
+<nav id="nav-menu" role="navigation" aria-label="Menú principal">
+<a data-section="banner" onclick="closeMenu()">Inicio</a>
+<a data-section="intencion" onclick="closeMenu()">Intención</a>
+<a data-section="productos" onclick="closeMenu()">Productos</a>
+<a data-section="carrito-pedidos" onclick="closeMenu()">Tu pedido</a>
+<a data-section="historia" onclick="closeMenu()">Historia</a>
+<a data-section="envios" onclick="closeMenu()">Envíos</a>
+<a data-section="drop" onclick="closeMenu()">¿DROP?</a>
 </nav>
 </header>
+
+<section id="banner">
+<h1>Pan artesanal hecho con amor</h1>
+<p>Directo de San Luis Potosí a tu mesa</p>
+<a href="#carrito-pedidos">Haz tu pedido</a>
+</section>
+
+<section id="intencion">
+<h2>Nuestra intención</h2>
+<p>Queremos llevarte un pedacito del pasado a través de sabores que reconfortan y unen. En Dulce Pasado, cada pan es una invitación a compartir momentos cálidos en familia, a disfrutar lo artesanal y lo hecho con cariño.</p>
+</section>
+
 <section id="productos">
 <h2>Productos</h2>
 <div class="producto">
 <h3>Empanadas Dulces</h3>
-<img src="IMG_6484.jpeg" alt="Empanadas Dulces">
+<img src="IMG_6484.jpeg" alt="Empanadas Dulces de piña, cajeta, nutella y queso dulce" loading="lazy"/>
 <p><strong>Sabores:</strong> Piña, Cajeta, Nutella, Queso dulce.</p>
-<p><strong>Precios:</strong> Grandes $15 c/u (mín. 5) — Chicas $7 c/u (mín. 10)</p>
-<select id="empanada-tamano">
-<option value="Grande">Grande</option>
-<option value="Chica">Chica</option>
-</select>
-<input type="number" id="empanada-cant" min="1" placeholder="Cantidad">
-<button onclick="addToCart('Empanada Dulce')">Añadir al carrito</button>
+<p><strong>Precios:</strong> Grandes $15 c/u (mínimo 5 piezas) — Chicas $7 c/u (mínimo 10 piezas)</p>
+<a class="boton-wsp" href="https://wa.me/524445481177?text=Hola!%20Quiero%20pedir%20empanadas%20dulces">Pedir Empanadas</a>
 </div>
 
 <div class="producto">
 <h3>Rosquitas</h3>
-<img src="IMG_6479.jpeg" alt="Rosquitas">
-<p>Precio: $4 c/u (mín.10)</p>
-<input type="number" id="rosquita-cant" min="1">
-<button onclick="addToCart('Rosquitas')">Añadir al carrito</button>
+<img src="IMG_6479.jpeg" alt="Rosquitas tradicionales de Dulce Pasado" loading="lazy"/>
+<p><strong>Precio:</strong> $4 c/u</p>
+<p><strong>Mínimo:</strong> 10 piezas</p>
+<a class="boton-wsp" href="https://wa.me/524445481177?text=Hola!%20Quiero%20pedir%20rosquitas">Pedir Rosquitas</a>
 </div>
 
 <div class="producto">
 <h3>Pan Español</h3>
-<img src="IMG_1364.jpeg" alt="Pan Español">
-<p>Precio: $15 c/u (mín.5)</p>
-<input type="number" id="pan-cant" min="1">
-<button onclick="addToCart('Pan Español')">Añadir al carrito</button>
+<img src="IMG_1364.jpeg" alt="Pan español artesanal de Dulce Pasado" loading="lazy"/>
+<p><strong>Precio:</strong> $15 c/u</p>
+<p><strong>Mínimo:</strong> 5 piezas</p>
+<a class="boton-wsp" href="https://wa.me/524445481177?text=Hola!%20Quiero%20pedir%20pan%20español">Pedir Pan Español</a>
 </div>
 
 <div class="producto">
 <h3>Conchas</h3>
-<img src="IMG_6521.jpeg" alt="Conchas">
-<p>Normal: $20 c/u — Integral: $25 c/u</p>
-<select id="concha-tipo">
-<option value="Normal">Normal</option>
-<option value="Integral">Integral</option>
-</select>
-<input type="number" id="concha-cant" min="1">
-<button onclick="addToCart('Conchas')">Añadir al carrito</button>
+<img src="IMG_6521.jpeg" alt="Conchas esponjosas con cobertura crujiente de Dulce Pasado" loading="lazy"/>
+<p><strong>Descripción:</strong> Pan suave, esponjoso y con cobertura crujiente.</p>
+<ul>
+<li>Concha normal: $20 c/u</li>
+<li>Concha integral: $25 c/u</li>
+</ul>
+<p><strong>Mínimo:</strong> 4 piezas</p>
+<a class="boton-wsp" href="https://wa.me/524445481177?text=Hola!%20Quisiera%20pedir%20conchas">Pedir Conchas</a>
 </div>
 </section>
 
-<section id="carrito-pedidos">
-<h2>🛒 Tu Carrito</h2>
-<div id="carrito"></div>
-<button class="boton-wsp" onclick="sendOrder()">Enviar pedido por WhatsApp</button>
+<section id="carrito-pedidos" style="padding: 2em; background-color: #f8f4ef;">
+<h2 style="color: #000;">🧺 Tu pedido</h2>
+<form id="pedido-form">
+<label for="nombre">Nombre:</label><br>
+<input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required><br><br>
+
+<label for="producto">Producto:</label><br>
+<select id="producto" name="producto">
+<option value="Empanadas">Empanadas</option>
+<option value="Rosquitas">Rosquitas</option>
+<option value="Pan Español">Pan Español</option>
+<option value="Conchas">Conchas</option>
+</select><br><br>
+
+<label for="cantidad">Cantidad:</label><br>
+<input type="number" id="cantidad" name="cantidad" min="1" required><br><br>
+
+<button type="button" class="boton-wsp" onclick="enviarPedido()" aria-label="Enviar pedido por WhatsApp">Enviar pedido por WhatsApp</button>
+</form>
+</section>
+
+<section id="historia">
+<h2>Nuestra Historia</h2>
+<p>Mi abuela paterna creció en Jáltipan, Veracruz, donde aprendió a hacer pan de su madre. Mi abuela materna vendía pan fresco en la Huasteca. Hoy, más de 90 años de recetas después, seguimos horneando con el mismo amor.</p>
+</section>
+
+<section id="envios">
+<h2>Zonas de Envío</h2>
+<p><strong>Entrega gratuita:</strong> Carranza, Himno Nacional, Zona Tangamanga, alrededores del Camerino.</p>
+<p><strong>Fuera de estas zonas:</strong> Costo de envío desde $20 en adelante (S.L.P. capital).</p>
+</section>
+
+<section id="drop" style="background-color: #fff3e6; text-align: center;">
+<h2 style="font-size: 2em;">¿DROP?</h2>
+<p>¿Qué crees que será el siguiente DROP? 🎁 Mándanos tu idea por WhatsApp.</p>
 </section>
 
 <footer>
@@ -125,234 +275,48 @@ footer a { display: inline-block; margin: 5px 10px; padding: 10px 15px; border-r
 </footer>
 
 <script>
-let cart = [];
-const toggle = document.getElementById('menu-toggle');
-const nav = document.getElementById('nav-menu');
-
 function toggleMenu() {
- nav.classList.toggle('active');
- toggle.classList.toggle('change');
+const menu = document.getElementById('nav-menu');
+const toggle = document.querySelector('.menu-toggle');
+menu.classList.toggle('active');
+toggle.classList.toggle('change');
 }
-
 function closeMenu() {
- nav.classList.remove('active');
- toggle.classList.remove('change');
+setTimeout(() => {
+document.getElementById('nav-menu').classList.remove('active');
+document.querySelector('.menu-toggle').classList.remove('change');
+}, 200);
 }
-
-function showNotification() {
- const notif = document.getElementById('notificacion');
- notif.classList.add('show');
- setTimeout(() => { notif.classList.remove('show'); }, 2000);
+document.querySelectorAll('nav a[data-section]').forEach(link => {
+link.addEventListener('click', function() {
+const id = this.getAttribute('data-section');
+const target = document.getElementById(id);
+if (target) {
+const offset = target.offsetTop - 70;
+window.scrollTo({ top: offset, behavior: 'smooth' });
+closeMenu();
 }
-
-function addToCart(product) {
- let quantity = 0;
- let detail = '';
- let price = 0;
-
- if(product==='Empanada Dulce'){
-   quantity=parseInt(document.getElementById('empanada-cant').value);
-   price=15;
-   detail='Empanadas';
- }
- else if(product==='Rosquitas'){
-   quantity=parseInt(document.getElementById('rosquita-cant').value);
-   price=4;
-   detail='Rosquitas';
- }
- else if(product==='Pan Español'){
-   quantity=parseInt(document.getElementById('pan-cant').value);
-   price=15;
-   detail='Pan Español';
- }
- else if(product==='Conchas'){
-   quantity=parseInt(document.getElementById('concha-cant').value);
-   let tipo=document.getElementById('concha-tipo').value;
-   detail=tipo;
-   price=(tipo==='Normal')?20:25;
- }
-
- if (!quantity || quantity < 1) { alert('Ingresa una cantidad válida.'); return; }
-
- cart.push({product,detail,quantity,price});
- displayCart();
- showNotification();
+});
+});
+document.addEventListener('click', function(e) {
+const menu = document.getElementById('nav-menu');
+const toggle = document.querySelector('.menu-toggle');
+if (!menu.contains(e.target) && !toggle.contains(e.target)) {
+menu.classList.remove('active');
+toggle.classList.remove('change');
 }
-<!-- ========================== -->
-<!-- 📜 SECCIÓN HISTORIA Y DETALLES -->
-<!-- ========================== -->
-
-<section id="historia">
- <h2>Nuestra Historia</h2>
- <p>Dulce Pasado nació hace más de 90 años gracias a nuestras queridas abuelas Victoria y Juanita, quienes con amor y dedicación crearon las recetas que hoy forman parte de nuestro legado.
- Desde las tierras de Jaltipan, Veracruz, hasta San Luis Potosí, hemos mantenido vivas las tradiciones familiares, el sabor de hogar y el pan hecho con cariño.</p>
- <p>Cada producto que ves aquí cuenta una historia, cada mordida es un pedacito de nuestras raíces y cada pedido es una oportunidad para compartir un momento especial contigo.</p>
-</section>
-
-<!-- ========================== -->
-<!-- 🚚 SECCIÓN DE ENVÍOS -->
-<!-- ========================== -->
-
-<section id="envios">
- <h2>Envíos</h2>
- <p>📦 Realizamos entregas a domicilio dentro de San Luis Potosí.</p>
- <ul>
-   <li>Pedidos con mínimo de 24 horas de anticipación.</li>
-   <li>Envío gratuito en compras mayores a $350 MXN.</li>
-   <li>Costo de envío: $40 MXN en pedidos menores.</li>
- </ul>
- <p>✅ También puedes recoger tu pedido directamente en nuestro taller.</p>
-</section>
-
-<!-- ========================== -->
-<!-- 🔥 SECCIÓN ¿DROP? -->
-<!-- ========================== -->
-
-<section id="drop">
- <h2>¿DROP?</h2>
- <p>🤫 Algo especial está por venir. ¿Quieres ser de los primeros en enterarte de nuestras ediciones limitadas?
- Mantente atento a nuestras redes y aquí anunciaremos nuestros próximos lanzamientos sorpresa.</p>
-</section>
-
-<!-- ========================== -->
-<!-- ⚡ PIE DE PÁGINA COMPLETO -->
-<!-- ========================== -->
-
-<footer>
- <p>¿Tienes dudas o quieres hacer un pedido?</p>
- <a href="https://wa.me/524445481177" target="_blank" class="boton-wsp">Pedir por WhatsApp</a>
- <p style="margin-top: 20px;">Gracias por elegir Dulce Pasado 🍞</p>
- <p style="font-size:0.8em; color:#7b5e44;">&copy; 2025 Dulce Pasado - Pan Artesanal. Todos los derechos reservados.</p>
-</footer>
-
-<!-- ========================== -->
-<!-- 📜 JAVASCRIPT AVANZADO -->
-<!-- ========================== -->
-
-<script>
-
-// ==========================
-// 📌 VARIABLES GLOBALES
-// ==========================
-
-let cart = [];
-const toggle = document.getElementById('menu-toggle');
-const nav = document.getElementById('nav-menu');
-
-// ==========================
-// 🍔 MENÚ HAMBURGUESA
-// ==========================
-
-function toggleMenu() {
- nav.classList.toggle('active');
- toggle.classList.toggle('change');
+});
+function enviarPedido() {
+const nombre = document.getElementById('nombre').value;
+const producto = document.getElementById('producto').value;
+const cantidad = document.getElementById('cantidad').value;
+if (nombre && producto && cantidad) {
+const mensaje = `Hola! Soy ${nombre} y quiero pedir ${cantidad} ${producto}`;
+window.open(`https://wa.me/524445481177?text=${encodeURIComponent(mensaje)}`, '_blank');
+} else {
+alert('Por favor completa todos los campos');
 }
-
-function closeMenu() {
- nav.classList.remove('active');
- toggle.classList.remove('change');
 }
-
-// ==========================
-// ✅ NOTIFICACIÓN DE PRODUCTO
-// ==========================
-
-function showNotification() {
- const notif = document.getElementById('notificacion');
- notif.classList.add('show');
- setTimeout(() => { notif.classList.remove('show'); }, 2000);
-}
-
-// ==========================
-// 🛒 FUNCIONES DE CARRITO
-// ==========================
-
-function addToCart(product) {
- let quantity = 0;
- let detail = '';
- let price = 0;
-
- if (product === 'Empanada Dulce') {
-   quantity = parseInt(document.getElementById('empanada-cant').value);
-   price = 15;
-   detail = 'Empanadas';
- }
- else if (product === 'Rosquitas') {
-   quantity = parseInt(document.getElementById('rosquita-cant').value);
-   price = 4;
-   detail = 'Rosquitas';
- }
- else if (product === 'Pan Español') {
-   quantity = parseInt(document.getElementById('pan-cant').value);
-   price = 15;
-   detail = 'Pan Español';
- }
- else if (product === 'Conchas') {
-   quantity = parseInt(document.getElementById('concha-cant').value);
-   let tipo = document.getElementById('concha-tipo').value;
-   detail = tipo;
-   price = (tipo === 'Normal') ? 20 : 25;
- }
-
- if (!quantity || quantity < 1) {
-   alert('Ingresa una cantidad válida.');
-   return;
- }
-
- cart.push({product, detail, quantity, price});
- displayCart();
- showNotification();
-}
-
-// ==========================
-// 📋 MOSTRAR CARRITO
-// ==========================
-
-function displayCart() {
- let carritoDiv = document.getElementById('carrito');
- carritoDiv.innerHTML = '';
-
- if (cart.length === 0) {
-   carritoDiv.innerHTML = '<p>Tu carrito está vacío 🛒</p>';
-   return;
- }
-
- let total = 0;
- cart.forEach((item, index) => {
-   total += item.price * item.quantity;
-   carritoDiv.innerHTML += `<p>${item.quantity} x ${item.product} - $${item.price * item.quantity} <button onclick="removeItem(${index})">❌</button></p>`;
- });
-
- carritoDiv.innerHTML += `<h3>Total: $${total}</h3>`;
-}
-
-// ==========================
-// ❌ ELIMINAR ITEM
-// ==========================
-
-function removeItem(index){
- cart.splice(index,1);
- displayCart();
-}
-
-// ==========================
-// 📲 ENVIAR PEDIDO WHATSAPP
-// ==========================
-
-function sendOrder(){
- if(cart.length===0){
-   alert('Tu carrito está vacío.');
-   return;
- }
- let message='Hola! Me gustaría pedir:%0A';
- cart.forEach(item=>{
-   message+=`${item.quantity} x ${item.product} - $${item.price*item.quantity}%0A`;
- });
- let total=cart.reduce((s,i)=>s+i.price*i.quantity,0);
- message+=`%0ATotal: $${total}`;
- window.open(`https://wa.me/524445481177?text=${message}`,'_blank');
-}
-
 </script>
 </body>
 </html>
