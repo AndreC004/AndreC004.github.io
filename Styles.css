@@ -1,1 +1,81 @@
+/* ✅ Estilos globales */
+body {
+  background-color: #f8f1e8;
+  color: #3e2b1e;
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
 
+/* ✅ Menú */
+header {
+  position: sticky;
+  top: 0;
+  background-color: #fffaf5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+.logo {
+  height: 50px;
+}
+nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #5c3b1e;
+  font-weight: bold;
+}
+nav a:hover { text-decoration: underline; }
+
+/* ✅ Banner */
+#banner {
+  background-image: url('IMG_1364.jpeg'); /* ⚠️ luego ponemos tu imagen de banner aquí */
+  background-size: cover;
+  background-position: center;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+}
+.boton-principal {
+  padding: 12px 25px;
+  background-color: #b28855;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 6px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+}
+
+/* ✅ Sección bienvenida */
+#bienvenida {
+  padding: 40px 20px;
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+}
+
+/* ✅ Footer */
+footer {
+  text-align: center;
+  padding: 30px;
+  background-color: #f0e5db;
+  font-size: 0.9em;
+}
+footer a {
+  display: inline-block;
+  margin: 5px 10px;
+  padding: 10px 15px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #3e2b1e;
+  font-weight: bold;
+}
+.wsp { background-color: #25D366; color: white; }
+.ig { background-color: #f7cfcf; }
+.fb { background-color: #3b5998; color: white; }
