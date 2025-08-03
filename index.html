@@ -114,8 +114,9 @@ nav a:hover { color: #b28855; }
   background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1470&q=80');
   background-size: cover;
   background-position: center;
-  height: 380px;                 /* ✅ un poco más alto para que luzca */
-  margin-top: 0;                 /* ✅ asegura que arranque pegado al header */
+  height: 420px;  /* ✅ más altura para lucir la foto completa */
+  width: 100%;
+  margin-top: -10px; /* ✅ para que el header no tape la imagen */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -123,7 +124,7 @@ nav a:hover { color: #b28855; }
   color: #fff;
   text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
   text-align: center;
-  padding: 40px 20px 0 20px;     /* ✅ agrega aire arriba para que la imagen no quede “tapada” */
+  padding: 20px;
   animation: fadeIn 1.5s ease;
 }
 #banner h1 { font-size: clamp(2rem, 5vw, 3rem); margin: 0; }
@@ -300,16 +301,17 @@ footer .whatsapp { background-color: #bff2d0; }
 <a href="https://wa.me/524445481177" target="_blank" class="boton-wsp">Pedir por WhatsApp</a></footer>
 
 <div id="toast">✅ Pedido enviado a WhatsApp</div>
-<script>
+
+  <script>
 /* ✅ MENÚ HAMBURGUESA */
 function toggleMenu() {
   const menu = document.getElementById('nav-menu');
   const toggle = document.querySelector('.menu-toggle');
   menu.classList.toggle('active');
-  toggle.classList.toggle('change'); // animación de las barras a "X"
+  toggle.classList.toggle('change'); 
 }
 
-/* ✅ Cerrar menú suavemente */
+/* ✅ Cerrar menú */
 function closeMenu() {
   setTimeout(() => {
     document.getElementById('nav-menu').classList.remove('active');
@@ -317,13 +319,11 @@ function closeMenu() {
   }, 200);
 }
 
-/* ✅ Scroll nativo + cierre del menú en paralelo */
+/* ✅ NUEVO: cerrar menú después de dar clic, pero SIN bloquear el enlace */
 document.querySelectorAll('nav a[href^="#"]').forEach(link => {
-  link.addEventListener('click', function() {
-    // Dejamos que el navegador haga el scroll normal
-    setTimeout(() => {
-      closeMenu(); // ✅ cerramos el menú poquito después
-    }, 150);
+  link.addEventListener('click', () => {
+    // ✅ Dejamos que el navegador haga scroll normal
+    closeMenu();  // ✅ y cerramos el menú al mismo tiempo
   });
 });
 
