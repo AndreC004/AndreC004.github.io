@@ -12,18 +12,43 @@
 <link rel="icon" href="IMG_5514.jpeg" type="image/png">
 <style>
 html { scroll-behavior: smooth; scroll-padding-top: 80px; }
-body { background-color: #f8f1e8; color: #3e2b1e; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
+body {
+  background-color: #f8f1e8;
+  color: #3e2b1e;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* TITULOS, IMÁGENES Y EFECTOS */
 h1, h2, h3 { color: #5c3b1e; }
 img { max-width: 100%; display: block; border-radius: 10px; transition: transform 0.3s ease; }
 img:hover { transform: scale(1.03); }
+
 /* HEADER Y MENÚ */
-header { position: sticky; top: 0; background-color: #fffaf5; display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); z-index: 1000; }
+header {
+  position: sticky;
+  top: 0;
+  background-color: #fffaf5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
 header img { height: 55px; transition: transform 0.3s ease; }
 header img:hover { transform: scale(1.05); }
 nav { display: flex; gap: 15px; }
-nav a { text-decoration: none; color: #5c3b1e; font-weight: bold; transition: color 0.2s ease; }
+nav a {
+  text-decoration: none;
+  color: #5c3b1e;
+  font-weight: bold;
+  transition: color 0.2s ease;
+}
 nav a:hover { color: #b28855; }
-/* --- MENÚ HAMBURGUESA MEJORADO --- */
+
+/* --- MENÚ HAMBURGUESA BONITO Y CON ESPACIO --- */
 .menu-toggle {
   display: none;
   flex-direction: column;
@@ -31,12 +56,10 @@ nav a:hover { color: #b28855; }
   z-index: 2001;
   padding: 8px;
   border-radius: 6px;
-  background: rgba(255, 250, 245, 0.85);
+  background: rgba(255, 250, 245, 0.9);
   transition: background 0.3s ease;
 }
-.menu-toggle:hover {
-  background: rgba(255, 250, 245, 1);
-}
+.menu-toggle:hover { background: rgba(255, 250, 245, 1); }
 .bar {
   height: 3px;
   width: 28px;
@@ -45,62 +68,142 @@ nav a:hover { color: #b28855; }
   border-radius: 3px;
   transition: 0.4s;
 }
-
-/* Animación para convertir el menú en "X" */
-.menu-toggle.change .bar:nth-child(1) {
-  transform: rotate(-45deg) translate(-5px, 6px);
-}
+/* Animación de X */
+.menu-toggle.change .bar:nth-child(1) { transform: rotate(-45deg) translate(-5px, 6px); }
 .menu-toggle.change .bar:nth-child(2) { opacity: 0; }
-.menu-toggle.change .bar:nth-child(3) {
-  transform: rotate(45deg) translate(-5px, -6px);
-}
+.menu-toggle.change .bar:nth-child(3) { transform: rotate(45deg) translate(-5px, -6px); }
 
 /* --- MENÚ EN PANTALLAS CHICAS Y TABLET --- */
 @media (max-width: 1024px) {
   nav {
     position: fixed;
     top: 0;
-    right: -260px;
+    right: -280px;
     height: 100%;
-    width: 240px;
-    background: #fffaf5;
+    width: 250px;
+    background: rgba(255, 250, 245, 0.97);
+    backdrop-filter: blur(8px);
     flex-direction: column;
-    padding-top: 100px;
-    gap: 25px;
+    padding-top: 110px;
+    padding-left: 30px;  /* ✅ MÁS ESPACIO A LA IZQUIERDA */
+    gap: 30px;
     transition: right 0.3s ease;
-    box-shadow: -2px 0 8px rgba(0,0,0,0.15);
+    box-shadow: -3px 0 10px rgba(0,0,0,0.15);
     z-index: 2000;
   }
   nav a {
-    font-size: 1.1em;
-    padding: 10px 0;
+    font-size: 1.2em;
+    padding: 12px 0;
+    font-weight: bold;
+    width: 100%;
   }
   nav.active { right: 0; }
   .menu-toggle { display: flex; }
 }
+
 /* BANNER */
-#banner { background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1470&q=80'); background-size: cover; background-position: center; height: 350px; display: flex; flex-direction: column; justify-content: center; align-items: center; color: #fff; text-shadow: 1px 1px 4px rgba(0,0,0,0.7); text-align: center; padding: 0 20px; animation: fadeIn 1.5s ease; }
+#banner {
+  background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1470&q=80');
+  background-size: cover;
+  background-position: center;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+  text-align: center;
+  padding: 0 20px;
+  animation: fadeIn 1.5s ease;
+}
 #banner h1 { font-size: clamp(2rem, 5vw, 3rem); margin: 0; }
 #banner p { font-size: 1.2em; margin: 10px 0 20px; }
-#banner a { padding: 12px 25px; background-color: #b28855; color: #fff; text-decoration: none; font-weight: bold; border-radius: 6px; box-shadow: 0 3px 6px rgba(0,0,0,0.3); transition: background-color 0.3s ease, transform 0.2s ease; }
+#banner a {
+  padding: 12px 25px;
+  background-color: #b28855;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 6px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
 #banner a:hover { background-color: #9c7147; transform: scale(1.05); }
 @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
+
 /* SECCIONES */
-section { padding: 40px 20px; max-width: 900px; margin: auto; }
-.producto, .zona-envio, .historia, .intencion { background-color: #ffffff; border-radius: 12px; padding: 25px; box-shadow: 0 0 10px rgba(0,0,0,0.04); margin-bottom: 40px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+section {
+  padding: 40px 20px;
+  max-width: 900px;
+  margin: auto;
+}
+.producto, .zona-envio, .historia, .intencion {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.04);
+  margin-bottom: 40px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 .producto:hover { transform: scale(1.02); box-shadow: 0 6px 15px rgba(0,0,0,0.08); }
+
 /* BOTONES WHATSAPP */
-.boton-wsp { display: inline-block; background-color: #25D366; color: white; padding: 10px 20px; margin-top: 15px; border-radius: 8px; text-decoration: none; font-weight: bold; transition: transform 0.2s ease, background-color 0.2s ease; }
+.boton-wsp {
+  display: inline-block;
+  background-color: #25D366;
+  color: white;
+  padding: 10px 20px;
+  margin-top: 15px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
 .boton-wsp:hover { transform: scale(1.05); background-color: #1ebe5c; }
+
 /* FOOTER */
-footer { text-align: center; padding: 30px; background-color: #f0e5db; font-size: 0.9em; }
-footer a { display: inline-block; margin: 5px 10px; padding: 10px 15px; border-radius: 8px; text-decoration: none; color: #3e2b1e; font-weight: bold; }
+footer {
+  text-align: center;
+  padding: 30px;
+  background-color: #f0e5db;
+  font-size: 0.9em;
+}
+footer a {
+  display: inline-block;
+  margin: 5px 10px;
+  padding: 10px 15px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #3e2b1e;
+  font-weight: bold;
+}
 footer .instagram { background-color: #f7cfcf; }
 footer .facebook { background-color: #d4e3fc; }
 footer .whatsapp { background-color: #bff2d0; }
+
 /* TOAST */
-#toast { visibility: hidden; min-width: 250px; margin-left: -125px; background-color: #25D366; color: #fff; text-align: center; border-radius: 8px; padding: 16px; position: fixed; z-index: 1; left: 50%; bottom: 30px; font-weight: bold; transition: visibility 0s, opacity 0.5s linear; opacity: 0; }
-#toast.show { visibility: visible; opacity: 1; }
+#toast {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: #25D366;
+  color: #fff;
+  text-align: center;
+  border-radius: 8px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  bottom: 30px;
+  font-weight: bold;
+  transition: visibility 0s, opacity 0.5s linear;
+  opacity: 0;
+}
+#toast.show {
+  visibility: visible;
+  opacity: 1;
+}
 </style>
 </head>
 <body>
@@ -190,58 +293,98 @@ footer .whatsapp { background-color: #bff2d0; }
 <div id="toast">✅ Pedido enviado a WhatsApp</div>
 
 <script>
+/* ✅ MENÚ HAMBURGUESA */
 function toggleMenu() {
   const menu = document.getElementById('nav-menu');
   const toggle = document.querySelector('.menu-toggle');
   menu.classList.toggle('active');
-  toggle.classList.toggle('change'); // animación X
+  toggle.classList.toggle('change'); // animación de las barras a "X"
 }
 
+/* ✅ Cerrar menú suavemente y permitir scroll bonito */
 function closeMenu() {
   setTimeout(() => {
     document.getElementById('nav-menu').classList.remove('active');
     document.querySelector('.menu-toggle').classList.remove('change');
-  }, 150); // pequeño delay para que el scroll sea suave
+  }, 200);
 }
+
+/* ✅ Ajuste: scroll suave para que no tape los títulos */
+document.querySelectorAll('nav a').forEach(link => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    const section = document.querySelector(this.getAttribute('href'));
+    if (section) {
+      closeMenu();
+      setTimeout(() => {
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 300);
+    }
+  });
+});
+
+/* ✅ TOAST (confirmación de pedido) */
 function showToast() {
- const toast = document.getElementById("toast");
- toast.className = "show";
- setTimeout(() => { toast.className = toast.className.replace("show", ""); }, 3000);
+  const toast = document.getElementById("toast");
+  toast.className = "show";
+  setTimeout(() => { toast.className = toast.className.replace("show", ""); }, 3000);
 }
+
+/* ✅ SCRIPT DE WHATSAPP (se queda igual) */
 function generarPedido() {
- const grandesCantidad = parseInt(document.querySelector('[name="grandesCantidad"]').value) || 0;
- const grandesSabor = document.querySelector('[name="grandesSabor"]').value;
- const chicasCantidad = parseInt(document.querySelector('[name="chicasCantidad"]').value) || 0;
- const chicasSabor = document.querySelector('[name="chicasSabor"]').value;
- const rosquitasCantidad = parseInt(document.querySelector('[name="rosquitasCantidad"]').value) || 0;
- const panEspanolCantidad = parseInt(document.querySelector('[name="panEspanolCantidad"]').value) || 0;
- const conchasNormalesCantidad = parseInt(document.querySelector('[name="conchasNormalesCantidad"]').value) || 0;
- const conchasIntegralesCantidad = parseInt(document.querySelector('[name="conchasIntegralesCantidad"]').value) || 0;
- const errorMensaje = document.getElementById('errorMensaje');
+  const grandesCantidad = parseInt(document.querySelector('[name="grandesCantidad"]').value) || 0;
+  const grandesSabor = document.querySelector('[name="grandesSabor"]').value;
+  const chicasCantidad = parseInt(document.querySelector('[name="chicasCantidad"]').value) || 0;
+  const chicasSabor = document.querySelector('[name="chicasSabor"]').value;
+  const rosquitasCantidad = parseInt(document.querySelector('[name="rosquitasCantidad"]').value) || 0;
+  const panEspanolCantidad = parseInt(document.querySelector('[name="panEspanolCantidad"]').value) || 0;
+  const conchasNormalesCantidad = parseInt(document.querySelector('[name="conchasNormalesCantidad"]').value) || 0;
+  const conchasIntegralesCantidad = parseInt(document.querySelector('[name="conchasIntegralesCantidad"]').value) || 0;
 
- let mensaje = "¡Hola Dulce Pasado! Me gustaría hacer el siguiente pedido:\n";
- let total = 0;
+  const errorMensaje = document.getElementById('errorMensaje');
 
- if (grandesCantidad > 0) { mensaje += `- ${grandesCantidad} empanadas grandes de ${grandesSabor} ($15 c/u)\n`; total += grandesCantidad * 15; }
- if (chicasCantidad > 0) { mensaje += `- ${chicasCantidad} empanadas chicas de ${chicasSabor} ($7 c/u)\n`; total += chicasCantidad * 7; }
- if (rosquitasCantidad > 0) { mensaje += `- ${rosquitasCantidad} rosquitas ($4 c/u)\n`; total += rosquitasCantidad * 4; }
- if (panEspanolCantidad > 0) { mensaje += `- ${panEspanolCantidad} pan español ($15 c/u)\n`; total += panEspanolCantidad * 15; }
- if (conchasNormalesCantidad > 0) { mensaje += `- ${conchasNormalesCantidad} conchas normales ($20 c/u)\n`; total += conchasNormalesCantidad * 20; }
- if (conchasIntegralesCantidad > 0) { mensaje += `- ${conchasIntegralesCantidad} conchas integrales ($25 c/u)\n`; total += conchasIntegralesCantidad * 25; }
+  let mensaje = "¡Hola Dulce Pasado! Me gustaría hacer el siguiente pedido:\n";
+  let total = 0;
 
- if (grandesCantidad === 0 && chicasCantidad === 0 && rosquitasCantidad === 0 && panEspanolCantidad === 0 && conchasNormalesCantidad === 0 && conchasIntegralesCantidad === 0) {
-   errorMensaje.textContent = "Por favor elige al menos un producto.";
-   return;
- }
+  if (grandesCantidad > 0) {
+    mensaje += `- ${grandesCantidad} empanadas grandes de ${grandesSabor} ($15 c/u)\n`;
+    total += grandesCantidad * 15;
+  }
+  if (chicasCantidad > 0) {
+    mensaje += `- ${chicasCantidad} empanadas chicas de ${chicasSabor} ($7 c/u)\n`;
+    total += chicasCantidad * 7;
+  }
+  if (rosquitasCantidad > 0) {
+    mensaje += `- ${rosquitasCantidad} rosquitas ($4 c/u)\n`;
+    total += rosquitasCantidad * 4;
+  }
+  if (panEspanolCantidad > 0) {
+    mensaje += `- ${panEspanolCantidad} pan español ($15 c/u)\n`;
+    total += panEspanolCantidad * 15;
+  }
+  if (conchasNormalesCantidad > 0) {
+    mensaje += `- ${conchasNormalesCantidad} conchas normales ($20 c/u)\n`;
+    total += conchasNormalesCantidad * 20;
+  }
+  if (conchasIntegralesCantidad > 0) {
+    mensaje += `- ${conchasIntegralesCantidad} conchas integrales ($25 c/u)\n`;
+    total += conchasIntegralesCantidad * 25;
+  }
 
- mensaje += `\nTotal: $${total} MXN`;
- errorMensaje.textContent = "";
+  if (grandesCantidad === 0 && chicasCantidad === 0 && rosquitasCantidad === 0 &&
+      panEspanolCantidad === 0 && conchasNormalesCantidad === 0 && conchasIntegralesCantidad === 0) {
+    errorMensaje.textContent = "Por favor elige al menos un producto.";
+    return;
+  }
 
- const numero = "524445481177";
- const mensajeCodificado = encodeURIComponent(mensaje);
- const url = `https://wa.me/${numero}?text=${mensajeCodificado}`;
- window.open(url, '_blank');
- showToast();
+  mensaje += `\nTotal: $${total} MXN`;
+  errorMensaje.textContent = "";
+
+  const numero = "524445481177";
+  const mensajeCodificado = encodeURIComponent(mensaje);
+  const url = `https://wa.me/${numero}?text=${mensajeCodificado}`;
+  window.open(url, '_blank');
+  showToast();
 }
 </script>
 </body>
