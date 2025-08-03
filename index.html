@@ -11,9 +11,7 @@
 <title>Dulce Pasado</title>
 <link rel="icon" href="IMG_5514.jpeg" type="image/png">
 <style>
-html { 
-  scroll-behavior: smooth; 
-}
+html { scroll-behavior: smooth; }
 
 body {
   background-color: #f8f1e8;
@@ -23,9 +21,9 @@ body {
   font-family: 'Segoe UI', sans-serif;
 }
 
-/* HEADER Y MENÚ */
+/* HEADER Y MENÚ FIJO */
 header {
-  position: sticky;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -36,12 +34,17 @@ header {
   padding: 10px 20px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   z-index: 1000;
-  margin: 0;
 }
 
-/* Imagen del logo */
-header img { height: 55px; transition: transform 0.3s ease; }
-header img:hover { transform: scale(1.05); }
+/* Ajuste para que el contenido no quede oculto debajo del header */
+body::before {
+  content: "";
+  display: block;
+  height: 75px; /* espacio exacto para header */
+}
+
+/* Logo */
+header img { height: 55px; }
 
 /* Links del menú */
 nav { display: flex; gap: 15px; }
@@ -64,7 +67,6 @@ nav a:hover { color: #b28855; }
   background: rgba(255, 250, 245, 0.9);
   transition: background 0.3s ease;
 }
-.menu-toggle:hover { background: rgba(255, 250, 245, 1); }
 .bar {
   height: 3px;
   width: 28px;
@@ -73,12 +75,11 @@ nav a:hover { color: #b28855; }
   border-radius: 3px;
   transition: 0.4s;
 }
-/* Animación de X */
 .menu-toggle.change .bar:nth-child(1) { transform: rotate(-45deg) translate(-5px, 6px); }
 .menu-toggle.change .bar:nth-child(2) { opacity: 0; }
 .menu-toggle.change .bar:nth-child(3) { transform: rotate(45deg) translate(-5px, -6px); }
 
-/* --- MENÚ EN PANTALLAS CHICAS Y TABLET --- */
+/* --- MENÚ EN MÓVIL --- */
 @media (max-width: 1024px) {
   nav {
     position: fixed;
@@ -87,7 +88,6 @@ nav a:hover { color: #b28855; }
     height: 100%;
     width: 260px;
     background: rgba(255, 250, 245, 0.97);
-    backdrop-filter: blur(8px);
     flex-direction: column;
     padding-top: 80px;
     padding-left: 40px;
@@ -106,12 +106,12 @@ nav a:hover { color: #b28855; }
   .menu-toggle { display: flex; }
 }
 
-/* ✅ BANNER */
+/* BANNER */
 #banner {
   background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1470&q=80');
   background-size: cover;
   background-position: center;
-  min-height: 500px;
+  min-height: 450px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -123,26 +123,6 @@ nav a:hover { color: #b28855; }
   padding: 0 20px;
 }
 
-@media (max-width: 768px) {
-  #banner {
-    min-height: 350px;
-  }
-}
-
-#banner h1 { font-size: clamp(2rem, 5vw, 3rem); margin: 0; }
-#banner p { font-size: 1.2em; margin: 10px 0 20px; }
-#banner a {
-  padding: 12px 25px;
-  background-color: #b28855;
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 6px;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.3);
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-#banner a:hover { background-color: #9c7147; transform: scale(1.05); }
-
 /* SECCIONES */
 section {
   padding: 40px 20px;
@@ -150,16 +130,13 @@ section {
   margin: auto;
 }
 
-/* Productos */
 .producto, .zona-envio, .historia, .intencion {
   background-color: #ffffff;
   border-radius: 12px;
   padding: 25px;
   box-shadow: 0 0 10px rgba(0,0,0,0.04);
   margin-bottom: 40px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.producto:hover { transform: scale(1.02); box-shadow: 0 6px 15px rgba(0,0,0,0.08); }
 
 /* BOTONES WHATSAPP */
 .boton-wsp {
@@ -171,9 +148,7 @@ section {
   border-radius: 8px;
   text-decoration: none;
   font-weight: bold;
-  transition: transform 0.2s ease, background-color 0.2s ease;
 }
-.boton-wsp:hover { transform: scale(1.05); background-color: #1ebe5c; }
 
 /* FOOTER */
 footer {
@@ -191,50 +166,32 @@ footer a {
   color: #3e2b1e;
   font-weight: bold;
 }
-footer .instagram { background-color: #f7cfcf; }
-footer .facebook { background-color: #d4e3fc; }
-footer .whatsapp { background-color: #bff2d0; }
-
-/* TOAST */
-#toast {
-  visibility: hidden;
-  min-width: 250px;
-  margin-left: -125px;
-  background-color: #25D366;
-  color: #fff;
-  text-align: center;
-  border-radius: 8px;
-  padding: 16px;
-  position: fixed;
-  z-index: 1;
-  left: 50%;
-  bottom: 30px;
-  font-weight: bold;
-  transition: visibility 0s, opacity 0.5s linear;
-  opacity: 0;
-}
-#toast.show {
-  visibility: visible;
-  opacity: 1;
-}
 </style>
 </head>
 <body>
 
 
 <header>
-<img src="IMG_5514.jpeg" alt="Logo Dulce Pasado" />
-<div class="menu-toggle" onclick="toggleMenu()">
-<div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
-<nav id="nav-menu">
-<a href="#banner" onclick="closeMenu()">Inicio</a>
-<a href="#intencion" onclick="closeMenu()">Intención</a>
-<a href="#productos" onclick="closeMenu()">Productos</a>
-<a href="#carrito-pedidos" onclick="closeMenu()">Tu pedido</a>
-<a href="#historia" onclick="closeMenu()">Historia</a>
-<a href="#envios" onclick="closeMenu()">Envíos</a>
-<a href="#drop" onclick="closeMenu()">¿DROP?</a>
-</nav></header>
+  <img src="IMG_5514.jpeg" alt="Logo Dulce Pasado" />
+  
+  <!-- Botón hamburguesa -->
+  <div class="menu-toggle" onclick="toggleMenu()">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+
+  <!-- Menú de navegación con data-section -->
+  <nav id="nav-menu">
+    <a data-section="banner" onclick="closeMenu()">Inicio</a>
+    <a data-section="intencion" onclick="closeMenu()">Intención</a>
+    <a data-section="productos" onclick="closeMenu()">Productos</a>
+    <a data-section="carrito-pedidos" onclick="closeMenu()">Tu pedido</a>
+    <a data-section="historia" onclick="closeMenu()">Historia</a>
+    <a data-section="envios" onclick="closeMenu()">Envíos</a>
+    <a data-section="drop" onclick="closeMenu()">¿DROP?</a>
+  </nav>
+</header>
 
 <section id="banner">
 <h1>Pan artesanal hecho con amor</h1>
@@ -322,27 +279,20 @@ function closeMenu() {
   }, 200);
 }
 
-/* ✅ SCROLL CONTROLADO (compensa el header) */
-document.querySelectorAll('nav a[href^="#"]').forEach(link => {
-  link.addEventListener('click', function(e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
+/* ✅ SCROLL MANUAL CONTROLADO */
+document.querySelectorAll('nav a[data-section]').forEach(link => {
+  link.addEventListener('click', function() {
+    const id = this.getAttribute('data-section');
+    const target = document.getElementById(id);
     if (target) {
-      const offset = target.getBoundingClientRect().top + window.scrollY - 90; // header compensado
+      const offset = target.offsetTop - 70; // deja espacio para el header
       window.scrollTo({ top: offset, behavior: 'smooth' });
       closeMenu();
     }
   });
 });
 
-/* ✅ TOAST (mensaje de confirmación de pedido) */
-function showToast() {
-  const toast = document.getElementById("toast");
-  toast.className = "show";
-  setTimeout(() => { toast.className = toast.className.replace("show", ""); }, 3000);
-}
-
-/* ✅ SCRIPT DE WHATSAPP */
+/* ✅ SCRIPT DE WHATSAPP (igual que antes) */
 function generarPedido() {
   const grandesCantidad = parseInt(document.querySelector('[name="grandesCantidad"]').value) || 0;
   const grandesSabor = document.querySelector('[name="grandesSabor"]').value;
@@ -396,7 +346,6 @@ function generarPedido() {
   const mensajeCodificado = encodeURIComponent(mensaje);
   const url = `https://wa.me/${numero}?text=${mensajeCodificado}`;
   window.open(url, '_blank');
-  showToast();
 }
 </script>
 </body>
