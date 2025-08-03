@@ -114,7 +114,8 @@ nav a:hover { color: #b28855; }
   background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1470&q=80');
   background-size: cover;
   background-position: center;
-  height: 350px;
+  height: 380px;                 /* ✅ un poco más alto para que luzca */
+  margin-top: 0;                 /* ✅ asegura que arranque pegado al header */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -122,7 +123,7 @@ nav a:hover { color: #b28855; }
   color: #fff;
   text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
   text-align: center;
-  padding: 0 20px;
+  padding: 40px 20px 0 20px;     /* ✅ agrega aire arriba para que la imagen no quede “tapada” */
   animation: fadeIn 1.5s ease;
 }
 #banner h1 { font-size: clamp(2rem, 5vw, 3rem); margin: 0; }
@@ -299,7 +300,6 @@ footer .whatsapp { background-color: #bff2d0; }
 <a href="https://wa.me/524445481177" target="_blank" class="boton-wsp">Pedir por WhatsApp</a></footer>
 
 <div id="toast">✅ Pedido enviado a WhatsApp</div>
-
 <script>
 /* ✅ MENÚ HAMBURGUESA */
 function toggleMenu() {
@@ -309,7 +309,7 @@ function toggleMenu() {
   toggle.classList.toggle('change'); // animación de las barras a "X"
 }
 
-/* ✅ Cerrar menú suavemente y permitir scroll bonito */
+/* ✅ Cerrar menú suavemente */
 function closeMenu() {
   setTimeout(() => {
     document.getElementById('nav-menu').classList.remove('active');
@@ -317,22 +317,24 @@ function closeMenu() {
   }, 200);
 }
 
-/* ✅ Links internos: cerrar menú y dejar que hagan scroll normal */
+/* ✅ Scroll nativo + cierre del menú en paralelo */
 document.querySelectorAll('nav a[href^="#"]').forEach(link => {
   link.addEventListener('click', function() {
-    closeMenu(); // ✅ cerramos el menú
-    // ❌ ya no bloqueamos el link, dejamos que haga scroll nativo
+    // Dejamos que el navegador haga el scroll normal
+    setTimeout(() => {
+      closeMenu(); // ✅ cerramos el menú poquito después
+    }, 150);
   });
 });
 
-/* ✅ TOAST (confirmación de pedido) */
+/* ✅ TOAST (mensaje de confirmación de pedido) */
 function showToast() {
   const toast = document.getElementById("toast");
   toast.className = "show";
   setTimeout(() => { toast.className = toast.className.replace("show", ""); }, 3000);
 }
 
-/* ✅ SCRIPT DE WHATSAPP (se queda igual) */
+/* ✅ SCRIPT DE WHATSAPP */
 function generarPedido() {
   const grandesCantidad = parseInt(document.querySelector('[name="grandesCantidad"]').value) || 0;
   const grandesSabor = document.querySelector('[name="grandesSabor"]').value;
