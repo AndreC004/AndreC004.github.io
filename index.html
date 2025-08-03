@@ -77,16 +77,6 @@
       margin: 15px auto;
       border-radius: 10px;
     }
-    .boton {
-      display: inline-block;
-      background-color: #25D366;
-      color: white;
-      padding: 10px 20px;
-      margin-top: 15px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-    }
     footer {
       text-align: center;
       padding: 30px;
@@ -113,6 +103,17 @@
       margin-top: 20px;
       box-shadow: 0 0 5px rgba(0,0,0,0.1);
     }
+    .btn {
+      padding: 10px 15px;
+      margin: 5px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .wsp { background:#25D366; color:white; }
+    .ig { background:#f7cfcf; color:#3e2b1e; }
+    .fb { background:#3b5998; color:white; }
   </style>
 </head>
 <body>
@@ -201,14 +202,14 @@
 
   <div id="resumen" style="margin-top:20px; display:none; background:white; padding:15px; border-radius:10px;">
     <h3>📝 Resumen de tu pedido</h3>
-    <p id="listaPedido"></p>
-    <p id="totalPedido" style="font-weight:bold;"></p>
+    <pre id="listaPedido" style="white-space: pre-wrap; font-family: inherit;"></pre>
+    <p style="font-weight:bold;" id="totalPedido"></p>
     <p>📦 A esto se le agrega el costo de envío según tu zona.</p>
 
     <p style="margin-top:10px;">👉 ¿A dónde quieres enviarlo?</p>
-    <button onclick="enviarPedido('whatsapp')" style="background:#25D366; color:white; padding:10px 15px; border:none; border-radius:8px; cursor:pointer;">WhatsApp</button>
-    <button onclick="enviarPedido('instagram')" style="background:#f7cfcf; color:#3e2b1e; padding:10px 15px; border:none; border-radius:8px; cursor:pointer;">Instagram DM</button>
-    <button onclick="enviarPedido('facebook')" style="background:#3b5998; color:white; padding:10px 15px; border:none; border-radius:8px; cursor:pointer;">Facebook</button>
+    <button class="btn wsp" onclick="enviarPedido('whatsapp')">WhatsApp</button>
+    <button class="btn ig" onclick="enviarPedido('instagram')">Instagram DM</button>
+    <button class="btn fb" onclick="enviarPedido('facebook')">Facebook</button>
   </div>
 
   <!-- Métodos de pago -->
@@ -256,50 +257,62 @@ function generarPedido() {
   let mensaje = "📩 Hola, me comunico con Dulce Pasado.\nQuisiera hacer un pedido:\n\n";
   let total = 0;
 
-  // EMPANADAS GRANDES
-  const empGrandeSabores = [
-    {id: 'emp_grande_cajeta', nombre: 'Cajeta'},
-    {id: 'emp_grande_pina', nombre: 'Piña'},
-    {id: 'emp_grande_nutella', nombre: 'Nutella'},
-    {id: 'emp_grande_queso', nombre: 'Queso dulce'}
+  // Empanadas grandes
+  const grandes = [
+    {id: 'emp_grande_cajeta', sabor: 'Cajeta'},
+    {id: 'emp_grande_pina', sabor: 'Piña'},
+    {id: 'emp_grande_nutella', sabor: 'Nutella'},
+    {id: 'emp_grande_queso', sabor: 'Queso dulce'}
   ];
-  empGrandeSabores.forEach(sabor => {
-    let cantidad = parseInt(document.getElementById(sabor.id).value) || 0;
+  grandes.forEach(item => {
+    const cantidad = parseInt(document.getElementById(item.id).value) || 0;
     if (cantidad > 0) {
-      mensaje += `🥟 ${cantidad} empanadas GRANDES de ${sabor.nombre}\n`;
+      mensaje += `🥟 ${cantidad} empanadas GRANDES de ${item.sabor}\n`;
       total += cantidad * 15;
     }
   });
 
-  // EMPANADAS CHICAS
-  const empChicaSabores = [
-    {id: 'emp_chica_cajeta', nombre: 'Cajeta'},
-    {id: 'emp_chica_pina', nombre: 'Piña'},
-    {id: 'emp_chica_nutella', nombre: 'Nutella'},
-    {id: 'emp_chica_queso', nombre: 'Queso dulce'}
+  // Empanadas chicas
+  const chicas = [
+    {id: 'emp_chica_cajeta', sabor: 'Cajeta'},
+    {id: 'emp_chica_pina', sabor: 'Piña'},
+    {id: 'emp_chica_nutella', sabor: 'Nutella'},
+    {id: 'emp_chica_queso', sabor: 'Queso dulce'}
   ];
-  empChicaSabores.forEach(sabor => {
-    let cantidad = parseInt(document.getElementById(sabor.id).value) || 0;
+  chicas.forEach(item => {
+    const cantidad = parseInt(document.getElementById(item.id).value) || 0;
     if (cantidad > 0) {
-      mensaje += `🥟 ${cantidad} empanadas CHICAS de ${sabor.nombre}\n`;
+      mensaje += `🥟 ${cantidad} empanadas CHICAS de ${item.sabor}\n`;
       total += cantidad * 7;
     }
   });
 
-  // OTROS PRODUCTOS
+  // Otros productos
   const rosquitas = parseInt(document.getElementById('rosquitas').value) || 0;
-  if(rosquitas > 0){ mensaje += `🍩 ${rosquitas} rosquitas\n`; total += rosquitas * 4; }
+  if (rosquitas > 0) {
+    mensaje += `🍩 ${rosquitas} rosquitas\n`;
+    total += rosquitas * 4;
+  }
 
   const pan = parseInt(document.getElementById('pan').value) || 0;
-  if(pan > 0){ mensaje += `🥖 ${pan} pan español\n`; total += pan * 15; }
+  if (pan > 0) {
+    mensaje += `🥖 ${pan} pan español\n`;
+    total += pan * 15;
+  }
 
   const conchaNormal = parseInt(document.getElementById('concha_normal').value) || 0;
-  if(conchaNormal > 0){ mensaje += `🍪 ${conchaNormal} conchas normales\n`; total += conchaNormal * 20; }
+  if (conchaNormal > 0) {
+    mensaje += `🍪 ${conchaNormal} conchas normales\n`;
+    total += conchaNormal * 20;
+  }
 
   const conchaIntegral = parseInt(document.getElementById('concha_integral').value) || 0;
-  if(conchaIntegral > 0){ mensaje += `🍪 ${conchaIntegral} conchas integrales\n`; total += conchaIntegral * 25; }
+  if (conchaIntegral > 0) {
+    mensaje += `🍪 ${conchaIntegral} conchas integrales\n`;
+    total += conchaIntegral * 25;
+  }
 
-  if(mensaje === "📩 Hola, me comunico con Dulce Pasado.\nQuisiera hacer un pedido:\n\n"){
+  if (mensaje === "📩 Hola, me comunico con Dulce Pasado.\nQuisiera hacer un pedido:\n\n") {
     alert("Por favor agrega al menos un producto");
     return;
   }
@@ -307,7 +320,6 @@ function generarPedido() {
   mensaje += `\n💰 Total: $${total} MXN\n📦 A esto se le agrega el costo de envío según tu zona.`;
 
   document.getElementById('listaPedido').innerText = mensaje;
-  document.getElementById('totalPedido').innerText = ``;
   document.getElementById('resumen').style.display = "block";
 }
 
@@ -319,4 +331,16 @@ function enviarPedido(red) {
     window.open(`https://wa.me/524445481177?text=${mensajeCodificado}`, '_blank');
   } else {
     navigator.clipboard.writeText(mensaje).then(() => {
-      alert("✅ Tu pedido se copió al portapapeles. Abre " + red.to
+      alert("✅ Tu pedido se copió al portapapeles. Abre " + red.toUpperCase() + " y pégalo en el mensaje.");
+      if (red === 'instagram') {
+        window.open("https://www.instagram.com/pan_dulcepasado", "_blank");
+      } else if (red === 'facebook') {
+        window.open("https://www.facebook.com/share/16HTqVAuUz/?mibextid=wwXIfr", "_blank");
+      }
+    });
+  }
+}
+</script>
+
+</body>
+</html>
