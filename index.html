@@ -23,13 +23,60 @@ header img:hover { transform: scale(1.05); }
 nav { display: flex; gap: 15px; }
 nav a { text-decoration: none; color: #5c3b1e; font-weight: bold; transition: color 0.2s ease; }
 nav a:hover { color: #b28855; }
-/* 🍔 MENÚ HAMBURGUESA */
-.menu-toggle { display: none; flex-direction: column; cursor: pointer; z-index: 2001; }
-.bar { height: 3px; width: 25px; background: #5c3b1e; margin: 4px 0; transition: 0.4s; }
-@media (max-width: 768px) {
- nav { position: fixed; top: 0; right: -250px; height: 100%; width: 220px; background: #fffaf5; flex-direction: column; padding-top: 80px; gap: 20px; transition: right 0.3s ease; box-shadow: -2px 0 8px rgba(0,0,0,0.15); z-index: 2000; }
- nav.active { right: 0; }
- .menu-toggle { display: flex; }
+/* --- MENÚ HAMBURGUESA MEJORADO --- */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  z-index: 2001;
+  padding: 8px;
+  border-radius: 6px;
+  background: rgba(255, 250, 245, 0.85);
+  transition: background 0.3s ease;
+}
+.menu-toggle:hover {
+  background: rgba(255, 250, 245, 1);
+}
+.bar {
+  height: 3px;
+  width: 28px;
+  background: #5c3b1e;
+  margin: 5px 0;
+  border-radius: 3px;
+  transition: 0.4s;
+}
+
+/* Animación para convertir el menú en "X" */
+.menu-toggle.change .bar:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+.menu-toggle.change .bar:nth-child(2) { opacity: 0; }
+.menu-toggle.change .bar:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* --- MENÚ EN PANTALLAS CHICAS Y TABLET --- */
+@media (max-width: 1024px) {
+  nav {
+    position: fixed;
+    top: 0;
+    right: -260px;
+    height: 100%;
+    width: 240px;
+    background: #fffaf5;
+    flex-direction: column;
+    padding-top: 100px;
+    gap: 25px;
+    transition: right 0.3s ease;
+    box-shadow: -2px 0 8px rgba(0,0,0,0.15);
+    z-index: 2000;
+  }
+  nav a {
+    font-size: 1.1em;
+    padding: 10px 0;
+  }
+  nav.active { right: 0; }
+  .menu-toggle { display: flex; }
 }
 /* BANNER */
 #banner { background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1470&q=80'); background-size: cover; background-position: center; height: 350px; display: flex; flex-direction: column; justify-content: center; align-items: center; color: #fff; text-shadow: 1px 1px 4px rgba(0,0,0,0.7); text-align: center; padding: 0 20px; animation: fadeIn 1.5s ease; }
@@ -143,8 +190,19 @@ footer .whatsapp { background-color: #bff2d0; }
 <div id="toast">✅ Pedido enviado a WhatsApp</div>
 
 <script>
-function toggleMenu() { document.getElementById('nav-menu').classList.toggle('active'); }
-function closeMenu() { document.getElementById('nav-menu').classList.remove('active'); }
+function toggleMenu() {
+  const menu = document.getElementById('nav-menu');
+  const toggle = document.querySelector('.menu-toggle');
+  menu.classList.toggle('active');
+  toggle.classList.toggle('change'); // animación X
+}
+
+function closeMenu() {
+  setTimeout(() => {
+    document.getElementById('nav-menu').classList.remove('active');
+    document.querySelector('.menu-toggle').classList.remove('change');
+  }, 150); // pequeño delay para que el scroll sea suave
+}
 function showToast() {
  const toast = document.getElementById("toast");
  toast.className = "show";
