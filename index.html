@@ -1,11 +1,17 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dulce Pasado - Pan artesanal hecho con amor en San Luis Potosí. Empanadas, rosquitas, conchas y más.">
+  <meta property="og:title" content="Dulce Pasado - Pan Artesanal">
+  <meta property="og:description" content="Pan artesanal hecho con amor en San Luis Potosí.">
+  <meta property="og:image" content="IMG_5514.jpeg">
+  <meta property="og:type" content="website">
   <title>Dulce Pasado</title>
+  <link rel="icon" href="IMG_5514.jpeg" type="image/png">
   <style>
+    /* 🎨 ESTILOS GENERALES */
     html { scroll-behavior: smooth; scroll-padding-top: 80px; }
     body {
       background-color: #f8f1e8;
@@ -14,6 +20,11 @@
       padding: 0;
       font-family: 'Segoe UI', sans-serif;
     }
+    h1, h2, h3 { color: #5c3b1e; }
+    img { max-width: 100%; display: block; border-radius: 10px; transition: transform 0.3s ease; }
+    img:hover { transform: scale(1.03); }
+
+    /* 🏠 HEADER Y MENÚ */
     header {
       position: sticky;
       top: 0;
@@ -25,14 +36,50 @@
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       z-index: 1000;
     }
-    header img { height: 60px; }
+    header img { height: 55px; transition: transform 0.3s ease; }
+    header img:hover { transform: scale(1.05); }
+    nav {
+      display: flex;
+      gap: 15px;
+    }
     nav a {
-      margin: 0 10px;
       text-decoration: none;
       color: #5c3b1e;
       font-weight: bold;
+      transition: color 0.2s ease;
     }
-    nav a:hover { text-decoration: underline; }
+    nav a:hover { color: #b28855; }
+
+    /* 🍔 MENÚ HAMBURGUESA */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .bar {
+      height: 3px;
+      width: 25px;
+      background: #5c3b1e;
+      margin: 4px 0;
+      transition: 0.4s;
+    }
+    @media (max-width: 768px) {
+      nav {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background: #fffaf5;
+        flex-direction: column;
+        width: 200px;
+        padding: 10px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        display: none;
+      }
+      nav.active { display: flex; }
+      .menu-toggle { display: flex; }
+    }
+
+    /* 🖼️ BANNER */
     #banner {
       background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1470&q=80');
       background-size: cover;
@@ -46,8 +93,9 @@
       text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
       text-align: center;
       padding: 0 20px;
+      animation: fadeIn 1.5s ease;
     }
-    #banner h1 { font-size: 2.5em; margin: 0; }
+    #banner h1 { font-size: clamp(2rem, 5vw, 3rem); margin: 0; }
     #banner p { font-size: 1.2em; margin: 10px 0 20px; }
     #banner a {
       padding: 12px 25px;
@@ -57,7 +105,16 @@
       font-weight: bold;
       border-radius: 6px;
       box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+      transition: background-color 0.3s ease, transform 0.2s ease;
     }
+    #banner a:hover { background-color: #9c7147; transform: scale(1.05); }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    /* 📦 SECCIONES */
     section {
       padding: 40px 20px;
       max-width: 900px;
@@ -69,14 +126,11 @@
       padding: 25px;
       box-shadow: 0 0 10px rgba(0,0,0,0.04);
       margin-bottom: 40px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .producto img {
-      width: 100%;
-      max-width: 400px;
-      display: block;
-      margin: 15px auto;
-      border-radius: 10px;
-    }
+    .producto:hover { transform: scale(1.02); box-shadow: 0 6px 15px rgba(0,0,0,0.08); }
+
+    /* ✅ BOTONES WHATSAPP */
     .boton-wsp {
       display: inline-block;
       background-color: #25D366;
@@ -86,7 +140,14 @@
       border-radius: 8px;
       text-decoration: none;
       font-weight: bold;
+      transition: transform 0.2s ease, background-color 0.2s ease;
     }
+    .boton-wsp:hover {
+      transform: scale(1.05);
+      background-color: #1ebe5c;
+    }
+
+    /* 📍 FOOTER */
     footer {
       text-align: center;
       padding: 30px;
@@ -105,14 +166,44 @@
     footer .instagram { background-color: #f7cfcf; }
     footer .facebook { background-color: #d4e3fc; }
     footer .whatsapp { background-color: #bff2d0; }
-    h2 { color: #5c3b1e; }
+
+    /* 🔔 TOAST (NOTIFICACIÓN) */
+    #toast {
+      visibility: hidden;
+      min-width: 250px;
+      margin-left: -125px;
+      background-color: #25D366;
+      color: #fff;
+      text-align: center;
+      border-radius: 8px;
+      padding: 16px;
+      position: fixed;
+      z-index: 1;
+      left: 50%;
+      bottom: 30px;
+      font-weight: bold;
+      transition: visibility 0s, opacity 0.5s linear;
+      opacity: 0;
+    }
+    #toast.show {
+      visibility: visible;
+      opacity: 1;
+    }
   </style>
 </head>
 <body>
 
 <header>
   <img src="IMG_5514.jpeg" alt="Logo Dulce Pasado" />
-  <nav>
+  
+  <!-- BOTÓN HAMBURGUESA -->
+  <div class="menu-toggle" onclick="toggleMenu()">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+
+  <nav id="nav-menu">
     <a href="#banner">Inicio</a>
     <a href="#intencion">Intención</a>
     <a href="#productos">Productos</a>
@@ -123,17 +214,20 @@
   </nav>
 </header>
 
+<!-- 🎯 BANNER -->
 <section id="banner">
   <h1>Pan artesanal hecho con amor</h1>
   <p>Directo de San Luis Potosí a tu mesa</p>
   <a href="#carrito-pedidos">Haz tu pedido</a>
 </section>
 
+<!-- ❤️ INTENCIÓN -->
 <section id="intencion" class="intencion">
   <h2>Nuestra intención</h2>
   <p>Queremos llevarte un pedacito del pasado a través de sabores que reconfortan y unen. En Dulce Pasado, cada pan es una invitación a compartir momentos cálidos en familia, a disfrutar lo artesanal y lo hecho con cariño. Nos inspira la tradición y el sabor auténtico, y por eso, cada pieza está horneada con el alma.</p>
 </section>
 
+<!-- 🥐 PRODUCTOS -->
 <section id="productos">
   <div class="producto">
     <h2>Empanadas Dulces</h2>
@@ -172,10 +266,10 @@
   </div>
 </section>
 
-<section id="carrito-pedidos" style="padding: 2em; background-color: #f8f4ef; color: #222; font-family: sans-serif;">
+<!-- 🛒 PEDIDOS -->
+<section id="carrito-pedidos" style="padding: 2em; background-color: #f8f4ef;">
   <h2 style="color: #000;">🧺 Tu pedido</h2>
   <form id="pedidoForm" style="margin-top: 1em;">
-    <!-- Empanadas Grandes -->
     <h3>Empanadas grandes ($15 c/u) - mínimo 5</h3>
     <label>Cantidad:
       <input type="number" name="grandesCantidad" min="0" value="0">
@@ -189,7 +283,6 @@
       </select>
     </label>
 
-    <!-- Empanadas Chicas -->
     <h3 style="margin-top: 1em;">Empanadas chicas ($7 c/u) - mínimo 10</h3>
     <label>Cantidad:
       <input type="number" name="chicasCantidad" min="0" value="0">
@@ -203,19 +296,16 @@
       </select>
     </label>
 
-    <!-- Rosquitas -->
     <h3 style="margin-top: 1em;">Rosquitas ($4 c/u) - mínimo 10</h3>
     <label>Cantidad:
       <input type="number" name="rosquitasCantidad" min="0" value="0">
     </label>
 
-    <!-- Pan Español -->
     <h3 style="margin-top: 1em;">Pan español ($15 c/u) - mínimo 5</h3>
     <label>Cantidad:
       <input type="number" name="panEspanolCantidad" min="0" value="0">
     </label>
 
-    <!-- Conchas -->
     <h3 style="margin-top: 1em;">Conchas - mínimo 4</h3>
     <label>Cantidad normales ($20 c/u):
       <input type="number" name="conchasNormalesCantidad" min="0" value="0">
@@ -224,7 +314,6 @@
       <input type="number" name="conchasIntegralesCantidad" min="0" value="0">
     </label>
 
-    <!-- Botón de WhatsApp -->
     <br><br>
     <button type="button" onclick="generarPedido()" style="margin-top: 1em; padding: 0.7em 1.5em; background-color: #000; color: #fff; border: none; cursor: pointer;">
       Enviar pedido por WhatsApp
@@ -234,6 +323,17 @@
   </form>
 </section>
 
+<!-- 📩 FORMULARIO SUSCRIPCIÓN -->
+<section style="text-align:center; background:#fffaf5; padding:40px;">
+  <h2>📬 Suscríbete a nuestro newsletter</h2>
+  <p>Recibe noticias de nuevos productos y drops especiales</p>
+  <form action="https://YOUR-MAILCHIMP-URL" method="POST" target="_blank">
+    <input type="email" name="EMAIL" placeholder="Tu correo" required style="padding:10px; border-radius:8px; border:1px solid #ccc;">
+    <button type="submit" style="padding:10px 20px; background:#b28855; color:white; border:none; border-radius:8px; font-weight:bold; cursor:pointer;">Suscribirme</button>
+  </form>
+</section>
+
+<!-- 🚚 ZONAS DE ENVÍO -->
 <section class="zona-envio" id="envios">
   <h2>Zonas de Envío</h2>
   <p><strong>Entrega gratuita:</strong> En zonas seleccionadas como:</p>
@@ -246,6 +346,7 @@
   <p><strong>Fuera de estas zonas:</strong> El costo de envío comienza desde $20 en adelante, dentro de San Luis Potosí Capital.</p>
 </section>
 
+<!-- 📜 HISTORIA -->
 <section class="intencion" id="historia">
   <h2>Nuestra Historia</h2>
   <p>Mi abuela paterna creció en Jáltipan, Veracruz, donde aprendió a hacer pan de su madre. Lo que comenzó como una receta familiar se volvió una tradición. </p>
@@ -253,108 +354,10 @@
   <p>Hoy, más de 90 años de recetas familiares después, seguimos horneando con el mismo amor. Las hemos mejorado con el tiempo, pero con el alma intacta.</p>
 </section>
 
+<!-- ❓ DROP -->
 <section id="drop" class="intencion" style="background-color: #fff3e6; text-align: center; margin-top: 60px;">
   <h2 style="font-size: 2em;">¿DROP?</h2>
   <p style="font-size: 1.1em; max-width: 700px; margin: auto;">
     ¿Qué crees que será el siguiente DROP? 🎁<br/>
     Si adivinas, ¡te damos una sorpresa gratis!<br/><br/>
-    Mándanos tu idea por WhatsApp o Instagram.
-  </p>
-  <img src="https://cdn.pixabay.com/photo/2016/12/06/18/27/question-mark-1889440_1280.png" alt="Imagen misteriosa" style="max-width: 150px; margin-top: 20px;"/>
-  <div style="margin-top: 25px;">
-    <a class="boton-wsp" href="https://wa.me/524445481177?text=Hola!%20Quiero%20adivinar%20el%20siguiente%20DROP">Mandar mi idea por WhatsApp</a>
-  </div>
-</section>
-
-<footer>
-  <p style="margin-bottom: 15px;">¿Tienes dudas o quieres hacer un pedido?</p>
-  <a href="https://wa.me/524445481177" target="_blank" class="boton-wsp">Pedir por WhatsApp</a>
-  <a href="https://www.instagram.com/pan_dulcepasado" target="_blank" style="display:inline-block; background-color:#f7cfcf; color:#3e2b1e; padding:10px 20px; margin:5px; border-radius:8px; text-decoration:none; font-weight:bold;">Instagram</a>
-  <a href="https://www.facebook.com/share/16HTqVAuUz/?mibextid=wwXIfr" target="_blank" style="display:inline-block; background-color:#d4e3fc; color:#3e2b1e; padding:10px 20px; margin:5px; border-radius:8px; text-decoration:none; font-weight:bold;">Facebook</a>
-  <p style="margin-top: 20px;">Gracias por elegir Dulce Pasado 🍞</p>
-</footer>
-
-<script>
-function generarPedido() {
-  const grandesCantidad = parseInt(document.querySelector('[name="grandesCantidad"]').value) || 0;
-  const grandesSabor = document.querySelector('[name="grandesSabor"]').value;
-  const chicasCantidad = parseInt(document.querySelector('[name="chicasCantidad"]').value) || 0;
-  const chicasSabor = document.querySelector('[name="chicasSabor"]').value;
-  const rosquitasCantidad = parseInt(document.querySelector('[name="rosquitasCantidad"]').value) || 0;
-  const panEspanolCantidad = parseInt(document.querySelector('[name="panEspanolCantidad"]').value) || 0;
-  const conchasNormalesCantidad = parseInt(document.querySelector('[name="conchasNormalesCantidad"]').value) || 0;
-  const conchasIntegralesCantidad = parseInt(document.querySelector('[name="conchasIntegralesCantidad"]').value) || 0;
-  const errorMensaje = document.getElementById('errorMensaje');
-
-  let mensaje = "¡Hola Dulce Pasado! Me gustaría hacer el siguiente pedido:\n";
-  let total = 0;
-
-  if (grandesCantidad > 0) {
-    if (grandesCantidad < 5) {
-      errorMensaje.textContent = "El mínimo de empanadas grandes es 5.";
-      return;
-    }
-    mensaje += `- ${grandesCantidad} empanadas grandes de ${grandesSabor} ($15 c/u)\n`;
-    total += grandesCantidad * 15;
-  }
-
-  if (chicasCantidad > 0) {
-    if (chicasCantidad < 10) {
-      errorMensaje.textContent = "El mínimo de empanadas chicas es 10.";
-      return;
-    }
-    mensaje += `- ${chicasCantidad} empanadas chicas de ${chicasSabor} ($7 c/u)\n`;
-    total += chicasCantidad * 7;
-  }
-
-  if (rosquitasCantidad > 0) {
-    if (rosquitasCantidad < 10) {
-      errorMensaje.textContent = "El mínimo de rosquitas es 10.";
-      return;
-    }
-    mensaje += `- ${rosquitasCantidad} rosquitas ($4 c/u)\n`;
-    total += rosquitasCantidad * 4;
-  }
-
-  if (panEspanolCantidad > 0) {
-    if (panEspanolCantidad < 5) {
-      errorMensaje.textContent = "El mínimo de pan español es 5.";
-      return;
-    }
-    mensaje += `- ${panEspanolCantidad} pan español ($15 c/u)\n`;
-    total += panEspanolCantidad * 15;
-  }
-
-  if (conchasNormalesCantidad > 0 || conchasIntegralesCantidad > 0) {
-    const totalConchas = conchasNormalesCantidad + conchasIntegralesCantidad;
-    if (totalConchas < 4) {
-      errorMensaje.textContent = "El mínimo de conchas es 4 en total.";
-      return;
-    }
-    if (conchasNormalesCantidad > 0) {
-      mensaje += `- ${conchasNormalesCantidad} conchas normales ($20 c/u)\n`;
-      total += conchasNormalesCantidad * 20;
-    }
-    if (conchasIntegralesCantidad > 0) {
-      mensaje += `- ${conchasIntegralesCantidad} conchas integrales ($25 c/u)\n`;
-      total += conchasIntegralesCantidad * 25;
-    }
-  }
-
-  if (grandesCantidad === 0 && chicasCantidad === 0 && rosquitasCantidad === 0 && panEspanolCantidad === 0 && conchasNormalesCantidad === 0 && conchasIntegralesCantidad === 0) {
-    errorMensaje.textContent = "Por favor elige al menos un producto.";
-    return;
-  }
-
-  mensaje += `\nTotal: $${total} MXN`;
-  errorMensaje.textContent = "";
-
-  const numero = "524445481177";
-  const mensajeCodificado = encodeURIComponent(mensaje);
-  const url = `https://wa.me/${numero}?text=${mensajeCodificado}`;
-  window.open(url, '_blank');
-}
-</script>
-
-</body>
-</html>
+    Mándanos tu idea por WhatsApp 
