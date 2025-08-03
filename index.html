@@ -48,7 +48,7 @@ nav a {
 }
 nav a:hover { color: #b28855; }
 
-/* --- MENÚ HAMBURGUESA BONITO Y CON ESPACIO --- */
+/* --- MENÚ HAMBURGUESA BONITO Y CON ESPACIO (CORREGIDO) --- */
 .menu-toggle {
   display: none;
   flex-direction: column;
@@ -80,27 +80,26 @@ nav a:hover { color: #b28855; }
     top: 0;
     right: -280px;
     height: 100%;
-    width: 250px;
+    width: 260px;
     background: rgba(255, 250, 245, 0.97);
     backdrop-filter: blur(8px);
     flex-direction: column;
     padding-top: 110px;
-    padding-left: 30px;  /* ✅ MÁS ESPACIO A LA IZQUIERDA */
-    gap: 30px;
+    padding-left: 40px;  /* ✅ MÁS ESPACIO A LA IZQUIERDA */
+    gap: 35px; /* ✅ MÁS ESPACIO ENTRE ENLACES */
     transition: right 0.3s ease;
     box-shadow: -3px 0 10px rgba(0,0,0,0.15);
     z-index: 2000;
   }
   nav a {
     font-size: 1.2em;
-    padding: 12px 0;
+    padding: 14px 0;
     font-weight: bold;
     width: 100%;
   }
   nav.active { right: 0; }
   .menu-toggle { display: flex; }
 }
-
 /* BANNER */
 #banner {
   background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1470&q=80');
@@ -309,11 +308,12 @@ function closeMenu() {
   }, 200);
 }
 
-/* ✅ Ajuste: scroll suave para que no tape los títulos */
-document.querySelectorAll('nav a').forEach(link => {
+/* ✅ Ajuste: scroll suave solo para los links internos (corregido) */
+document.querySelectorAll('nav a[href^="#"]').forEach(link => {
   link.addEventListener('click', function(e) {
     e.preventDefault();
-    const section = document.querySelector(this.getAttribute('href'));
+    const targetId = this.getAttribute('href');
+    const section = document.querySelector(targetId);
     if (section) {
       closeMenu();
       setTimeout(() => {
