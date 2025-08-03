@@ -1,50 +1,108 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dulce Pasado | Inicio</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dulce Pasado</title>
+  <style>
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+    body {
+      background-color: #f8f1e8;
+      color: #3e2b1e;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      background-color: #fffaf5;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+    header img { height: 60px; }
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #5c3b1e;
+      font-weight: bold;
+    }
+    nav a:hover { text-decoration: underline; }
+    #banner {
+      background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1470&q=80');
+      background-size: cover;
+      background-position: center;
+      height: 350px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+      text-align: center;
+      padding: 0 20px;
+    }
+    #banner h1 { font-size: 2.5em; margin: 0; }
+    #banner p { font-size: 1.2em; margin: 10px 0 20px; }
+    #banner a {
+      padding: 12px 25px;
+      background-color: #b28855;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 6px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+    }
+    footer {
+      text-align: center;
+      padding: 30px;
+      background-color: #f0e5db;
+      font-size: 0.9em;
+    }
+    footer a {
+      display: inline-block;
+      margin: 5px 10px;
+      padding: 10px 15px;
+      border-radius: 8px;
+      text-decoration: none;
+      color: #3e2b1e;
+      font-weight: bold;
+    }
+    footer .instagram { background-color: #f7cfcf; }
+    footer .facebook { background-color: #d4e3fc; }
+    footer .whatsapp { background-color: #bff2d0; }
+  </style>
 </head>
 <body>
 
-  <!-- ✅ MENÚ FIJO -->
-  <header>
-    <img src="IMG_5514.jpeg" alt="Logo Dulce Pasado" class="logo">
-    <nav>
-      <a href="index.html">Inicio</a>
-      <a href="productos.html">Productos</a>
-      <a href="pedido.html">Pedido</a>
-      <a href="historia.html">Historia</a>
-      <a href="envios.html">Envíos</a>
-    </nav>
-  </header>
+<header>
+  <img src="IMG_5514.jpeg" alt="Logo Dulce Pasado" />
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="productos.html">Productos</a>
+    <a href="pedido.html">Tu pedido</a>
+    <a href="historia.html">Historia</a>
+    <a href="envios.html">Envíos</a>
+  </nav>
+</header>
 
-  <!-- ✅ BANNER PRINCIPAL -->
-  <section id="banner">
-    <div class="banner-texto">
-      <h1>Pan artesanal hecho con amor</h1>
-      <p>De San Luis Potosí a tu mesa</p>
-      <a class="boton-principal" href="productos.html">Ver productos</a>
-    </div>
-  </section>
+<section id="banner">
+  <h1>Pan artesanal hecho con amor</h1>
+  <p>Directo de San Luis Potosí a tu mesa</p>
+  <a href="pedido.html">Haz tu pedido</a>
+</section>
 
-  <!-- ✅ SECCIÓN BIENVENIDA -->
-  <section id="bienvenida">
-    <h2>Bienvenido a Dulce Pasado</h2>
-    <p>Queremos llevarte un pedacito del pasado a través de sabores que reconfortan y unen. 
-       Cada pan es una invitación a compartir momentos cálidos en familia, disfrutar lo artesanal 
-       y lo hecho con cariño.</p>
-  </section>
-
-  <!-- ✅ FOOTER -->
-  <footer>
-    <p>¿Tienes dudas o quieres hacer un pedido?</p>
-    <a href="https://wa.me/524445481177" target="_blank" class="wsp">WhatsApp</a>
-    <a href="https://www.instagram.com/pan_dulcepasado" target="_blank" class="ig">Instagram</a>
-    <a href="https://www.facebook.com/share/16HTqVAuUz/?mibextid=wwXIfr" target="_blank" class="fb">Facebook</a>
-    <p class="creditos">Gracias por elegir Dulce Pasado 🍞</p>
-  </footer>
+<footer>
+  <p>¿Tienes dudas o quieres hacer un pedido?</p>
+  <a href="https://wa.me/524445481177" target="_blank" class="whatsapp">WhatsApp</a>
+  <a href="https://www.instagram.com/pan_dulcepasado" target="_blank" class="instagram">Instagram</a>
+  <a href="https://www.facebook.com/share/16HTqVAuUz/?mibextid=wwXIfr" target="_blank" class="facebook">Facebook</a>
+  <p style="margin-top: 15px;">Gracias por elegir Dulce Pasado 🍞</p>
+</footer>
 
 </body>
 </html>
