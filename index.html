@@ -15,186 +15,43 @@
 
 <style>
 html { scroll-behavior: smooth; scroll-padding-top: 90px; }
-body {
-background-color: #f8f1e8;
-color: #3e2b1e;
-margin: 0;
-padding: 0;
-font-family: 'Segoe UI', Arial, sans-serif;
-}
-header {
-position: fixed;
-top: 0; left: 0; right: 0;
-background-color: #fffaf5;
-display: flex;
-justify-content: space-between;
-align-items: center;
-padding: 10px 20px;
-box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-z-index: 1000;
-}
+body { background-color: #f8f1e8; color: #3e2b1e; margin: 0; padding: 0; font-family: 'Segoe UI', Arial, sans-serif; }
+header { position: fixed; top: 0; left: 0; right: 0; background-color: #fffaf5; display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); z-index: 1000; }
 header img { height: 55px; cursor:pointer; }
 nav { display: flex; gap: 15px; }
-nav a {
-text-decoration: none;
-color: #5c3b1e;
-font-weight: bold;
-transition: color 0.2s ease;
-}
+nav a { text-decoration: none; color: #5c3b1e; font-weight: bold; transition: color 0.2s ease; }
 nav a:hover { color: #b28855; }
-.menu-toggle {
-display: none;
-flex-direction: column;
-cursor: pointer;
-z-index: 2001;
-padding: 8px;
-border-radius: 6px;
-background: rgba(255, 250, 245, 0.9);
-transition: background-color 0.2s ease;
-}
+.menu-toggle { display: none; flex-direction: column; cursor: pointer; z-index: 2001; padding: 8px; border-radius: 6px; background: rgba(255, 250, 245, 0.9); transition: background-color 0.2s ease; }
 .menu-toggle:hover { background-color: rgba(255,250,245,1); }
-.bar {
-height: 3px;
-width: 28px;
-background: #5c3b1e;
-margin: 5px 0;
-border-radius: 3px;
-transition: 0.4s;
-}
+.bar { height: 3px; width: 28px; background: #5c3b1e; margin: 5px 0; border-radius: 3px; transition: 0.4s; }
 .menu-toggle.change .bar:nth-child(1) { transform: rotate(-45deg) translate(-5px, 6px); }
 .menu-toggle.change .bar:nth-child(2) { opacity: 0; }
 .menu-toggle.change .bar:nth-child(3) { transform: rotate(45deg) translate(-5px, -6px); }
 @media (max-width: 1024px) {
-nav {
-position: fixed;
-top: 0;
-right: -280px;
-height: 100%;
-width: 260px;
-background: rgba(255, 250, 245, 0.97);
-flex-direction: column;
-padding-top: 80px;
-padding-left: 40px;
-gap: 20px;
-transition: right 0.3s ease;
-box-shadow: -3px 0 10px rgba(0,0,0,0.15);
-z-index: 2000;
-}
-nav a {
-font-size: 1.1em;
-padding: 10px 0;
-font-weight: bold;
-width: 100%;
-}
+nav { position: fixed; top: 0; right: -280px; height: 100%; width: 260px; background: rgba(255, 250, 245, 0.97); flex-direction: column; padding-top: 80px; padding-left: 40px; gap: 20px; transition: right 0.3s ease; box-shadow: -3px 0 10px rgba(0,0,0,0.15); z-index: 2000; }
+nav a { font-size: 1.1em; padding: 10px 0; font-weight: bold; width: 100%; }
 nav.active { right: 0; }
 .menu-toggle { display: flex; }
 }
-#banner {
-background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1470&q=80');
-background-size: cover;
-background-position: center;
-min-height: 450px;
-width: 100%;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-color: #fff;
-text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
-text-align: center;
-padding: 0 20px;
-animation: fadeIn 1.5s ease-in;
-}
+#banner { background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1470&q=80'); background-size: cover; background-position: center; min-height: 450px; width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; color: #fff; text-shadow: 1px 1px 4px rgba(0,0,0,0.7); text-align: center; padding: 0 20px; animation: fadeIn 1.5s ease-in; }
 #banner h1 { font-size: clamp(2rem, 5vw, 3rem); margin: 0; }
 #banner p { font-size: 1.2em; margin: 10px 0 20px; }
-#banner a {
-padding: 12px 25px;
-background-color: #b28855;
-color: #fff;
-text-decoration: none;
-font-weight: bold;
-border-radius: 6px;
-box-shadow: 0 3px 6px rgba(0,0,0,0.3);
-transition: transform 0.3s ease;
-}
+#banner a { padding: 12px 25px; background-color: #b28855; color: #fff; text-decoration: none; font-weight: bold; border-radius: 6px; box-shadow: 0 3px 6px rgba(0,0,0,0.3); transition: transform 0.3s ease; }
 #banner a:hover { background-color: #9c7147; transform: scale(1.05); }
-section { padding: 40px 20px; max-width: 900px; margin: auto; }
-.producto {
-background-color: #ffffff;
-border-radius: 12px;
-padding: 25px;
-box-shadow: 0 0 10px rgba(0,0,0,0.04);
-margin-bottom: 40px;
-text-align: center;
-opacity: 0;
-transform: translateY(20px);
-animation: slideIn 0.8s ease-out forwards;
-}
-.producto img {
-width: 100%;
-max-width: 450px;
-display: block;
-margin: 15px auto;
-border-radius: 10px;
-}
-.boton-wsp {
-display: inline-block;
-background-color: #25D366;
-color: white;
-padding: 10px 20px;
-margin-top: 15px;
-border-radius: 8px;
-text-decoration: none;
-font-weight: bold;
-transition: transform 0.3s ease;
-}
+button, select, input { font-size: 16px; touch-action: manipulation; }
+.producto { background-color: #ffffff; border-radius: 12px; padding: 25px; box-shadow: 0 0 10px rgba(0,0,0,0.04); margin-bottom: 40px; text-align: center; opacity: 0; transform: translateY(20px); animation: slideIn 0.8s ease-out forwards; }
+.producto img { width: 100%; max-width: 450px; display: block; margin: 15px auto; border-radius: 10px; }
+.boton-wsp { display: inline-block; background-color: #25D366; color: white; padding: 10px 20px; margin-top: 15px; border-radius: 8px; text-decoration: none; font-weight: bold; transition: transform 0.3s ease; }
 .boton-wsp:hover { background-color: #1ebe57; transform: scale(1.05); }
-#carrito {
-background-color: #fff;
-padding: 20px;
-border-radius: 12px;
-box-shadow: 0 0 10px rgba(0,0,0,0.05);
-margin-top: 20px;
-}
-#notificacion {
-position: fixed;
-top: 20px;
-right: 20px;
-background: #25D366;
-color: white;
-padding: 12px 20px;
-border-radius: 8px;
-display: none;
-font-weight: bold;
-z-index: 2000;
-box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-}
-footer {
-text-align: center;
-padding: 30px;
-background-color: #f0e5db;
-font-size: 0.9em;
-}
-footer a {
-display: inline-block;
-margin: 5px 10px;
-padding: 10px 15px;
-border-radius: 8px;
-text-decoration: none;
-color: #3e2b1e;
-font-weight: bold;
-}
-@keyframes fadeIn {
-from { opacity: 0; }
-to { opacity: 1; }
-}
-@keyframes slideIn {
-from { opacity: 0; transform: translateY(30px); }
-to { opacity: 1; transform: translateY(0); }
-}
+#carrito { background-color: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 0 10px rgba(0,0,0,0.05); margin-top: 20px; }
+#notificacion { position: fixed; top: 20px; right: 20px; background: #25D366; color: white; padding: 12px 20px; border-radius: 8px; display: none; font-weight: bold; z-index: 3000; box-shadow: 0 2px 8px rgba(0,0,0,0.2); opacity: 0; transition: opacity 0.4s ease; }
+#notificacion.show { display: block; opacity: 1; }
+footer { text-align: center; padding: 30px; background-color: #f0e5db; font-size: 0.9em; }
+footer a { display: inline-block; margin: 5px 10px; padding: 10px 15px; border-radius: 8px; text-decoration: none; color: #3e2b1e; font-weight: bold; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 </style>
 </head>
-
 <body>
 
 <div id="notificacion">✅ Producto añadido al carrito</div>
@@ -227,28 +84,18 @@ to { opacity: 1; transform: translateY(0); }
 <h2>Productos</h2>
 <div class="producto">
 <h3>Empanadas Dulces</h3>
-<img src="IMG_6484.jpeg" alt="Empanadas Dulces" loading="lazy"/>
+<img src="IMG_6484.jpeg" alt="Empanadas Dulces"/>
 <p><strong>Sabores:</strong> Piña, Cajeta, Nutella, Queso dulce.</p>
 <p><strong>Precios:</strong> Grandes $15 c/u (mín. 5) — Chicas $7 c/u (mín. 10)</p>
-<label>Tamaño:</label>
-<select id="empanada-tamano">
-<option value="Grande">Grande</option>
-<option value="Chica">Chica</option>
-</select>
-<label>Sabor:</label>
-<select id="empanada-sabor">
-<option value="Piña">Piña</option>
-<option value="Cajeta">Cajeta</option>
-<option value="Nutella">Nutella</option>
-<option value="Queso dulce">Queso dulce</option>
-</select>
+<select id="empanada-tamano"><option value="Grande">Grande</option><option value="Chica">Chica</option></select>
+<select id="empanada-sabor"><option value="Piña">Piña</option><option value="Cajeta">Cajeta</option><option value="Nutella">Nutella</option><option value="Queso dulce">Queso dulce</option></select>
 <input type="number" id="empanada-cant" min="1" placeholder="Cantidad"/>
 <button onclick="addToCart('Empanada Dulce')">Añadir al carrito</button>
 </div>
 
 <div class="producto">
 <h3>Rosquitas</h3>
-<img src="IMG_6479.jpeg" alt="Rosquitas" loading="lazy"/>
+<img src="IMG_6479.jpeg" alt="Rosquitas"/>
 <p><strong>Precio:</strong> $4 c/u (mín. 10)</p>
 <input type="number" id="rosquita-cant" min="1" placeholder="Cantidad"/>
 <button onclick="addToCart('Rosquitas')">Añadir al carrito</button>
@@ -256,7 +103,7 @@ to { opacity: 1; transform: translateY(0); }
 
 <div class="producto">
 <h3>Pan Español</h3>
-<img src="IMG_1364.jpeg" alt="Pan Español" loading="lazy"/>
+<img src="IMG_1364.jpeg" alt="Pan Español"/>
 <p><strong>Precio:</strong> $15 c/u (mín. 5)</p>
 <input type="number" id="pan-cant" min="1" placeholder="Cantidad"/>
 <button onclick="addToCart('Pan Español')">Añadir al carrito</button>
@@ -264,16 +111,10 @@ to { opacity: 1; transform: translateY(0); }
 
 <div class="producto">
 <h3>Conchas</h3>
-<img src="IMG_6521.jpeg" alt="Conchas" loading="lazy"/>
+<img src="IMG_6521.jpeg" alt="Conchas"/>
 <p><strong>Descripción:</strong> Pan suave, esponjoso y con cobertura crujiente.</p>
-<ul>
-<li>Normal: $20 c/u</li>
-<li>Integral: $25 c/u</li>
-</ul>
-<select id="concha-tipo">
-<option value="Normal">Normal</option>
-<option value="Integral">Integral</option>
-</select>
+<ul><li>Normal: $20 c/u</li><li>Integral: $25 c/u</li></ul>
+<select id="concha-tipo"><option value="Normal">Normal</option><option value="Integral">Integral</option></select>
 <input type="number" id="concha-cant" min="1" placeholder="Cantidad"/>
 <button onclick="addToCart('Conchas')">Añadir al carrito</button>
 </div>
@@ -294,11 +135,25 @@ to { opacity: 1; transform: translateY(0); }
 
 <script>
 let cart = [];
+const toggle = document.querySelector('.menu-toggle');
+const nav = document.getElementById('nav-menu');
+
+function toggleMenu() {
+ nav.classList.toggle('active');
+ toggle.classList.toggle('change');
+}
+function closeMenu() {
+ nav.classList.remove('active');
+ toggle.classList.remove('change');
+}
 
 function showNotification() {
  const notif = document.getElementById('notificacion');
- notif.style.display = 'block';
- setTimeout(() => { notif.style.display = 'none'; }, 2000);
+ notif.classList.add('show');
+ setTimeout(() => {
+   notif.classList.remove('show');
+   setTimeout(() => { notif.style.display = 'none'; }, 400);
+ }, 2000);
 }
 
 function addToCart(product) {
@@ -316,20 +171,17 @@ function addToCart(product) {
          alert("Mínimo: 5 grandes o 10 chicas.");
          return;
      }
- }
- else if (product === "Rosquitas") {
+ } else if (product === "Rosquitas") {
      quantity = parseInt(document.getElementById('rosquita-cant').value);
      detail = "Tradicionales";
      price = 4;
      if (quantity < 10) { alert("Mínimo: 10 rosquitas."); return; }
- }
- else if (product === "Pan Español") {
+ } else if (product === "Pan Español") {
      quantity = parseInt(document.getElementById('pan-cant').value);
      detail = "Clásico";
      price = 15;
      if (quantity < 5) { alert("Mínimo: 5 panes."); return; }
- }
- else if (product === "Conchas") {
+ } else if (product === "Conchas") {
      quantity = parseInt(document.getElementById('concha-cant').value);
      let tipo = document.getElementById('concha-tipo').value;
      detail = tipo;
