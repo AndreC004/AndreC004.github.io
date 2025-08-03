@@ -106,6 +106,13 @@
     footer .facebook { background-color: #d4e3fc; }
     footer .whatsapp { background-color: #bff2d0; }
     h2 { color: #5c3b1e; }
+    .pagos {
+      background-color: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      margin-top: 20px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
   </style>
 </head>
 <body>
@@ -203,6 +210,16 @@
     <button onclick="enviarPedido('instagram')" style="background:#f7cfcf; color:#3e2b1e; padding:10px 15px; border:none; border-radius:8px; cursor:pointer;">Instagram DM</button>
     <button onclick="enviarPedido('facebook')" style="background:#3b5998; color:white; padding:10px 15px; border:none; border-radius:8px; cursor:pointer;">Facebook</button>
   </div>
+
+  <!-- Métodos de pago -->
+  <div class="pagos">
+    <h3>💳 Métodos de pago</h3>
+    <ul>
+      <li>💵 Efectivo a la entrega</li>
+      <li>🏦 Transferencia bancaria (pedir datos por WhatsApp)</li>
+      <li>💳 Pago con tarjeta (pregunta disponibilidad)</li>
+    </ul>
+  </div>
 </section>
 
 <!-- 📦 ZONA DE ENVÍOS -->
@@ -236,7 +253,7 @@
 
 <script>
 function generarPedido() {
-  let mensaje = "";
+  let mensaje = "📩 Hola, me comunico con Dulce Pasado.\nQuisiera hacer un pedido:\n\n";
   let total = 0;
 
   // EMPANADAS GRANDES
@@ -246,13 +263,11 @@ function generarPedido() {
     {id: 'emp_grande_nutella', nombre: 'Nutella'},
     {id: 'emp_grande_queso', nombre: 'Queso dulce'}
   ];
-  let totalGrandes = 0;
   empGrandeSabores.forEach(sabor => {
     let cantidad = parseInt(document.getElementById(sabor.id).value) || 0;
     if (cantidad > 0) {
       mensaje += `🥟 ${cantidad} empanadas GRANDES de ${sabor.nombre}\n`;
       total += cantidad * 15;
-      totalGrandes += cantidad;
     }
   });
 
@@ -263,13 +278,11 @@ function generarPedido() {
     {id: 'emp_chica_nutella', nombre: 'Nutella'},
     {id: 'emp_chica_queso', nombre: 'Queso dulce'}
   ];
-  let totalChicas = 0;
   empChicaSabores.forEach(sabor => {
     let cantidad = parseInt(document.getElementById(sabor.id).value) || 0;
     if (cantidad > 0) {
       mensaje += `🥟 ${cantidad} empanadas CHICAS de ${sabor.nombre}\n`;
       total += cantidad * 7;
-      totalChicas += cantidad;
     }
   });
 
@@ -286,34 +299,24 @@ function generarPedido() {
   const conchaIntegral = parseInt(document.getElementById('concha_integral').value) || 0;
   if(conchaIntegral > 0){ mensaje += `🍪 ${conchaIntegral} conchas integrales\n`; total += conchaIntegral * 25; }
 
-  if(mensaje === ""){
+  if(mensaje === "📩 Hola, me comunico con Dulce Pasado.\nQuisiera hacer un pedido:\n\n"){
     alert("Por favor agrega al menos un producto");
     return;
   }
 
+  mensaje += `\n💰 Total: $${total} MXN\n📦 A esto se le agrega el costo de envío según tu zona.`;
+
   document.getElementById('listaPedido').innerText = mensaje;
-  document.getElementById('totalPedido').innerText = `💰 Total: $${total} MXN`;
+  document.getElementById('totalPedido').innerText = ``;
   document.getElementById('resumen').style.display = "block";
 }
 
 function enviarPedido(red) {
-  const mensaje = document.getElementById('listaPedido').innerText + "\n" + document.getElementById('totalPedido').innerText + "\n📦 A esto se le agrega el costo de envío según tu zona.";
+  const mensaje = document.getElementById('listaPedido').innerText;
   const mensajeCodificado = encodeURIComponent(mensaje);
 
   if (red === 'whatsapp') {
     window.open(`https://wa.me/524445481177?text=${mensajeCodificado}`, '_blank');
   } else {
     navigator.clipboard.writeText(mensaje).then(() => {
-      alert("✅ Tu pedido se copió al portapapeles. Abre " + red.toUpperCase() + " y pégalo en el mensaje.");
-      if (red === 'instagram') {
-        window.open("https://www.instagram.com/pan_dulcepasado", "_blank");
-      } else if (red === 'facebook') {
-        window.open("https://www.facebook.com/share/16HTqVAuUz/?mibextid=wwXIfr", "_blank");
-      }
-    });
-  }
-}
-</script>
-
-</body>
-</html>
+      alert("✅ Tu pedido se copió al portapapeles. Abre " + red.to
