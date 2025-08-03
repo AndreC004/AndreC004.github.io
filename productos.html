@@ -1,77 +1,65 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dulce Pasado | Productos</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Productos – Dulce Pasado</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- ✅ MENÚ FIJO -->
-  <header>
-    <img src="IMG_5514.jpeg" alt="Logo Dulce Pasado" class="logo">
-    <nav>
-      <a href="index.html">Inicio</a>
-      <a href="productos.html">Productos</a>
-      <a href="pedido.html">Pedido</a>
-      <a href="historia.html">Historia</a>
-      <a href="envios.html">Envíos</a>
-    </nav>
-  </header>
+<header>
+  <img src="IMG_5514.jpeg" alt="Logo Dulce Pasado" />
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="productos.html">Productos</a>
+    <a href="pedido.html">Tu pedido</a>
+    <a href="historia.html">Historia</a>
+    <a href="envios.html">Envíos</a>
+  </nav>
+</header>
 
-  <!-- ✅ SECCIÓN PRODUCTOS -->
-  <section style="padding: 40px 20px; max-width: 900px; margin: auto;">
+<section id="productos">
+  <div class="producto">
+    <h2>Empanadas Dulces</h2>
+    <img src="IMG_6484.jpeg" alt="Empanadas Dulces" />
+    <p><strong>Sabores:</strong> Piña, Cajeta, Nutella, Queso dulce.</p>
+    <p><strong>Precio:</strong> Grandes $15 c/u — Chicas $7 c/u</p>
+    <p><strong>Mínimo sugerido:</strong> 5 grandes o 10 chicas</p>
+  </div>
 
-    <h2 style="text-align: center;">Nuestros Productos</h2>
+  <div class="producto">
+    <h2>Rosquitas</h2>
+    <img src="IMG_6479.jpeg" alt="Rosquitas" />
+    <p><strong>Precio:</strong> $4 c/u</p>
+    <p><strong>Mínimo sugerido:</strong> 10 piezas</p>
+  </div>
 
-    <!-- Empanadas -->
-    <div class="producto">
-      <h3>Empanadas Dulces</h3>
-      <img src="IMG_6484.jpeg" alt="Empanadas Dulces" style="width:100%; max-width:400px; border-radius:10px;">
-      <p><strong>Sabores:</strong> Piña, Cajeta, Nutella, Queso dulce.</p>
-      <p><strong>Precios:</strong> Grandes $15 c/u (mínimo 5) | Chicas $7 c/u (mínimo 10)</p>
-      <a href="pedido.html" class="boton-principal">Pedir Empanadas</a>
-    </div>
+  <div class="producto">
+    <h2>Pan Español</h2>
+    <img src="IMG_1364.jpeg" alt="Pan Español" />
+    <p><strong>Precio:</strong> $15 c/u</p>
+    <p><strong>Mínimo sugerido:</strong> 5 piezas</p>
+  </div>
 
-    <!-- Rosquitas -->
-    <div class="producto">
-      <h3>Rosquitas</h3>
-      <img src="IMG_6479.jpeg" alt="Rosquitas" style="width:100%; max-width:400px; border-radius:10px;">
-      <p><strong>Precio:</strong> $4 c/u (mínimo 10 piezas)</p>
-      <a href="pedido.html" class="boton-principal">Pedir Rosquitas</a>
-    </div>
+  <div class="producto">
+    <h2>Conchas</h2>
+    <img src="IMG_6521.jpeg" alt="Conchas Dulce Pasado" />
+    <ul>
+      <li>Concha normal: $20 c/u</li>
+      <li>Concha integral: $25 c/u</li>
+    </ul>
+    <p><strong>Mínimo sugerido:</strong> 4 piezas</p>
+  </div>
+</section>
 
-    <!-- Pan Español -->
-    <div class="producto">
-      <h3>Pan Español</h3>
-      <img src="IMG_1364.jpeg" alt="Pan Español" style="width:100%; max-width:400px; border-radius:10px;">
-      <p><strong>Precio:</strong> $15 c/u (mínimo 5 piezas)</p>
-      <a href="pedido.html" class="boton-principal">Pedir Pan Español</a>
-    </div>
-
-    <!-- Conchas -->
-    <div class="producto">
-      <h3>Conchas</h3>
-      <img src="IMG_6521.jpeg" alt="Conchas" style="width:100%; max-width:400px; border-radius:10px;">
-      <ul>
-        <li>Concha normal: $20 c/u</li>
-        <li>Concha integral: $25 c/u</li>
-      </ul>
-      <p><strong>Mínimo:</strong> 4 piezas</p>
-      <a href="pedido.html" class="boton-principal">Pedir Conchas</a>
-    </div>
-
-  </section>
-
-  <!-- ✅ FOOTER -->
-  <footer>
-    <p>¿Tienes dudas o quieres hacer un pedido?</p>
-    <a href="https://wa.me/524445481177" target="_blank" class="wsp">WhatsApp</a>
-    <a href="https://www.instagram.com/pan_dulcepasado" target="_blank" class="ig">Instagram</a>
-    <a href="https://www.facebook.com/share/16HTqVAuUz/?mibextid=wwXIfr" target="_blank" class="fb">Facebook</a>
-    <p class="creditos">Gracias por elegir Dulce Pasado 🍞</p>
-  </footer>
+<footer>
+  <p>¿Tienes dudas o quieres hacer un pedido?</p>
+  <a href="https://wa.me/524445481177" target="_blank" class="whatsapp">WhatsApp</a>
+  <a href="https://www.instagram.com/pan_dulcepasado" target="_blank" class="instagram">Instagram</a>
+  <a href="https://www.facebook.com/share/16HTqVAuUz/?mibextid=wwXIfr" target="_blank" class="facebook">Facebook</a>
+  <p style="margin-top: 15px;">Gracias por elegir Dulce Pasado 🍞</p>
+</footer>
 
 </body>
 </html>
