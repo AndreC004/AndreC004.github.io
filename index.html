@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Dulce Pasado - Pan artesanal hecho con amor en San Luis Potosí. Empanadas, rosquitas, conchas y más.">
+<meta name="description" content="Dulce Pasado - Pan artesanal hecho con amor en San Luis Potosí.">
 <meta property="og:title" content="Dulce Pasado - Pan Artesanal">
 <meta property="og:description" content="Pan artesanal hecho con amor en San Luis Potosí.">
 <meta property="og:image" content="IMG_5514.png">
@@ -13,31 +13,35 @@
 <title>Dulce Pasado</title>
 <link rel="icon" href="IMG_5514.png" type="image/png">
 <style>
+/* ESTILOS GLOBALES Y RESET */
 html { scroll-behavior: smooth; scroll-padding-top: 90px; }
-body { background-color: #f8f1e8; font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; color: #3e2b1e; }
-header { position: fixed; top: 0; width: 100%; background: #fffaf5; display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); z-index: 1000; }
-header img { height: 55px; cursor: pointer; transition: transform 0.3s ease; }
+body { background-color: #f8f1e8; color: #3e2b1e; margin: 0; padding: 0; font-family: 'Segoe UI', Arial, sans-serif; }
+header { position: fixed; top: 0; left: 0; right: 0; background-color: #fffaf5; display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); z-index: 1000; }
+header img { height: 55px; cursor:pointer; transition: transform 0.3s ease; }
 header img:hover { transform: scale(1.05); }
 nav { display: flex; gap: 15px; }
 nav a { text-decoration: none; color: #5c3b1e; font-weight: bold; transition: color 0.2s ease; }
 nav a:hover { color: #b28855; }
-.menu-toggle { display: none; flex-direction: column; cursor: pointer; padding: 8px; border-radius: 6px; background: rgba(255, 250, 245, 0.9); transition: background-color 0.2s ease; }
-.menu-toggle:hover { background-color: rgba(255,250,245,1); }
+.menu-toggle { display: none; flex-direction: column; cursor: pointer; z-index: 2001; padding: 8px; border-radius: 6px; background: rgba(255, 250, 245, 0.9); }
 .bar { height: 3px; width: 28px; background: #5c3b1e; margin: 5px 0; border-radius: 3px; transition: 0.4s; }
 .menu-toggle.change .bar:nth-child(1) { transform: rotate(-45deg) translate(-5px, 6px); }
 .menu-toggle.change .bar:nth-child(2) { opacity: 0; }
 .menu-toggle.change .bar:nth-child(3) { transform: rotate(45deg) translate(-5px, -6px); }
+
+/* RESPONSIVE NAV */
 @media (max-width: 1024px) {
-nav { position: fixed; top: 0; right: -280px; height: 100%; width: 260px; background: rgba(255,250,245,0.97); flex-direction: column; padding-top: 80px; padding-left: 40px; gap: 20px; transition: right 0.3s ease; box-shadow: -3px 0 10px rgba(0,0,0,0.15); z-index: 2000; }
-nav a { font-size: 1.1em; padding: 10px 0; width: 100%; }
-nav.active { right: 0; }
-.menu-toggle { display: flex; }
+ nav { position: fixed; top: 0; right: -280px; height: 100%; width: 260px; background: rgba(255, 250, 245, 0.97); flex-direction: column; padding-top: 80px; padding-left: 40px; gap: 20px; transition: right 0.3s ease; box-shadow: -3px 0 10px rgba(0,0,0,0.15); z-index: 2000; }
+ nav a { font-size: 1.1em; padding: 10px 0; width: 100%; }
+ nav.active { right: 0; }
+ .menu-toggle { display: flex; }
 }
-#banner { background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1470&q=80'); background-size: cover; background-position: center; min-height: 450px; width: 100%; text-align: center; color: #fff; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 0 20px; text-shadow: 1px 1px 4px rgba(0,0,0,0.7); }
+
+#banner { background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1470&q=80'); background-size: cover; background-position: center; min-height: 450px; width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; color: #fff; text-shadow: 1px 1px 4px rgba(0,0,0,0.7); text-align: center; padding: 0 20px; animation: fadeIn 1.5s ease-in; }
 #banner h1 { font-size: clamp(2rem, 5vw, 3rem); margin: 0; }
 #banner p { font-size: 1.2em; margin: 10px 0 20px; }
 #banner a { padding: 12px 25px; background-color: #b28855; color: #fff; text-decoration: none; font-weight: bold; border-radius: 6px; box-shadow: 0 3px 6px rgba(0,0,0,0.3); transition: transform 0.3s ease; }
 #banner a:hover { background-color: #9c7147; transform: scale(1.05); }
+
 section { padding: 40px 20px; max-width: 900px; margin: auto; }
 .producto { background-color: #ffffff; border-radius: 12px; padding: 25px; box-shadow: 0 0 10px rgba(0,0,0,0.04); margin-bottom: 40px; text-align: center; }
 .producto img { width: 100%; max-width: 450px; display: block; margin: 15px auto; border-radius: 10px; }
@@ -51,74 +55,54 @@ footer a { display: inline-block; margin: 5px 10px; padding: 10px 15px; border-r
 </style>
 </head>
 <body>
-<div id="notificacion">✅ Producto añadido al carrito</div>
+
 <header>
 <img src="IMG_5514.png" alt="Logo Dulce Pasado" onclick="location.href='#banner'"/>
-<div class="menu-toggle" onclick="toggleMenu()" aria-label="Abrir o cerrar menú de navegación">
-<div class="bar"></div><div class="bar"></div><div class="bar"></div>
+<div class="menu-toggle" id="menu-toggle" onclick="toggleMenu()">
+<div class="bar"></div>
+<div class="bar"></div>
+<div class="bar"></div>
 </div>
-<nav id="nav-menu" role="navigation" aria-label="Menú principal">
-<a data-section="banner" onclick="closeMenu()">Inicio</a>
-<a data-section="intencion" onclick="closeMenu()">Intención</a>
-<a data-section="productos" onclick="closeMenu()">Productos</a>
-<a data-section="carrito-pedidos" onclick="closeMenu()">Tu pedido</a>
-<a data-section="historia" onclick="closeMenu()">Historia</a>
-<a data-section="envios" onclick="closeMenu()">Envíos</a>
-<a data-section="drop" onclick="closeMenu()">¿DROP?</a>
+<nav id="nav-menu">
+<a href="#banner" onclick="closeMenu()">Inicio</a>
+<a href="#intencion" onclick="closeMenu()">Intención</a>
+<a href="#productos" onclick="closeMenu()">Productos</a>
+<a href="#carrito-pedidos" onclick="closeMenu()">Tu pedido</a>
+<a href="#historia" onclick="closeMenu()">Historia</a>
+<a href="#envios" onclick="closeMenu()">Envíos</a>
+<a href="#drop" onclick="closeMenu()">¿DROP?</a>
 </nav>
 </header>
+
 <section id="banner">
 <h1>Pan artesanal hecho con amor</h1>
 <p>Directo de San Luis Potosí a tu mesa</p>
 <a href="#carrito-pedidos">Haz tu pedido</a>
 </section>
+
 <section id="productos">
 <h2>Productos</h2>
-<div class="producto">
-<h3>Empanadas Dulces</h3>
-<img src="IMG_6484.jpeg" alt="Empanadas Dulces"/>
-<p><strong>Sabores:</strong> Piña, Cajeta, Nutella, Queso dulce.</p>
-<p><strong>Precios:</strong> Grandes $15 c/u (mín. 5) — Chicas $7 c/u (mín. 10)</p>
+<div class="producto"><h3>Empanadas Dulces</h3><img src="IMG_6484.jpeg" alt="Empanadas Dulces">
+<p><strong>Sabores:</strong> Piña, Cajeta, Nutella, Queso dulce.</p><p><strong>Precios:</strong> Grandes $15 c/u (mín. 5) — Chicas $7 c/u (mín. 10)</p>
 <select id="empanada-tamano"><option value="Grande">Grande</option><option value="Chica">Chica</option></select>
-<input type="number" id="empanada-cant" min="1" placeholder="Cantidad"/>
-<button onclick="addToCart('Empanada Dulce')">Añadir al carrito</button>
-</div>
-<div class="producto">
-<h3>Rosquitas</h3>
-<img src="IMG_6479.jpeg" alt="Rosquitas"/>
-<p><strong>Precio:</strong> $4 c/u (mín. 10)</p>
-<input type="number" id="rosquita-cant" min="1" placeholder="Cantidad"/>
-<button onclick="addToCart('Rosquitas')">Añadir al carrito</button>
-</div>
+<input type="number" id="empanada-cant" min="1" placeholder="Cantidad"><button onclick="addToCart('Empanada Dulce')">Añadir al carrito</button></div>
 
-<div class="producto">
-<h3>Pan Español</h3>
-<img src="IMG_1364.jpeg" alt="Pan Español"/>
-<p><strong>Precio:</strong> $15 c/u (mín. 5)</p>
-<input type="number" id="pan-cant" min="1" placeholder="Cantidad"/>
-<button onclick="addToCart('Pan Español')">Añadir al carrito</button>
-</div>
+<div class="producto"><h3>Rosquitas</h3><img src="IMG_6479.jpeg" alt="Rosquitas">
+<p>Precio: $4 c/u (mín.10)</p><input type="number" id="rosquita-cant" min="1">
+<button onclick="addToCart('Rosquitas')">Añadir al carrito</button></div>
 
-<div class="producto">
-<h3>Conchas</h3>
-<img src="IMG_6521.jpeg" alt="Conchas"/>
-<p><strong>Descripción:</strong> Pan suave, esponjoso y con cobertura crujiente.</p>
-<ul>
-<li>Normal: $20 c/u</li>
-<li>Integral: $25 c/u</li>
-</ul>
-<select id="concha-tipo">
-<option value="Normal">Normal</option>
-<option value="Integral">Integral</option>
-</select>
-<input type="number" id="concha-cant" min="1" placeholder="Cantidad"/>
-<button onclick="addToCart('Conchas')">Añadir al carrito</button>
-</div>
+<div class="producto"><h3>Pan Español</h3><img src="IMG_1364.jpeg" alt="Pan Español">
+<p>Precio: $15 c/u (mín.5)</p><input type="number" id="pan-cant" min="1">
+<button onclick="addToCart('Pan Español')">Añadir al carrito</button></div>
+
+<div class="producto"><h3>Conchas</h3><img src="IMG_6521.jpeg" alt="Conchas">
+<p>Normal: $20 c/u — Integral: $25 c/u</p>
+<select id="concha-tipo"><option value="Normal">Normal</option><option value="Integral">Integral</option></select>
+<input type="number" id="concha-cant" min="1"><button onclick="addToCart('Conchas')">Añadir al carrito</button></div>
 </section>
 
 <section id="carrito-pedidos">
 <h2>🛒 Tu Carrito</h2>
-<p>Aquí verás todo lo que añadas antes de enviarlo a WhatsApp.</p>
 <div id="carrito"></div>
 <button class="boton-wsp" onclick="sendOrder()">Enviar pedido por WhatsApp</button>
 </section>
@@ -131,256 +115,65 @@ footer a { display: inline-block; margin: 5px 10px; padding: 10px 15px; border-r
 
 <script>
 let cart = [];
-const toggle = document.querySelector('.menu-toggle');
+const toggle = document.getElementById('menu-toggle');
 const nav = document.getElementById('nav-menu');
 
 function toggleMenu() {
-  nav.classList.toggle('active');
-  toggle.classList.toggle('change');
+ nav.classList.toggle('active');
+ toggle.classList.toggle('change');
 }
 
 function closeMenu() {
-  nav.classList.remove('active');
-  toggle.classList.remove('change');
+ nav.classList.remove('active');
+ toggle.classList.remove('change');
 }
 
 function showNotification() {
-  const notif = document.getElementById('notificacion');
-  notif.classList.add('show');
-  setTimeout(() => {
-    notif.classList.remove('show');
-    setTimeout(() => { notif.style.display = 'none'; }, 400);
-  }, 2000);
-}
-   function addToCart(product) {
-  let quantity = 0;
-  let detail = "";
-  let price = 0;
-
-  if (product === "Empanada Dulce") {
-      quantity = parseInt(document.getElementById('empanada-cant').value);
-      let size = document.getElementById('empanada-tamano').value;
-      detail = size;
-      price = (size === "Grande") ? 15 : 7;
-      if ((size === "Grande" && quantity < 5) || (size === "Chica" && quantity < 10)) {
-          alert("⚠️ Recuerda que el mínimo es 5 grandes o 10 chicas.");
-          return;
-      }
-  }
-  else if (product === "Rosquitas") {
-      quantity = parseInt(document.getElementById('rosquita-cant').value);
-      detail = "Tradicionales";
-      price = 4;
-      if (quantity < 10) {
-          alert("⚠️ Recuerda que el mínimo es 10 rosquitas.");
-          return;
-      }
-  }
-  else if (product === "Pan Español") {
-      quantity = parseInt(document.getElementById('pan-cant').value);
-      detail = "Clásico";
-      price = 15;
-      if (quantity < 5) {
-          alert("⚠️ Recuerda que el mínimo es 5 panes.");
-          return;
-      }
-  }
-  else if (product === "Conchas") {
-      quantity = parseInt(document.getElementById('concha-cant').value);
-      let tipo = document.getElementById('concha-tipo').value;
-      detail = tipo;
-      price = (tipo === "Normal") ? 20 : 25;
-      if (quantity < 4) {
-          alert("⚠️ Recuerda que el mínimo es 4 conchas.");
-          return;
-      }
-  }
-
-  if (!quantity || quantity < 1) { 
-      alert("Ingresa una cantidad válida."); 
-      return; 
-  }
-
-  cart.push({ product, detail, quantity, price });
-  displayCart();
-  showNotification();
+ const notif = document.getElementById('notificacion');
+ notif.classList.add('show');
+ setTimeout(() => { notif.classList.remove('show'); }, 2000);
 }
 
-function displayCart() {
-  let carritoDiv = document.getElementById('carrito');
-  carritoDiv.innerHTML = "";
-
-  if (cart.length === 0) {
-      carritoDiv.innerHTML = "<p>Tu carrito está vacío 🛒</p>";
-      return;
-  }
-
-  let total = 0;
-  cart.forEach((item, index) => {
-      total += item.price * item.quantity;
-      carritoDiv.innerHTML += `
-        <p>
-          ${item.quantity} x ${item.product} (${item.detail}) - $${item.price * item.quantity} 
-          <button onclick="removeItem(${index})">❌</button>
-        </p>`;
-  });
-
-  carritoDiv.innerHTML += `<h3>Total: $${total}</h3>`;
-}
-  
-function removeItem(index) {
-  cart.splice(index, 1);
-  displayCart();
-}
-  function sendOrder() {
-  if (cart.length === 0) {
-      alert("Tu carrito está vacío.");
-      return;
-  }
-
-  let message = "Hola! Me gustaría pedir:%0A";
-  cart.forEach(item => {
-      message += `${item.quantity} x ${item.product} (${item.detail}) - $${item.price * item.quantity}%0A`;
-  });
-
-  let total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-  message += `%0ATotal: $${total}`;
-
-  // WhatsApp link
-  window.open(`https://wa.me/524445481177?text=${message}`, '_blank');
-}
-
-<section id="carrito-pedidos">
-  <h2>🛒 Tu Carrito</h2>
-  <p>Aquí verás todo lo que añadas antes de enviarlo a WhatsApp.</p>
-  <div id="carrito"></div>
-  <button class="boton-wsp" onclick="sendOrder()">Enviar pedido por WhatsApp</button>
-</section>
-
-<footer>
-  <p>¿Tienes dudas o quieres hacer un pedido?</p>
-  <a href="https://wa.me/524445481177" target="_blank" class="boton-wsp">Pedir por WhatsApp</a>
-  <p style="margin-top: 20px;">Gracias por elegir Dulce Pasado 🍞</p>
-</footer>
-
-<script>
-/* ======================
-   VARIABLES GLOBALES
-====================== */
-let cart = [];
-
-/* ======================
-   MENÚ HAMBURGUESA
-====================== */
-function toggleMenu() {
-  const menu = document.getElementById('nav-menu');
-  const toggle = document.querySelector('.menu-toggle');
-  menu.classList.toggle('active');
-  toggle.classList.toggle('change');
-}
-
-function closeMenu() {
-  document.getElementById('nav-menu').classList.remove('active');
-  document.querySelector('.menu-toggle').classList.remove('change');
-}
-
-/* ======================
-   NOTIFICACIÓN DE PRODUCTO
-====================== */
-function showNotification() {
-  const notif = document.getElementById('notificacion');
-  notif.classList.add('show');
-  setTimeout(() => { notif.classList.remove('show'); }, 2000);
-}
-
-/* ======================
-   AÑADIR PRODUCTOS AL CARRITO
-====================== */
 function addToCart(product) {
-  let quantity = 0;
-  let detail = "";
-  let price = 0;
+ let quantity = 0;
+ let detail = '';
+ let price = 0;
 
-  if (product === "Empanada Dulce") {
-    quantity = parseInt(document.getElementById('empanada-cant').value);
-    let size = document.getElementById('empanada-tamano').value;
-    detail = size;
-    price = (size === "Grande") ? 15 : 7;
-  } 
-  else if (product === "Rosquitas") {
-    quantity = parseInt(document.getElementById('rosquita-cant').value);
-    detail = "Tradicionales";
-    price = 4;
-  } 
-  else if (product === "Pan Español") {
-    quantity = parseInt(document.getElementById('pan-cant').value);
-    detail = "Clásico";
-    price = 15;
-  } 
-  else if (product === "Conchas") {
-    quantity = parseInt(document.getElementById('concha-cant').value);
-    let tipo = document.getElementById('concha-tipo').value;
-    detail = tipo;
-    price = (tipo === "Normal") ? 20 : 25;
-  }
+ if(product==='Empanada Dulce'){quantity=parseInt(document.getElementById('empanada-cant').value);price=15;detail='Empanadas';}
+ else if(product==='Rosquitas'){quantity=parseInt(document.getElementById('rosquita-cant').value);price=4;detail='Rosquitas';}
+ else if(product==='Pan Español'){quantity=parseInt(document.getElementById('pan-cant').value);price=15;detail='Pan Español';}
+ else if(product==='Conchas'){quantity=parseInt(document.getElementById('concha-cant').value);let tipo=document.getElementById('concha-tipo').value;detail=tipo;price=(tipo==='Normal')?20:25;}
 
-  if (!quantity || quantity < 1) { 
-    alert("Ingresa una cantidad válida."); 
-    return; 
-  }
+ if (!quantity || quantity < 1) { alert('Ingresa una cantidad válida.'); return; }
 
-  cart.push({ product, detail, quantity, price });
-  displayCart();
-  showNotification();
+ cart.push({product,detail,quantity,price});
+ displayCart();
+ showNotification();
 }
 
-/* ======================
-   MOSTRAR CARRITO
-====================== */
 function displayCart() {
-  let carritoDiv = document.getElementById('carrito');
-  carritoDiv.innerHTML = "";
-
-  if (cart.length === 0) {
-    carritoDiv.innerHTML = "<p>Tu carrito está vacío 🛒</p>";
-    return;
-  }
-
-  let total = 0;
-  cart.forEach((item, index) => {
-    total += item.price * item.quantity;
-    carritoDiv.innerHTML += `<p>${item.quantity} x ${item.product} (${item.detail}) - $${item.price * item.quantity} 
-    <button onclick="removeItem(${index})">❌</button></p>`;
-  });
-
-  carritoDiv.innerHTML += `<h3>Total: $${total}</h3>`;
+ let carritoDiv=document.getElementById('carrito');
+ carritoDiv.innerHTML='';
+ if(cart.length===0){carritoDiv.innerHTML='<p>Tu carrito está vacío 🛒</p>';return;}
+ let total=0;
+ cart.forEach((item,index)=>{
+   total+=item.price*item.quantity;
+   carritoDiv.innerHTML+=`<p>${item.quantity} x ${item.product} - $${item.price*item.quantity} <button onclick="removeItem(${index})">❌</button></p>`;
+ });
+ carritoDiv.innerHTML+=`<h3>Total: $${total}</h3>`;
 }
 
-/* ======================
-   ELIMINAR ITEM DEL CARRITO
-====================== */
-function removeItem(index) {
-  cart.splice(index, 1);
-  displayCart();
-}
+function removeItem(index){cart.splice(index,1);displayCart();}
 
-/* ======================
-   ENVIAR PEDIDO POR WHATSAPP
-====================== */
-function sendOrder() {
-  if (cart.length === 0) {
-    alert("Tu carrito está vacío.");
-    return;
-  }
-  let message = "Hola! Me gustaría pedir:%0A";
-  cart.forEach(item => {
-    message += `${item.quantity} x ${item.product} (${item.detail}) - $${item.price * item.quantity}%0A`;
-  });
-  let total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-  message += `%0ATotal: $${total}`;
-
-  window.open(`https://wa.me/524445481177?text=${message}`, '_blank');
+function sendOrder(){
+ if(cart.length===0){alert('Tu carrito está vacío.');return;}
+ let message='Hola! Me gustaría pedir:%0A';
+ cart.forEach(item=>{message+=`${item.quantity} x ${item.product} - $${item.price*item.quantity}%0A`;});
+ let total=cart.reduce((s,i)=>s+i.price*i.quantity,0);
+ message+=`%0ATotal: $${total}`;
+ window.open(`https://wa.me/524445481177?text=${message}`,'_blank');
 }
 </script>
+
 </body>
-</html> 
+</html>
