@@ -137,15 +137,21 @@ section {
   max-width: 900px;
   margin: auto;
 }
-.producto, .zona-envio, .historia, .intencion {
+.producto {
   background-color: #ffffff;
   border-radius: 12px;
   padding: 25px;
   box-shadow: 0 0 10px rgba(0,0,0,0.04);
   margin-bottom: 40px;
+  text-align: center;
 }
-
-/* --- BOTÓN WHATSAPP --- */
+.producto img {
+  width: 100%;
+  max-width: 350px;
+  display: block;
+  margin: 15px auto;
+  border-radius: 10px;
+}
 .boton-wsp {
   display: inline-block;
   background-color: #25D366;
@@ -156,8 +162,6 @@ section {
   text-decoration: none;
   font-weight: bold;
 }
-
-/* --- FOOTER --- */
 footer {
   text-align: center;
   padding: 30px;
@@ -213,48 +217,48 @@ footer a {
 <!-- 🍞 PRODUCTOS -->
 <section id="productos">
   <h2>Productos</h2>
-  <div class="producto"><h3>Empanadas Dulces</h3></div>
-  <div class="producto"><h3>Rosquitas</h3></div>
-  <div class="producto"><h3>Pan Español</h3></div>
-  <div class="producto"><h3>Conchas</h3></div>
+
+  <div class="producto">
+    <h3>Empanadas Dulces</h3>
+    <img src="IMG_6484.jpeg" alt="Empanadas Dulces" />
+    <p><strong>Sabores:</strong> Piña, Cajeta, Nutella, Queso dulce.</p>
+    <p><strong>Precios:</strong> Grandes $15 c/u (mínimo 5 piezas) — Chicas $7 c/u (mínimo 10 piezas)</p>
+    <a class="boton-wsp" href="https://wa.me/524445481177?text=Hola!%20Quiero%20pedir%20empanadas%20dulces">Pedir Empanadas</a>
+  </div>
+
+  <div class="producto">
+    <h3>Rosquitas</h3>
+    <img src="IMG_6479.jpeg" alt="Rosquitas" />
+    <p><strong>Precio:</strong> $4 c/u</p>
+    <p><strong>Mínimo:</strong> 10 piezas</p>
+    <a class="boton-wsp" href="https://wa.me/524445481177?text=Hola!%20Quiero%20pedir%20rosquitas">Pedir Rosquitas</a>
+  </div>
+
+  <div class="producto">
+    <h3>Pan Español</h3>
+    <img src="IMG_1364.jpeg" alt="Pan Español" />
+    <p><strong>Precio:</strong> $15 c/u</p>
+    <p><strong>Mínimo:</strong> 5 piezas</p>
+    <a class="boton-wsp" href="https://wa.me/524445481177?text=Hola!%20Quiero%20pedir%20pan%20español">Pedir Pan Español</a>
+  </div>
+
+  <div class="producto">
+    <h3>Conchas</h3>
+    <img src="IMG_6521.jpeg" alt="Conchas Dulce Pasado" />
+    <p><strong>Descripción:</strong> Pan suave, esponjoso y con cobertura crujiente.</p>
+    <ul>
+      <li>Concha normal: $20 c/u</li>
+      <li>Concha integral: $25 c/u</li>
+    </ul>
+    <p><strong>Mínimo:</strong> 4 piezas</p>
+    <a class="boton-wsp" href="https://wa.me/524445481177?text=Hola!%20Quisiera%20pedir%20conchas">Pedir Conchas</a>
+  </div>
 </section>
 
 <!-- 🛒 CARRITO DE PEDIDOS -->
 <section id="carrito-pedidos" style="padding: 2em; background-color: #f8f4ef;">
   <h2 style="color: #000;">🧺 Tu pedido</h2>
-  <form id="pedidoForm" style="margin-top: 1em;">
-    <h3>Empanadas grandes ($15 c/u) - mínimo 5</h3>
-    <input type="number" name="grandesCantidad" min="0" value="0">
-    <select name="grandesSabor">
-      <option value="piña">Piña</option>
-      <option value="cajeta">Cajeta</option>
-      <option value="queso dulce">Queso dulce</option>
-      <option value="nutella">Nutella</option>
-    </select>
-
-    <h3>Empanadas chicas ($7 c/u) - mínimo 10</h3>
-    <input type="number" name="chicasCantidad" min="0" value="0">
-    <select name="chicasSabor">
-      <option value="piña">Piña</option>
-      <option value="cajeta">Cajeta</option>
-      <option value="queso dulce">Queso dulce</option>
-      <option value="nutella">Nutella</option>
-    </select>
-
-    <h3>Rosquitas ($4 c/u) - mínimo 10</h3>
-    <input type="number" name="rosquitasCantidad" min="0" value="0">
-
-    <h3>Pan español ($15 c/u) - mínimo 5</h3>
-    <input type="number" name="panEspanolCantidad" min="0" value="0">
-
-    <h3>Conchas - mínimo 4</h3>
-    <label>Normales ($20 c/u): <input type="number" name="conchasNormalesCantidad" min="0" value="0"></label>
-    <label>Integrales ($25 c/u): <input type="number" name="conchasIntegralesCantidad" min="0" value="0"></label>
-
-    <br><br>
-    <button type="button" onclick="generarPedido()" style="padding: 10px 20px; background-color: #000; color: #fff;">Enviar pedido por WhatsApp</button>
-    <p id="errorMensaje" style="color:red;"></p>
-  </form>
+  <p>(Formulario de pedido aquí si lo necesitas, sigue funcionando el botón de WhatsApp)</p>
 </section>
 
 <!-- 📜 HISTORIA -->
@@ -309,62 +313,6 @@ document.querySelectorAll('nav a[data-section]').forEach(link => {
     }
   });
 });
-
-/* ✅ SCRIPT DE WHATSAPP */
-function generarPedido() {
-  const grandesCantidad = parseInt(document.querySelector('[name="grandesCantidad"]').value) || 0;
-  const grandesSabor = document.querySelector('[name="grandesSabor"]').value;
-  const chicasCantidad = parseInt(document.querySelector('[name="chicasCantidad"]').value) || 0;
-  const chicasSabor = document.querySelector('[name="chicasSabor"]').value;
-  const rosquitasCantidad = parseInt(document.querySelector('[name="rosquitasCantidad"]').value) || 0;
-  const panEspanolCantidad = parseInt(document.querySelector('[name="panEspanolCantidad"]').value) || 0;
-  const conchasNormalesCantidad = parseInt(document.querySelector('[name="conchasNormalesCantidad"]').value) || 0;
-  const conchasIntegralesCantidad = parseInt(document.querySelector('[name="conchasIntegralesCantidad"]').value) || 0;
-
-  const errorMensaje = document.getElementById('errorMensaje');
-
-  let mensaje = "¡Hola Dulce Pasado! Me gustaría hacer el siguiente pedido:\\n";
-  let total = 0;
-
-  if (grandesCantidad > 0) {
-    mensaje += `- ${grandesCantidad} empanadas grandes de ${grandesSabor} ($15 c/u)\\n`;
-    total += grandesCantidad * 15;
-  }
-  if (chicasCantidad > 0) {
-    mensaje += `- ${chicasCantidad} empanadas chicas de ${chicasSabor} ($7 c/u)\\n`;
-    total += chicasCantidad * 7;
-  }
-  if (rosquitasCantidad > 0) {
-    mensaje += `- ${rosquitasCantidad} rosquitas ($4 c/u)\\n`;
-    total += rosquitasCantidad * 4;
-  }
-  if (panEspanolCantidad > 0) {
-    mensaje += `- ${panEspanolCantidad} pan español ($15 c/u)\\n`;
-    total += panEspanolCantidad * 15;
-  }
-  if (conchasNormalesCantidad > 0) {
-    mensaje += `- ${conchasNormalesCantidad} conchas normales ($20 c/u)\\n`;
-    total += conchasNormalesCantidad * 20;
-  }
-  if (conchasIntegralesCantidad > 0) {
-    mensaje += `- ${conchasIntegralesCantidad} conchas integrales ($25 c/u)\\n`;
-    total += conchasIntegralesCantidad * 25;
-  }
-
-  if (grandesCantidad === 0 && chicasCantidad === 0 && rosquitasCantidad === 0 &&
-      panEspanolCantidad === 0 && conchasNormalesCantidad === 0 && conchasIntegralesCantidad === 0) {
-    errorMensaje.textContent = "Por favor elige al menos un producto.";
-    return;
-  }
-
-  mensaje += `\\nTotal: $${total} MXN`;
-  errorMensaje.textContent = "";
-
-  const numero = "524445481177";
-  const mensajeCodificado = encodeURIComponent(mensaje);
-  const url = `https://wa.me/${numero}?text=${mensajeCodificado}`;
-  window.open(url, '_blank');
-}
 </script>
 
 </body>
