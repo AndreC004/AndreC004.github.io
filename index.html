@@ -5,37 +5,55 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dulce Pasado</title>
 <style>
-body{margin:0;font-family:Arial,sans-serif;background:#f8f1e8;color:#3e2b1e;}
-header{position:fixed;top:0;left:0;right:0;background:#fffaf5;display:flex;justify-content:space-between;align-items:center;padding:10px 15px;}
-header img{height:45px;cursor:pointer;}
-nav{display:flex;gap:10px;}
+body{margin:0;font-family:Arial,sans-serif;background:#f8f1e8;color:#3e2b1e;line-height:1.5;}
+header{position:fixed;top:0;left:0;right:0;background:#fffaf5;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:10px 20px;box-shadow:0 2px 4px rgba(0,0,0,0.1);}
+header img{height:50px;cursor:pointer;transition:.3s;}
+header img:hover{transform:scale(1.05);}
+nav{display:flex;gap:15px;}
 nav a{text-decoration:none;color:#5c3b1e;font-weight:bold;}
 .menu{display:none;flex-direction:column;cursor:pointer;}
 .menu div{height:3px;width:25px;background:#5c3b1e;margin:4px 0;}
 @media(max-width:800px){
-nav{position:fixed;right:-220px;top:0;width:200px;height:100%;flex-direction:column;background:#fff;padding:70px 20px;transition:.3s;}
-nav.show{right:0;}
-.menu{display:flex;}
+  nav{position:fixed;right:-230px;top:0;width:200px;height:100%;
+      flex-direction:column;background:#fff;padding:80px 20px;
+      transition:.3s;}
+  nav.show{right:0;}
+  .menu{display:flex;}
 }
-#banner{text-align:center;padding:110px 20px 50px;background:#b28855;color:#fff;}
-section{padding:30px 20px;max-width:900px;margin:auto;}
-.producto{background:#fff;padding:15px;margin:15px 0;text-align:center;border-radius:10px;}
+#banner{text-align:center;padding:150px 20px 80px;color:white;
+  background-image:url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1470&q=80');
+  background-size:cover;background-position:center;}
+#banner h1{font-size:2.5em;margin:0;text-shadow:1px 1px 5px rgba(0,0,0,0.5);}
+#banner p{font-size:1.2em;text-shadow:1px 1px 4px rgba(0,0,0,0.4);}
+section{padding:40px 20px;max-width:900px;margin:auto;}
+h2{text-align:center;margin-bottom:20px;}
+.producto{background:#fff;padding:20px;margin-bottom:25px;text-align:center;border-radius:10px;}
 .producto img{max-width:100%;border-radius:10px;}
-button{background:#b28855;color:#fff;border:none;padding:8px 15px;border-radius:6px;margin-top:10px;cursor:pointer;}
+button{background:#b28855;color:white;border:none;padding:10px 18px;border-radius:6px;margin-top:10px;cursor:pointer;}
+button:hover{background:#9c7147;}
 #lista{list-style:none;padding:0;}
 #lista li{background:#fff;margin:5px 0;padding:8px;border-radius:6px;display:flex;justify-content:space-between;}
-footer{text-align:center;padding:20px;background:#f0e5db;}
+.redes{display:flex;justify-content:center;gap:15px;}
+.redes a{background:#b28855;color:white;padding:10px 15px;border-radius:6px;text-decoration:none;font-weight:bold;}
+.redes a:hover{background:#9c7147;}
+footer{text-align:center;padding:20px;background:#f0e5db;margin-top:40px;}
 </style>
 </head>
+
 <body>
 
 <header>
-  <a href="#banner"><img src="IMG_5514.png" alt="Logo"></a>
-  <div class="menu" onclick="toggle()"><div></div><div></div><div></div></div>
+  <a href="#banner"><img src="IMG_5514.png" alt="Logo Dulce Pasado"></a>
+  <div class="menu" onclick="toggleMenu()"><div></div><div></div><div></div></div>
   <nav id="nav">
     <a href="#banner" onclick="closeMenu()">Inicio</a>
     <a href="#productos" onclick="closeMenu()">Productos</a>
     <a href="#pedido" onclick="closeMenu()">Pedido</a>
+    <a href="#historia" onclick="closeMenu()">Historia</a>
+    <a href="#envios" onclick="closeMenu()">Envíos</a>
+    <a href="#redes" onclick="closeMenu()">Redes</a>
   </nav>
 </header>
 
@@ -67,30 +85,52 @@ footer{text-align:center;padding:20px;background:#f0e5db;}
 <section id="pedido">
   <h2>🧺 Tu pedido</h2>
   <ul id="lista"></ul>
-  <button onclick="send()">Enviar por WhatsApp</button>
+  <button onclick="send()">Enviar pedido por WhatsApp</button>
 </section>
 
-<footer><p>Gracias por elegir Dulce Pasado 🍞</p></footer>
+<section id="historia">
+  <h2>Nuestra Historia</h2>
+  <p>Hace más de 90 años, nuestras abuelas Victoria y Juanita comenzaron a hornear pan en sus cocinas, 
+  mezclando tradición, amor y recetas únicas. Hoy seguimos compartiendo ese legado en cada pieza de pan 
+  que llega a tu mesa. Dulce Pasado no es solo pan, es memoria y unión familiar.</p>
+</section>
+
+<section id="envios">
+  <h2>Envíos</h2>
+  <p><strong>Gratis en:</strong> Carranza, Himno Nacional y Zona Tangamanga.</p>
+  <p><strong>Otros lugares:</strong> Envío desde $20 en S.L.P. capital.</p>
+</section>
+
+<section id="redes">
+  <h2>📲 Síguenos</h2>
+  <div class="redes">
+    <a href="https://www.facebook.com" target="_blank">Facebook</a>
+    <a href="https://www.instagram.com" target="_blank">Instagram</a>
+  </div>
+</section>
+
+<footer>
+  <p>Gracias por elegir Dulce Pasado 🍞</p>
+</footer>
 
 <script>
-function toggle(){document.getElementById('nav').classList.toggle('show');}
+function toggleMenu(){document.getElementById('nav').classList.toggle('show');}
 function closeMenu(){document.getElementById('nav').classList.remove('show');}
-
 let cart=[];
-function add(p){
-  let i=cart.findIndex(x=>x.n===p);
-  if(i>=0){cart[i].q++;}else{cart.push({n:p,q:1});}
+function add(item){
+  let i=cart.findIndex(x=>x.n===item);
+  if(i>=0){cart[i].q++;}else{cart.push({n:item,q:1});}
   update();
 }
-function del(i){cart.splice(i,1);update();}
+function remove(i){cart.splice(i,1);update();}
 function update(){
   let l=document.getElementById('lista');l.innerHTML='';
-  cart.forEach((x,i)=>l.innerHTML+=`<li>${x.q} × ${x.n} <button onclick="del(${i})">X</button></li>`);
+  cart.forEach((x,i)=>l.innerHTML+=`<li>${x.q} × ${x.n} <button onclick="remove(${i})">X</button></li>`);
 }
 function send(){
   if(cart.length==0){alert('Carrito vacío');return;}
-  let m='Hola! Me gustaría pedir:\n';
-  cart.forEach(x=>m+=`${x.q} × ${x.n}\n`);
+  let m='Hola! Me gustaría pedir:\\n';
+  cart.forEach(x=>m+=`${x.q} × ${x.n}\\n`);
   window.open(`https://wa.me/524445481177?text=${encodeURIComponent(m)}`);
 }
 </script>
